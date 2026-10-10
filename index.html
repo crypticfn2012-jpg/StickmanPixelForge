@@ -216,6 +216,110 @@ window.__pfSDKReady = new Promise(resolve => {
 }
 @media(max-height:650px) and (min-width:641px){.lobby-copy{top:14%}.career-panel{margin-top:9px;padding:8px 10px}.lobby-copy p{margin-top:8px}.hero-tags{margin-top:8px}.lobby-bottom{bottom:8px}.mode-wrap{padding:8px 10px}.cg-banner-slot{display:none!important}}
 
+
+/* PixelForge professional menu pass — keeps the existing game renderer and systems intact. */
+:root{--pf-ink:#101622;--pf-panel:#151e2c;--pf-line:#ffffff24;--pf-muted:#aab6c9;--pf-accent:#e7a64b}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+#lobby{background-color:#101722}
+#lobby:before{background:linear-gradient(90deg,#0b1019ed 0%,#0d1522c9 36%,#0d152236 76%),linear-gradient(0deg,#080d16e8 0%,#080d1640 44%,#080d1666 100%)}
+.lobby-top{padding:22px 30px;align-items:center}
+.brand img{filter:drop-shadow(0 5px 10px #0008)}
+.brand-text{font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-weight:850;letter-spacing:.1em;text-shadow:none;font-size:18px}
+.brand-text small{font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-weight:600;letter-spacing:.19em;color:#aab6c9}
+.lobby-actions{gap:8px}
+.small-nav-btn,.shop-open-btn{min-height:43px;border:1px solid #ffffff25;background:#111b29d9;box-shadow:none;transform:none;border-radius:4px;transition:background .16s,border-color .16s,transform .16s}
+.small-nav-btn{padding:7px 11px;display:flex;align-items:center;gap:7px;font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+.small-nav-btn span{font-size:11px;color:#e7a64b;font-weight:800}
+.small-nav-btn b,.shop-button-label{font-size:10px;letter-spacing:.1em;font-weight:750}
+.small-nav-btn:hover,.shop-open-btn:hover,.icon-btn:hover{background:#263447;border-color:#ffffff48;transform:translateY(-1px)}
+.shop-open-btn{padding:7px 12px;gap:8px;color:#fff}
+.shop-open-btn b{font:700 12px Inter,ui-sans-serif,system-ui,sans-serif;color:#f0bd6d}
+.shop-button-icon{color:#f0bd6d}
+.icon-btn{width:40px;height:40px;min-width:40px;min-height:40px;border:1px solid #ffffff28;background:#111b29d9;box-shadow:none;transform:none;border-radius:4px;font-size:16px}
+.account-btn{min-height:43px;border:1px solid #ffffff25;background:#111b29d9;box-shadow:none;transform:none;border-radius:4px}
+.account-name{font:700 11px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.02em}
+.account-caption{font:9px Inter,ui-sans-serif,system-ui,sans-serif;color:#aab6c9}
+.lobby-copy{top:178px;left:clamp(24px,4vw,64px);width:min(44vw,660px);text-shadow:none}
+.eyebrow{font:750 11px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.19em;color:#efbc70;text-shadow:none}
+.lobby-copy h1{font-family:"Lilita One",Impact,sans-serif;font-size:clamp(44px,5.2vw,76px);line-height:.96;letter-spacing:.015em;text-shadow:0 4px 0 #0006}
+.lobby-copy p{font:15px/1.65 Inter,ui-sans-serif,system-ui,sans-serif;color:#d0d8e4;max-width:430px}
+.hero-tags{gap:8px}
+.hero-tags span{font:700 9px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.12em;background:#101925a8;border:1px solid #ffffff20;border-radius:2px}
+.career-panel{background:linear-gradient(110deg,#111a28ed,#172334df);border:1px solid #ffffff2b;box-shadow:0 12px 28px #0003;border-radius:4px;transform:none;max-width:475px}
+.career-panel-top{font:700 10px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;color:#aab6c9}
+.career-panel-top b{color:#efbc70;font-size:10px}
+.career-next{align-items:center}
+.career-next b{font:800 17px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.01em}
+.career-next small,.career-next span{font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+.career-stage{font:700 9px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em;background:#202f42;border:1px solid #ffffff20;border-radius:2px}
+.career-progress{background:#060a10;border:1px solid #ffffff20}
+.career-progress i{background:linear-gradient(90deg,#bf8135,#f1c477)}
+.career-bottom{font:10px Inter,ui-sans-serif,system-ui,sans-serif;color:#aab6c9}
+.lobby-bottom{left:clamp(20px,3vw,42px);right:clamp(20px,3vw,42px);bottom:24px;align-items:flex-end}
+.section-label,.fight-label{font:750 10px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.17em;color:#b8c4d5;text-shadow:none}
+.mode-row{gap:8px}
+.mode-choice{min-width:175px;padding:11px 15px;background:#111b29ed;border:1px solid #ffffff25;box-shadow:none;transform:none;border-radius:3px;transition:background .15s,border-color .15s}
+.mode-choice b{font:750 12px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em}
+.mode-choice small{font:11px Inter,ui-sans-serif,system-ui,sans-serif;color:#aab6c9}
+.mode-choice.selected{background:#263447;border-color:#e7a64b;box-shadow:inset 3px 0 #e7a64b}
+.mode-choice:hover{transform:translateY(-2px);filter:none}
+.diff-row{font:10px Inter,ui-sans-serif,system-ui,sans-serif}
+.diff{background:#111b29;border:1px solid #ffffff25;box-shadow:none;border-radius:2px;font:700 9px Inter,ui-sans-serif,system-ui,sans-serif}
+.diff.selected{background:#e7a64b;color:#111722;border-color:#f5cf92;box-shadow:none}
+#play-button{width:230px;height:67px;min-height:58px;background:#e7a64b;box-shadow:0 4px 0 #9a6426;color:#171b21;border:1px solid #f5cf92;border-radius:3px;transform:none;font:900 23px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.06em;text-shadow:none}
+#play-button:hover{transform:translateY(-2px);filter:brightness(1.06)}
+#play-button:active{transform:translateY(2px);box-shadow:0 1px 0 #9a6426}
+.fight-wrap{gap:12px}
+.menu-foot{font:9px Inter,ui-sans-serif,system-ui,sans-serif;color:#c5cedb7a}
+#cg-banner-container{border-radius:2px}
+.pf-primary-nav{position:absolute;z-index:8;left:clamp(20px,3vw,42px);top:105px;display:flex;gap:6px;flex-wrap:wrap}
+.pf-primary-nav button{min-height:34px;padding:0 14px;background:#101925d9;border:1px solid #ffffff24;border-radius:3px;color:#d9e0ea;font:750 9px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;transition:background .15s,border-color .15s,color .15s}
+.pf-primary-nav button:hover,.pf-primary-nav button[aria-current="page"]{background:#253447;border-color:#e7a64b;color:#fff}
+.pf-primary-nav button span{color:#e7a64b;margin-right:7px}
+.pf-detail-window{width:min(94vw,980px);max-height:min(88vh,820px);overflow:auto;text-align:left;background:#111a27;border:1px solid #ffffff2b;border-top:3px solid #e7a64b;border-radius:5px;box-shadow:0 24px 80px #0009;padding:clamp(18px,3vw,32px)}
+.pf-detail-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;border-bottom:1px solid #ffffff20;padding-bottom:20px;margin-bottom:20px}
+.pf-kicker{font:800 10px Inter,ui-sans-serif,system-ui,sans-serif;color:#e7a64b;letter-spacing:.2em}
+.pf-detail-heading h2{font:900 clamp(27px,4vw,42px) Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:-.04em;margin:7px 0;color:#fff}
+.pf-detail-heading p{font:13px/1.6 Inter,ui-sans-serif,system-ui,sans-serif;color:#aab6c9;margin:0;max-width:590px}
+.pf-close{flex:none;background:#1d2a3a;border:1px solid #ffffff2a;padding:10px 13px;border-radius:3px;font:800 10px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em}
+.pf-career-overview{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:10px;margin-bottom:20px}
+.pf-overview-card,.pf-stat-card{padding:14px;background:#172231;border:1px solid #ffffff1d;border-radius:3px}
+.pf-overview-card small,.pf-stat-card small{display:block;font:750 9px Inter,ui-sans-serif,system-ui,sans-serif;color:#aab6c9;letter-spacing:.14em}
+.pf-overview-card b{display:block;margin-top:8px;font:850 18px Inter,ui-sans-serif,system-ui,sans-serif;color:#fff}
+.pf-overview-card p{font:11px/1.5 Inter,ui-sans-serif,system-ui,sans-serif;color:#aab6c9;margin:7px 0 0}
+.pf-career-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pf-fight-node{position:relative;min-height:100px;padding:13px;background:#151f2d;border:1px solid #ffffff1b;border-radius:3px}
+.pf-fight-node.current{border-color:#e7a64b;background:#222b34;box-shadow:inset 3px 0 #e7a64b}
+.pf-fight-node.done{border-color:#4e846e}
+.pf-fight-node.locked{opacity:.52}
+.pf-fight-node small{font:800 9px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.12em;color:#aab6c9}
+.pf-fight-node b{display:block;margin:9px 0 5px;font:800 12px Inter,ui-sans-serif,system-ui,sans-serif}
+.pf-fight-node span{font:10px/1.4 Inter,ui-sans-serif,system-ui,sans-serif;color:#aab6c9}
+.pf-node-status{float:right;color:#e7a64b!important}
+.pf-detail-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid #ffffff20}
+.pf-detail-footer p{font:11px/1.5 Inter,ui-sans-serif,system-ui,sans-serif;color:#aab6c9;margin:0}
+.pf-action{padding:12px 17px;background:#e7a64b;color:#161b22;border:1px solid #f5cf92;border-radius:3px;font:900 10px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em}
+.pf-stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.pf-stat-card b{display:block;margin-top:8px;font:900 clamp(22px,3vw,32px) Inter,ui-sans-serif,system-ui,sans-serif;color:#fff}
+.pf-stat-card em{display:block;margin-top:5px;font:10px Inter,ui-sans-serif,system-ui,sans-serif;color:#aab6c9;font-style:normal}
+.pf-setting-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid #ffffff1b}
+.pf-setting-row b{display:block;font:800 13px Inter,ui-sans-serif,system-ui,sans-serif}
+.pf-setting-row small{display:block;margin-top:5px;font:11px/1.5 Inter,ui-sans-serif,system-ui,sans-serif;color:#aab6c9}
+.pf-toggle{min-width:78px;padding:9px 12px;background:#1d2a3a;border:1px solid #ffffff2a;border-radius:3px;font:800 10px Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em}
+.pf-toggle[aria-pressed="true"]{background:#284a3d;border-color:#69aa8b;color:#d9ffeb}
+.overlay-screen{backdrop-filter:blur(6px);background:#060b13d9}
+.overlay-box,.shop-window,.system-window{border-radius:4px}
+@media(max-width:900px){.lobby-top{padding:15px 18px}.lobby-copy{top:160px}.pf-primary-nav{top:83px}.lobby-bottom{bottom:18px}.mode-choice{min-width:155px}}
+@media(max-width:640px){
+ .lobby-top{padding:9px 10px}.brand-text{font-size:10px}.brand-text small{font-size:6px}.lobby-actions{gap:4px}.small-nav-btn{min-height:31px;padding:5px 6px;gap:4px}.small-nav-btn b{font-size:7px}.small-nav-btn span{font-size:8px}.shop-open-btn{min-height:31px;padding:5px 7px;gap:4px}.shop-button-label{font-size:7px}.shop-open-btn b{font-size:8px}.icon-btn{width:31px;height:31px;min-width:31px;min-height:31px;font-size:12px}.account-btn{min-height:31px}.account-name{font-size:8px}.account-caption{font-size:6px}
+ .pf-primary-nav{top:51px;left:10px;right:10px;gap:4px}.pf-primary-nav button{min-height:28px;padding:0 8px;font-size:7px;letter-spacing:.08em}.pf-primary-nav button span{margin-right:4px}
+ .lobby-copy{top:15%;left:12px;width:76vw}.lobby-copy h1{font-size:clamp(35px,9vw,51px)}.lobby-copy p{font-size:10px}.career-panel{max-width:95%;padding:10px}.career-next b{font-size:12px}
+ .lobby-bottom{left:9px;right:9px;bottom:10px}.mode-choice{padding:7px 8px}.mode-choice b{font-size:9px}.mode-choice small{font-size:7px}#play-button{width:29vw;height:48px;min-width:96px;min-height:45px;font-size:clamp(17px,5vw,24px)}.fight-wrap{gap:6px}.fight-label{font-size:7px}
+ .pf-career-overview{grid-template-columns:1fr 1fr}.pf-overview-card:first-child{grid-column:1/-1}.pf-career-map{grid-template-columns:repeat(2,minmax(0,1fr))}.pf-stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pf-detail-heading h2{font-size:26px}.pf-detail-window{padding:16px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+body.pf-reduced-motion *,body.pf-reduced-motion *:before,body.pf-reduced-motion *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+
 </style>
 </head>
 <body>
@@ -248,6 +352,8 @@ window.__pfSDKReady = new Promise(resolve => {
    <button id="account-button" class="account-btn" type="button"><img id="account-avatar" src="assets/images/PixelForgelogo.png" alt=""><span><span id="account-name" class="account-name">GUEST PLAYER</span><span id="account-caption" class="account-caption">PLAYING AS GUEST</span></span></button>
   </div>
  </header>
+
+ <nav class="pf-primary-nav" aria-label="Main navigation"><button type="button" data-pf-nav="career"><span>01</span>CAREER</button><button type="button" data-pf-nav="cosmetics"><span>02</span>COSMETICS</button><button type="button" data-pf-nav="stats"><span>03</span>STATS</button><button type="button" data-pf-nav="settings"><span>04</span>SETTINGS</button></nav>
  <div id="cg-banner-container" class="cg-banner-slot" aria-label="Advertisement"></div>
  <div class="lobby-copy">
   <div class="eyebrow"><span class="eyebrow-dot"></span> THE FIGHT FOR THE TOP STARTS HERE</div>
@@ -298,6 +404,35 @@ window.__pfSDKReady = new Promise(resolve => {
   <div id="shop-grid" class="shop-grid"></div><footer class="shop-footer"><span>Items are cosmetic only — no gameplay advantage.</span><button id="shop-close" class="secondary">BACK TO LOBBY</button></footer>
  </div>
 </section>
+
+<section id="pf-career-screen" class="overlay-screen" aria-label="Career progression">
+ <div class="pf-detail-window">
+  <header class="pf-detail-heading"><div><div class="pf-kicker">PIXELFORGE COMPETITIVE CIRCUIT</div><h2>CAREER</h2><p>Climb through the venues, learn each opponent's style and earn your place at the top. Your existing career save remains in use.</p></div><button class="pf-close" data-pf-close="career">CLOSE ✕</button></header>
+  <div class="pf-career-overview"><div class="pf-overview-card"><small>CURRENT RANK</small><b id="pf-career-rank">BACKSTREET ROOKIE</b><p id="pf-career-summary">Your climb starts here.</p></div><div class="pf-overview-card"><small>CAREER RECORD</small><b id="pf-career-record">0–0</b><p>Wins and defeats saved to this profile</p></div><div class="pf-overview-card"><small>PROGRESS</small><b id="pf-career-progress">0 / 12</b><p id="pf-career-venue">BACK ALLEY</p></div></div>
+  <div id="pf-career-map" class="pf-career-map" aria-label="Career opponents"></div>
+  <footer class="pf-detail-footer"><p id="pf-career-next-copy">Defeat the next challenger to advance.</p><button id="pf-career-continue" class="pf-action">CONTINUE CAREER →</button></footer>
+ </div>
+</section>
+<section id="pf-stats-screen" class="overlay-screen" aria-label="Player statistics">
+ <div class="pf-detail-window">
+  <header class="pf-detail-heading"><div><div class="pf-kicker">FIGHT HISTORY</div><h2>YOUR STATS</h2><p>A live breakdown of this saved profile. Numbers update as you play.</p></div><button class="pf-close" data-pf-close="stats">CLOSE ✕</button></header>
+  <div class="pf-stats-grid">
+   <div class="pf-stat-card"><small>CAREER WINS</small><b id="pf-stat-wins">0</b><em>Matches won</em></div><div class="pf-stat-card"><small>DEFEATS</small><b id="pf-stat-losses">0</b><em>Matches lost</em></div><div class="pf-stat-card"><small>WIN RATE</small><b id="pf-stat-rate">—</b><em>Across recorded matches</em></div><div class="pf-stat-card"><small>COINS</small><b id="pf-stat-coins">0</b><em>Available to spend</em></div>
+   <div class="pf-stat-card"><small>CAREER FIGHTS</small><b id="pf-stat-progress">0 / 12</b><em>Opponent progression</em></div><div class="pf-stat-card"><small>CLEAN HITS</small><b id="pf-stat-hits">0</b><em>Lifetime tracked hits</em></div><div class="pf-stat-card"><small>DASHES</small><b id="pf-stat-dashes">0</b><em>Lifetime tracked dashes</em></div><div class="pf-stat-card"><small>COSMETICS OWNED</small><b id="pf-stat-cosmetics">1</b><em>Unlocked items</em></div>
+  </div>
+  <footer class="pf-detail-footer"><p>Stats are read from the existing player profile, not a separate mock leaderboard.</p><button class="pf-action" data-pf-close="stats">BACK TO LOBBY</button></footer>
+ </div>
+</section>
+<section id="pf-settings-screen" class="overlay-screen" aria-label="Game settings">
+ <div class="pf-detail-window" style="max-width:720px">
+  <header class="pf-detail-heading"><div><div class="pf-kicker">PREFERENCES</div><h2>SETTINGS</h2><p>Adjust the experience without changing combat balance or resetting your save.</p></div><button class="pf-close" data-pf-close="settings">CLOSE ✕</button></header>
+  <div class="pf-setting-row"><div><b>GAME AUDIO</b><small>Toggle music and sound effects using the game's existing audio setting.</small></div><button id="pf-setting-audio" class="pf-toggle" aria-pressed="true">ON</button></div>
+  <div class="pf-setting-row"><div><b>REDUCED MOTION</b><small>Reduce menu transitions and decorative animation. Gameplay simulation is unchanged.</small></div><button id="pf-setting-motion" class="pf-toggle" aria-pressed="false">OFF</button></div>
+  <div class="pf-setting-row"><div><b>CONTROLS</b><small>View keyboard controls for solo and local two-player matches.</small></div><button id="pf-setting-controls" class="pf-toggle">VIEW</button></div>
+  <footer class="pf-detail-footer"><p>Preferences are stored locally on this device. Your career data is not cleared.</p><button class="pf-action" data-pf-close="settings">DONE</button></footer>
+ </div>
+</section>
+
 <div id="mobile-controls">
  <div class="mobile-group"><button data-mobile="left" aria-label="Move left">◀</button><button data-mobile="right" aria-label="Move right">▶</button><button data-mobile="jump" aria-label="Jump">↑</button></div>
  <div class="mobile-group"><button data-mobile="punch" aria-label="Punch">J</button><button data-mobile="kick" aria-label="Kick">K</button><button data-mobile="block" aria-label="Block">G</button><button data-mobile="dash" aria-label="Dash">»</button></div>
@@ -1160,6 +1295,49 @@ const pfBaseShopOpen=$("shop-button").onclick;
 $("shop-button").addEventListener("click",()=>{pfClearBanner();pfRenderShop()});
 $("shop-screen").addEventListener("click",e=>{if(e.target===$("shop-screen")&&app.scene==="lobby"&&app.sdkReady)pfRequestBanner()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){const hadOverlay=["shop-screen","upgrades-screen","quests-screen","leaderboard-screen"].some(id=>$(id)&&$(id).classList.contains("active"));pfCloseSystems();if(hadOverlay&&app.scene==="lobby"&&app.sdkReady)pfRequestBanner()}});
+
+/* Stage-one additions: functional career overview, live stats and settings. */
+const PF_STAGE1_PANELS=["pf-career-screen","pf-stats-screen","pf-settings-screen"];
+function pfCloseStage1Panels(){PF_STAGE1_PANELS.forEach(id=>$(id).classList.remove("active"));document.querySelectorAll("[data-pf-nav]").forEach(b=>b.removeAttribute("aria-current"))}
+function pfOpenStage1Panel(name){
+ pfCloseStage1Panels();
+ if(name==="cosmetics"){$("shop-screen").classList.add("active");shopFilter="all";document.querySelectorAll(".shop-filter").forEach(b=>b.classList.toggle("selected",b.dataset.shopFilter==="all"));pfRenderShop();pfClearBanner();return}
+ const id={"career":"pf-career-screen","stats":"pf-stats-screen","settings":"pf-settings-screen"}[name];if(!id)return;
+ $(id).classList.add("active");const nav=document.querySelector('[data-pf-nav="'+name+'"]');if(nav)nav.setAttribute("aria-current","page");
+ if(name==="career")pfRenderCareerHub();if(name==="stats")pfRenderStatsPanel();if(name==="settings")pfSyncSettingsPanel();pfClearBanner();
+}
+function pfRenderCareerHub(){
+ const p=app.profile,idx=clamp(Math.floor(Number(p.careerIndex)||0),0,PF_OPPONENTS.length),completed=!!p.campaignComplete||idx>=PF_OPPONENTS.length,current=PF_OPPONENTS[Math.min(idx,PF_OPPONENTS.length-1)];
+ $("pf-career-rank").textContent=pfRank();$("pf-career-record").textContent=(Number(p.wins)||0)+"–"+(Number(p.losses)||0);
+ $("pf-career-progress").textContent=(completed?PF_OPPONENTS.length:idx)+" / "+PF_OPPONENTS.length;
+ $("pf-career-venue").textContent=completed?"CHAMPIONSHIP CIRCUIT COMPLETE":PF_VENUES[current.venue].name;
+ $("pf-career-summary").textContent=completed?"The original 12-fighter circuit is complete. Keep playing for rewards and improve your record.":"Next up: "+current.name+" — "+current.note;
+ $("pf-career-next-copy").textContent=completed?"The circuit is complete. Continue to challenge the current champion again.":"Defeat "+current.name+" to advance to the next challenger.";
+ $("pf-career-map").innerHTML=PF_OPPONENTS.map((o,i)=>{const done=i<idx||completed,active=!completed&&i===idx,status=done?"CLEARED":active?"UP NEXT":"LOCKED";return '<article class="pf-fight-node '+(done?"done ":active?"current ":"locked ")+(active?"is-current":"")+'"><small>FIGHT '+String(i+1).padStart(2,"0")+' <span class="pf-node-status">'+status+'</span></small><b>'+o.name+'</b><span>'+PF_VENUES[o.venue].name+' · '+o.className+'<br>'+o.note+'</span></article>'}).join("");
+}
+function pfRenderStatsPanel(){
+ const p=app.profile,m=Math.max(0,Number(p.matches)||0),w=Math.max(0,Number(p.wins)||0);
+ const vals={"pf-stat-wins":w,"pf-stat-losses":Math.max(0,Number(p.losses)||0),"pf-stat-rate":m?Math.round(w/m*100)+"%":"—","pf-stat-coins":Math.max(0,Number(p.coins)||0),"pf-stat-progress":Math.min(Number(p.careerIndex)||0,PF_OPPONENTS.length)+" / "+PF_OPPONENTS.length,"pf-stat-hits":Math.max(0,Number(p.totalHits)||0),"pf-stat-dashes":Math.max(0,Number(p.totalDashes)||0),"pf-stat-cosmetics":Array.isArray(p.ownedCosmetics)?p.ownedCosmetics.length:1};
+ Object.keys(vals).forEach(id=>$(id).textContent=vals[id]);
+}
+function pfReadLocalPreference(key,fallback){try{const v=localStorage.getItem(key);return v===null?fallback:v==="1"}catch(e){return fallback}}
+function pfWriteLocalPreference(key,value){try{localStorage.setItem(key,value?"1":"0")}catch(e){}}
+function pfSyncSettingsPanel(){
+ const audioOn=typeof userAudioOn==="boolean"?userAudioOn:true,reduced=pfReadLocalPreference("pfStickmanReducedMotion",false);
+ $("pf-setting-audio").setAttribute("aria-pressed",String(audioOn));$("pf-setting-audio").textContent=audioOn?"ON":"OFF";
+ $("pf-setting-motion").setAttribute("aria-pressed",String(reduced));$("pf-setting-motion").textContent=reduced?"ON":"OFF";document.body.classList.toggle("pf-reduced-motion",reduced);
+}
+document.querySelectorAll("[data-pf-nav]").forEach(b=>b.addEventListener("click",()=>pfOpenStage1Panel(b.dataset.pfNav)));
+document.querySelectorAll("[data-pf-close]").forEach(b=>b.addEventListener("click",()=>{const name=b.dataset.pfClose;$(name==="career"?"pf-career-screen":name==="stats"?"pf-stats-screen":"pf-settings-screen").classList.remove("active");document.querySelectorAll("[data-pf-nav]").forEach(x=>x.removeAttribute("aria-current"));if(app.scene==="lobby"&&app.sdkReady)pfRequestBanner()}));
+$("pf-career-continue").addEventListener("click",()=>{pfCloseStage1Panels();if(app.scene==="lobby")startMatch()});
+$("pf-setting-audio").addEventListener("click",()=>{$("sound-button").click();pfSyncSettingsPanel()});
+$("pf-setting-motion").addEventListener("click",()=>{const next=!pfReadLocalPreference("pfStickmanReducedMotion",false);pfWriteLocalPreference("pfStickmanReducedMotion",next);pfSyncSettingsPanel()});
+$("pf-setting-controls").addEventListener("click",()=>{$("pf-settings-screen").classList.remove("active");$("help-screen").classList.add("active");document.querySelectorAll("[data-pf-nav]").forEach(x=>x.removeAttribute("aria-current"))});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){const id=PF_STAGE1_PANELS.find(x=>$(x).classList.contains("active"));if(id){pfCloseStage1Panels();if(app.scene==="lobby"&&app.sdkReady)pfRequestBanner()}}});
+const pfOriginalSetSceneStage1=setScene;
+setScene=function(next){pfOriginalSetSceneStage1(next);if(next==="lobby")pfRenderCareerHub()};
+pfRenderCareerHub();pfRenderStatsPanel();pfSyncSettingsPanel();
+
 pfRenderCareer();
 
 resize();resetActors();initModeUI();requestAnimationFrame(loop);boot();
