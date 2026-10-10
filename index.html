@@ -215,6 +215,35 @@ window.__pfSDKReady = new Promise(resolve => {
  .system-window,.shop-window{width:96vw;max-height:93dvh;padding:11px;gap:11px;border-radius:8px}.system-heading h2{font-size:23px}.system-heading p{font-size:9px;max-width:225px}.system-eyebrow{font-size:7px}.system-wallet{padding:7px 9px}.system-wallet b{font-size:15px}.system-wallet small{font-size:6px}.upgrade-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.upgrade-card{padding:8px;gap:6px}.upgrade-card p{min-height:0;font-size:9px}.upgrade-card h3{font-size:10px}.upgrade-card button{padding:7px 3px;font-size:8px}.quest-columns{grid-template-columns:1fr;gap:12px}.quest-card{padding:8px}.quest-card b{font-size:10px}.record-stats{grid-template-columns:repeat(2,1fr);gap:6px}.record-stats>div{padding:10px}.record-stats b{margin-top:4px;font-size:22px}.system-footer{align-items:flex-start;flex-direction:column}.system-footer span{font-size:8px}.system-footer button,.system-actions button{font-size:9px;min-width:100px}.system-fineprint{font-size:9px}
 }
 @media(max-height:650px) and (min-width:641px){.lobby-copy{top:14%}.career-panel{margin-top:9px;padding:8px 10px}.lobby-copy p{margin-top:8px}.hero-tags{margin-top:8px}.lobby-bottom{bottom:8px}.mode-wrap{padding:8px 10px}.cg-banner-slot{display:none!important}}
+
+/* PixelForge lobby refresh: cleaner arcade styling, clearer hierarchy, fewer skewed controls. */
+#lobby{background-color:#101a2b;background-image:radial-gradient(ellipse at 78% 38%,#263d5e 0%,#17253b 35%,#0d1422 76%)}
+#lobby:before{background:linear-gradient(90deg,#0b1328b8 0%,#101b2c55 54%,#10192b28 100%),linear-gradient(0deg,#090f1bd9 0%,transparent 47%,#0a1220a8 100%)}
+#lobby-preview{opacity:.94}
+.lobby-top{padding:16px clamp(14px,2.3vw,34px);align-items:center;background:linear-gradient(180deg,#0b1220c9,#0b122000);gap:14px}
+.brand img{filter:drop-shadow(0 4px 14px #0007)}.brand-text{text-shadow:none;letter-spacing:.06em}.brand-text small{color:#9eafc8;letter-spacing:.14em}
+.lobby-actions{gap:7px}.small-nav-btn{min-height:39px;padding:6px 11px;border-radius:9px;background:#111c2edb;border:1px solid #ffffff20;box-shadow:0 5px 15px #0002;transition:background .15s,border-color .15s}
+.small-nav-btn span{background:#24364c;color:#c4dcfa;border-radius:6px}.small-nav-btn:hover{background:#1b2c43;border-color:#91b7e35c}
+.shop-open-btn{border-radius:9px;min-height:39px;background:linear-gradient(135deg,#ffd27a,#f3a53b);border:1px solid #ffe5b0;box-shadow:0 4px 0 #9c6529,0 8px 20px #0003}
+.icon-btn{border-radius:9px;transform:none;background:#18273bd9;border:1px solid #ffffff28;box-shadow:0 4px 12px #0003}.icon-btn:hover{background:#263a54}
+.account-btn{border-radius:10px;transform:none;background:#111c2edb;border:1px solid #ffffff22;box-shadow:0 4px 15px #0003}.account-btn img{border:1px solid #ffffff30}
+.lobby-copy{top:19%;left:clamp(18px,4.2vw,64px);width:min(44vw,600px);padding:clamp(18px,2.1vw,30px);border:1px solid #ffffff1d;border-left:3px solid #f0b45b;border-radius:16px;background:linear-gradient(145deg,#101a2be8,#101725c9);box-shadow:0 22px 70px #0004;backdrop-filter:blur(9px);text-shadow:none}
+.lobby-copy .eyebrow{font:700 clamp(9px,.78vw,12px) system-ui,sans-serif;color:#e9bd79;letter-spacing:.14em;text-shadow:none;margin-bottom:12px}
+#lobby-title{font-size:clamp(38px,4.25vw,68px);line-height:.95;letter-spacing:-.035em;text-shadow:none}#lobby-title span{color:#b8d9f4}#lobby-title .title-accent{color:#f4b85d}
+.lobby-copy p{font:clamp(11px,.9vw,14px)/1.6 system-ui,sans-serif;color:#c6d0df;margin-top:14px}
+.hero-tags{gap:6px;margin-top:14px}.hero-tags span{border-radius:6px;background:#ffffff0b;border:1px solid #ffffff1b;color:#b9c7d9;letter-spacing:.1em}
+.career-panel{border-radius:10px;background:#0b1422c9;border:1px solid #ffffff1a;box-shadow:none;transform:none}.career-panel-top{color:#e7bd7b}.career-progress{background:#263347}.career-progress i{background:linear-gradient(90deg,#d79b43,#ffcf7c)}
+.lobby-bottom{left:clamp(14px,2.2vw,32px);right:clamp(14px,2.2vw,32px);bottom:clamp(12px,2vh,22px);padding:14px 16px;align-items:center;gap:18px;border:1px solid #ffffff20;border-radius:15px;background:#0c1524e8;box-shadow:0 15px 45px #0004;backdrop-filter:blur(10px)}
+.mode-wrap{max-width:76%;gap:9px}.section-label{font:700 11px system-ui,sans-serif;letter-spacing:.16em;color:#c2cede;text-shadow:none}.mode-row{gap:8px}
+.mode-choice{min-width:170px;padding:10px 14px;border:1px solid #ffffff20;border-radius:9px;background:#18263a;box-shadow:none;transform:none;transition:background .15s,border-color .15s,transform .15s}
+.mode-choice b{font-size:17px}.mode-choice small{font-size:10px;color:#aebbd0}.mode-choice.selected{background:#1d3b57;border:1px solid #e6b667;box-shadow:inset 0 0 0 1px #e6b66725}.mode-choice:hover{transform:translateY(-1px);filter:none;background:#22364d}
+.diff-row{font:10px system-ui,sans-serif;letter-spacing:.08em;color:#b7c4d6}.diff{border-radius:7px;padding:6px 10px;background:#172235;border:1px solid #ffffff1c;box-shadow:none;font:700 10px system-ui,sans-serif}.diff.selected{background:#e5ae58;border-color:#ffda9a;color:#1a1b20;box-shadow:none}
+.fight-wrap{gap:8px}.fight-label{font:700 10px system-ui,sans-serif;letter-spacing:.12em;color:#aab9cd;text-shadow:none}
+#play-button{width:clamp(170px,20vw,280px);height:68px;min-height:56px;border-radius:11px;background:linear-gradient(135deg,#ffd17b,#f0a43b);border:1px solid #ffe5ae;box-shadow:0 5px 0 #996126,0 9px 22px #0003;color:#24190e;transform:none;font-size:clamp(25px,2.7vw,40px);text-shadow:none;letter-spacing:.01em}
+#play-button:hover{filter:brightness(1.06);transform:translateY(-2px)}#play-button:active{transform:translateY(3px);box-shadow:0 2px 0 #996126}.cg-banner-slot{border-radius:8px;box-shadow:0 8px 24px #0004}
+@media(max-width:900px){.lobby-top{padding:10px 12px}.lobby-copy{top:17%;left:16px;width:min(48vw,520px);padding:16px}.lobby-bottom{padding:11px;gap:9px}.mode-wrap{max-width:72%}.mode-choice{min-width:132px;padding:9px 10px}.mode-choice b{font-size:14px}#play-button{width:clamp(125px,22vw,200px);height:58px;font-size:clamp(22px,3vw,30px)}}
+@media(max-width:640px){.lobby-top{padding:8px;gap:5px}.lobby-actions{gap:4px}.lobby-copy{top:15%;left:10px;width:min(75vw,380px);padding:13px;border-radius:12px}.lobby-copy .eyebrow{font-size:7px;margin-bottom:7px}#lobby-title{font-size:clamp(31px,8.1vw,46px)}.lobby-copy p{font-size:9px;margin-top:8px}.hero-tags{margin-top:7px}.career-panel{margin-top:8px;padding:8px}.career-panel-top{font-size:8px}.career-next b{font-size:11px}.career-next small,.career-next span,.career-stage,.career-bottom{font-size:7px}.lobby-bottom{left:8px;right:8px;bottom:8px;padding:8px;gap:6px;border-radius:10px;align-items:flex-end}.mode-wrap{max-width:69%;gap:5px}.section-label{font-size:8px}.mode-row{gap:4px}.mode-choice{min-width:0;flex:1;padding:7px 6px;border-radius:7px}.mode-choice b{font-size:10px}.mode-choice small{font-size:7px}.diff-row{font-size:7px;gap:3px}.diff{padding:4px 5px;font-size:7px}.fight-wrap{gap:5px}.fight-label{font-size:6px}#play-button{min-width:90px;width:27vw;height:47px;min-height:45px;font-size:clamp(18px,5.5vw,27px);border-radius:8px;box-shadow:0 4px 0 #996126,0 7px 16px #0003}}
+
 </style>
 </head>
 <body>
@@ -767,23 +796,23 @@ bumpDaily=function(key,amount){
  if($("quests-screen")&&$("quests-screen").classList.contains("active"))pfRenderQuests();
 };
 function pfCareerStats(side){
- const p=app.profile,u=p.upgrades||{};
+ const p=app.profile,u=p.upgrades||{},easy=app.mode==="cpu"&&app.difficulty==="easy";
  if(side===0)return{
-  maxHp:100+8*(u.health||0),
-  maxStamina:100+14*(u.stamina||0),
-  staminaRegen:13+(u.stamina||0)*1.5,
+  maxHp:(100+8*(u.health||0))*(easy?1.2:1),
+  maxStamina:(100+14*(u.stamina||0))*(easy?1.15:1),
+  staminaRegen:(13+(u.stamina||0)*1.5)*(easy?1.4:1),
   reachMultiplier:1+(u.reach||0)*.075,
   baseSpeedMultiplier:1+(u.speed||0)*.05,
-  damageMultiplier:1+(u.strength||0)*.065,
+  damageMultiplier:(1+(u.strength||0)*.065)*(easy?1.2:1),
   attackCooldownMultiplier:1,
   style:"player"
  };
  const enemy=(app.mode==="cpu"?pfOpponent():null),st=enemy?enemy.stats:{health:1,stamina:1,reach:1,speed:1,damage:1,cooldown:1};
  return{
-  maxHp:100*(st.health||1),maxStamina:100*(st.stamina||1),
-  staminaRegen:13*(st.stamina||1),reachMultiplier:st.reach||1,
-  baseSpeedMultiplier:st.speed||1,damageMultiplier:st.damage||1,
-  attackCooldownMultiplier:st.cooldown||1,style:enemy?enemy.style:"balanced"
+  maxHp:100*(st.health||1)*(easy?.76:1),maxStamina:100*(st.stamina||1),
+  staminaRegen:13*(st.stamina||1),reachMultiplier:(st.reach||1)*(easy?.9:1),
+  baseSpeedMultiplier:(st.speed||1)*(easy?.78:1),damageMultiplier:(st.damage||1)*(easy?.52:1),
+  attackCooldownMultiplier:(st.cooldown||1)*(easy?1.45:1),style:enemy?enemy.style:"balanced"
  };
 }
 const pfBaseSpawnFighter=spawnFighter;
@@ -978,37 +1007,49 @@ updateFighter=function(f,o,dt,side){
  f.vx*=.78+.22*staminaRatio;
 };
 cpu=function(f,o,dt){
- const dist=Math.abs(o.x-f.x),toward=Math.sign(o.x-f.x)||f.face,style=f.aiStyle||"balanced";
+ const dist=Math.abs(o.x-f.x),toward=Math.sign(o.x-f.x)||f.face,style=f.aiStyle||"balanced",easy=app.mode==="cpu"&&app.difficulty==="easy";
  f.aiWait-=dt;
  if(f.aiWait<=0){
-  f.aiWait=style==="speedster"?rnd(.055,.12):style==="counter"?rnd(.12,.22):style==="slugger"?rnd(.16,.29):rnd(.09,.2);
   const enemyAttacking=["punch","kick","spin"].includes(o.action)&&o.t<.27&&dist<175*scale;
-  if(f.stamina<24)f.aiIntent=dist<145*scale?"retreat":"recover";
-  else if(style==="counter"&&enemyAttacking&&Math.random()<.76)f.aiIntent="block";
-  else if(dist>210*scale)f.aiIntent=Math.random()<(style==="speedster"?.36:.15)?"dash":"approach";
-  else if(enemyAttacking&&Math.random()<(style==="counter"?.72:.33))f.aiIntent="block";
-  else if(Math.random()<(style==="speedster"?.78:style==="slugger"?.52:style==="counter"?.42:.62))f.aiIntent="attack";
-  else f.aiIntent=Math.random()<.5?"approach":"feint";
-  f.hesitate=Math.random()>(style==="speedster"?.97:.91)?rnd(.06,.18):0;
+  if(easy){
+   f.aiWait=rnd(.42,.68);
+   const roll=Math.random();
+   if(f.stamina<20)f.aiIntent=dist<135*scale?"retreat":"recover";
+   else if(dist>145*scale)f.aiIntent="approach";
+   else if(enemyAttacking&&roll<.12)f.aiIntent="block";
+   else if(roll<.22)f.aiIntent="attack";
+   else if(roll<.76)f.aiIntent="approach";
+   else f.aiIntent="feint";
+   f.hesitate=roll<.2?rnd(.12,.3):0;
+  }else{
+   f.aiWait=style==="speedster"?rnd(.055,.12):style==="counter"?rnd(.12,.22):style==="slugger"?rnd(.16,.29):rnd(.09,.2);
+   if(f.stamina<24)f.aiIntent=dist<145*scale?"retreat":"recover";
+   else if(style==="counter"&&enemyAttacking&&Math.random()<.76)f.aiIntent="block";
+   else if(dist>210*scale)f.aiIntent=Math.random()<(style==="speedster"?.36:.15)?"dash":"approach";
+   else if(enemyAttacking&&Math.random()<(style==="counter"?.72:.33))f.aiIntent="block";
+   else if(Math.random()<(style==="speedster"?.78:style==="slugger"?.52:style==="counter"?.42:.62))f.aiIntent="attack";
+   else f.aiIntent=Math.random()<.5?"approach":"feint";
+   f.hesitate=Math.random()>(style==="speedster"?.97:.91)?rnd(.06,.18):0;
+  }
  }
  if(f.hesitate>0){f.hesitate-=dt;return}
  if(f.stun>0)return;
- if(f.aiIntent==="recover"){guard(f,false);if(dist<180*scale)f.vx-=toward*500*scale*dt}
- else if(f.aiIntent==="retreat"){guard(f,false);f.vx-=toward*650*scale*dt}
- else if(f.aiIntent==="approach"){guard(f,false);if(dist>80*scale)f.vx+=toward*(style==="speedster"?1940:style==="slugger"?950:1350)*scale*dt;else if(dist<58*scale)f.vx-=toward*640*scale*dt;if(dist>260*scale&&style==="speedster"&&f.cool<=0&&Math.random()<dt*.5)dash(f,toward)}
+ if(f.aiIntent==="recover"){guard(f,false);if(dist<180*scale)f.vx-=toward*(easy?280:500)*scale*dt}
+ else if(f.aiIntent==="retreat"){guard(f,false);f.vx-=toward*(easy?360:650)*scale*dt}
+ else if(f.aiIntent==="approach"){guard(f,false);if(dist>(easy?100:80)*scale)f.vx+=toward*(easy?680:style==="speedster"?1940:style==="slugger"?950:1350)*scale*dt;else if(dist<(easy?48:58)*scale)f.vx-=toward*(easy?300:640)*scale*dt;if(!easy&&dist>260*scale&&style==="speedster"&&f.cool<=0&&Math.random()<dt*.5)dash(f,toward)}
  else if(f.aiIntent==="block"){if(dist<(style==="slugger"?185:155)*scale){guard(f,true);f.vx*=.8}else guard(f,false)}
  else if(f.aiIntent==="attack"){
   guard(f,false);
   const bestReach=(style==="slugger"?135:style==="speedster"?82:116)*scale*(f.reachMultiplier||1);
-  if(dist>bestReach){f.vx+=toward*(style==="speedster"?1500:1000)*scale*dt;if(dist>230*scale&&style!=="slugger"&&Math.random()<dt*.2)jump(f)}
+  if(dist>bestReach){f.vx+=toward*(easy?560:style==="speedster"?1500:1000)*scale*dt;if(!easy&&dist>230*scale&&style!=="slugger"&&Math.random()<dt*.2)jump(f)}
   else if(f.cool<=0){
    let type=style==="slugger"?(Math.random()<.78?"kick":"punch"):style==="speedster"?(Math.random()<.83?"punch":"kick"):dist<86*scale?(Math.random()<.73?"punch":"kick"):"kick";
-   if(style==="counter"&&o.action==="block"&&Math.random()<.65)type="kick";
-   if(!f.grounded&&Math.random()<.35)type="spin";
+   if(!easy&&style==="counter"&&o.action==="block"&&Math.random()<.65)type="kick";
+   if(!easy&&!f.grounded&&Math.random()<.35)type="spin";
    hitMove(f,type);
   }
- }else{guard(f,false);if(dist<160*scale)f.vx-=toward*400*scale*dt;else if(dist>255*scale&&Math.random()<dt*.12)dash(f,-toward)}
-};
+ }else{guard(f,false);if(dist<160*scale)f.vx-=toward*(easy?180:400)*scale*dt;else if(!easy&&dist>255*scale&&Math.random()<dt*.12)dash(f,-toward)}
+ };
 hitCheck=function(a,b){
  if(!["punch","kick","spin"].includes(a.action)||a.hit)return;
  const q=attack[a.action];if(a.t<q.start||a.t>q.end)return;
