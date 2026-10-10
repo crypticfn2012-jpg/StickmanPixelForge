@@ -1,19 +1,37 @@
 # Stickman Showdown — PixelForge
 
-A single-file HTML5 stickman fighting game. The game UI, animation, CPU opponent, physics, lobby, match flow, CrazyGames integration and progression logic live in **`index.html`**. The five files in `assets/images/` supply the branding and backgrounds.
+A single-file HTML5 stickman fighting game. The menu, combat code, physics, animation renderer, audio handling, CrazyGames integration and match progression live in **`index.html`**. Local images and sound effects remain in `assets/images/` and `assets/audio/`.
 
 ## Current game
 
-- Black first-load screen with `PixelForgelogo.png` and a loading bar
-- Main lobby using `LobbyBg.jpg` and `MainLogo.jpg`
-- Rotating podium fighter with idle, punch, kick and flip showcase animations
-- Inter-round loading screen using `LoadingScreen.jpg` without the PixelForge loading logo
-- Full-screen combat scene using `ArenaBg.jpg`
-- Fast run/dash movement, jumps and flips, punch/kick attacks, blocking, hit stun, hit sparks, combos and screen shake
-- VS CPU with Chill, Standard and Elite difficulty, or same-device local two-player
-- Health bars, round timer, best-of-three match flow, pause/result screens, sound and mobile touch controls
-- Optional CrazyGames account sign-in, username/avatar display, match stats, rotating daily missions and a daily streak
-- Saves through CrazyGames' Data module when initialized, with browser local storage as a development fallback
+- Initial black PixelForge loading screen, with an actual loading bar
+- Lobby uses `LobbyBg.jpg`; the title display crops the wordmark from the portrait `MainLogo.jpg` rather than scaling the full poster down to a tiny thumbnail
+- Main-menu stickman has a podium and idle/run/jump/roll animation states
+- Full-screen fight uses `ArenaBg.jpg`
+- Between-match loading uses `LoadingScreen.jpg` without the PixelForge studio logo
+- Fast running, dashes, jumps/flips, punch/kick timing, blocking, hit stun, impact sparks, combos, screen shake and knockouts
+- VS CPU with Chill/Standard/Elite difficulty, or same-device local two-player mode
+- Health bars, round timer, best-of-three matches, pause/result screens and mobile touch controls
+- Optional CrazyGames profile sign-in, player name/avatar, match stats and save support
+- Audio uses the actual user-supplied MP3s: looping lobby music, button clicks, punches, kicks, ground impacts and knockout sounds. The music starts after the first player interaction to comply with browser autoplay restrictions.
+- The lobby UI hides redundant stats/cards and keeps the game title, account/music controls, mode selector and main fight button.
+
+## Character art and licence
+
+The character renderer first tries the separate idle, run, jump and roll sprite strips from **“Simple animated character 16x16” by MScull**, published on OpenGameArt under **CC0** (public domain dedication). The game falls back to the built-in drawn character if a remote image is unavailable.
+
+Source and licence: https://opengameart.org/content/simple-animated-character-16x16
+
+The tiny sprite sheets are currently requested directly from OpenGameArt rather than duplicated into this repository. Before final distribution, it is preferable to vendor those PNGs into `assets/characters/` and point the game at the local copies, so the build has no runtime dependency on a third-party art host.
+
+## Sound files
+
+- `ButtonClicked.mp3` — UI clicks
+- `MainMenuMusic.mp3` — lobby music loop
+- `Punch.mp3` — punches and blocks
+- `kick.mp3` — kicks
+- `groundImpact.mp3` — jumping/dashing/landings
+- `death.mp3` — knockout / end of round
 
 ## Controls
 
@@ -21,26 +39,23 @@ A single-file HTML5 stickman fighting game. The game UI, animation, CPU opponent
 
 **Player 2 (local mode):** Left/Right arrows move, Up jump/flip, K punch, L kick, hold O to block, Right Ctrl dash.
 
-Press **P** to pause. Use the result-screen or pause-screen button to return to the lobby.
+Press **P** to pause. Use the result or pause screen to return to the lobby.
 
 ## Run locally
 
-Don't double-click `index.html` to test SDK functionality. Open a terminal in this folder and run:
+Don't double-click `index.html` to test the CrazyGames SDK. From this folder, run:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then open `http://localhost:8000/`. VS Code Live Server also works. Direct `file://` mode deliberately skips loading the CrazyGames SDK and runs as guest, avoiding browser file-origin security warnings.
+Open `http://localhost:8000/`. The SDK is skipped only for `file://` mode, which runs as a guest to avoid browser file-origin warnings. Use localhost or CrazyGames Preview for SDK testing.
 
-## CrazyGames submission checklist
+## CrazyGames release checklist
 
-The SDK is initialized during startup on a supported web origin. For cross-device saves, enable **Progress Save** in the CrazyGames developer portal; the SDK Data module is disabled if that submission option is off.
+- Verify in CrazyGames Preview at the supported review viewports, including 907×510.
+- Test the live CC0 sprite fetch, all six MP3 paths, mobile controls, music mute, account prompt, round transitions and browser console.
+- Enable Progress Save in the Developer Portal if using CrazyGames' Data module; rely on the module for submitted builds.
+- Keep the first playable action within one click of the initial screen. CrazyGames supplies fullscreen controls, so the game does not add a custom fullscreen button.
 
-Before submission, test the uploaded build in CrazyGames Preview. In particular, check the official review viewport sizes (including 907×510), mobile/touch input, player visibility, readable UI, consistent physics at different frame rates, round transitions, account auth, profile loading, saved progress and the browser console. CrazyGames provides fullscreen itself, so this game intentionally has no custom fullscreen button. Keep the first playable action within one click of the initial screen and avoid external game cross-promotions.
-
-The daily challenge rotates between landing hits, dashing and winning a match. Progress and the current streak are saved to create a repeat-play goal without blocking the player from starting a fight.
-
-## Scope
-
-This build provides **local combat**: single-player versus CPU and two players on the same device. Real online matchmaking and synchronized online combat are not implemented. CrazyGames approval is not guaranteed; final acceptance depends on their current gameplay, visual, technical and policy review.
+The current build supports **local combat** (CPU and same-device two-player). It does not implement online matchmaking or synchronized online fights. Approval cannot be guaranteed before the real CrazyGames QA/Preview run.
