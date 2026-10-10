@@ -1,34 +1,46 @@
 # Stickman Showdown — PixelForge
 
-A full-screen HTML5 stickman fighting game prototype. The game UI, animation, combat physics, CPU opponent, menus and CrazyGames integration are all contained in **one `index.html`**. The `assets/images/` folder supplies the game's artwork.
+A single-file HTML5 stickman fighting game. The game UI, animation, CPU opponent, physics, lobby, match flow, CrazyGames integration and progression logic live in **`index.html`**. The five files in `assets/images/` supply the branding and backgrounds.
 
-## Included
+## Current game
 
-- PixelForge logo loading screen with a progress bar
-- Inter-round loading screen using `LoadingScreen.jpg`
-- Main lobby using `LobbyBg.jpg`, with a rotating stickman on a podium
-- Full-screen combat arena using `ArenaBg.jpg`
-- Hand-drawn, pose-driven stickman animation: running, jumping flips, dashing, punches, kicks, blocking, hit reactions and knockouts
-- Fast, responsive local combat with CPU difficulty settings or local two-player mode
-- Health bars, round timer, best-of-three matches, combos, hit sparks, screen shake and lightweight sound effects
-- Touch controls on mobile devices
-- CrazyGames SDK v3 account prompt and profile name/avatar display
-- Match stats saved with the CrazyGames Data module when available, with local browser storage as a development fallback
+- Black first-load screen with `PixelForgelogo.png` and a loading bar
+- Main lobby using `LobbyBg.jpg` and `MainLogo.jpg`
+- Rotating podium fighter with idle, punch, kick and flip showcase animations
+- Inter-round loading screen using `LoadingScreen.jpg` without the PixelForge loading logo
+- Full-screen combat scene using `ArenaBg.jpg`
+- Fast run/dash movement, jumps and flips, punch/kick attacks, blocking, hit stun, hit sparks, combos and screen shake
+- VS CPU with Chill, Standard and Elite difficulty, or same-device local two-player
+- Health bars, round timer, best-of-three match flow, pause/result screens, sound and mobile touch controls
+- Optional CrazyGames account sign-in, username/avatar display, match stats, rotating daily missions and a daily streak
+- Saves through CrazyGames' Data module when initialized, with browser local storage as a development fallback
 
 ## Controls
 
-**Player 1:** A/D to move, W to jump and flip, F to punch, R to kick, hold G to block, Shift to dash.
+**Player 1:** A/D move, W jump/flip, F punch, R kick, hold G to block, Shift dash.
 
-**Player 2 (local mode):** Left/Right arrows to move, Up to jump and flip, K to punch, L to kick, hold O to block, Right Ctrl to dash.
+**Player 2 (local mode):** Left/Right arrows move, Up jump/flip, K punch, L kick, hold O to block, Right Ctrl dash.
 
-Press Escape to pause. Use the lobby button to leave a match.
+Press **P** to pause. Use the result-screen or pause-screen button to return to the lobby.
 
 ## Run locally
 
-Serve the repository with any static HTTP server and open `index.html`. The game uses relative image paths, so keep the `assets/images/` files in place. If the CrazyGames SDK is unavailable, the game remains playable as a guest.
+Don't double-click `index.html` to test SDK functionality. Open a terminal in this folder and run:
 
-## CrazyGames release checklist
+```bash
+python -m http.server 8000
+```
 
-The HTML5 SDK v3 is initialized on the loading screen. Account sign-in is optional, so guests can play too. To enable cross-device saves when submitting, turn on the appropriate **Progress Save** setting in the CrazyGames developer portal; the SDK Data module is disabled when that setting is off. Review the build in CrazyGames Preview and test desktop, touch controls, account sign-in, sound muting, fullscreen, round transitions and the console before submission.
+Then open `http://localhost:8000/`. VS Code Live Server also works. Direct `file://` mode deliberately skips loading the CrazyGames SDK and runs as guest, avoiding browser file-origin security warnings.
 
-This version implements **local combat** (CPU and same-device two-player). It does not implement online matchmaking or synchronized online fights. Acceptance by CrazyGames cannot be guaranteed; the final review depends on platform QA, polish, performance and compliance with their current requirements.
+## CrazyGames submission checklist
+
+The SDK is initialized during startup on a supported web origin. For cross-device saves, enable **Progress Save** in the CrazyGames developer portal; the SDK Data module is disabled if that submission option is off.
+
+Before submission, test the uploaded build in CrazyGames Preview. In particular, check the official review viewport sizes (including 907×510), mobile/touch input, player visibility, readable UI, consistent physics at different frame rates, round transitions, account auth, profile loading, saved progress and the browser console. CrazyGames provides fullscreen itself, so this game intentionally has no custom fullscreen button. Keep the first playable action within one click of the initial screen and avoid external game cross-promotions.
+
+The daily challenge rotates between landing hits, dashing and winning a match. Progress and the current streak are saved to create a repeat-play goal without blocking the player from starting a fight.
+
+## Scope
+
+This build provides **local combat**: single-player versus CPU and two players on the same device. Real online matchmaking and synchronized online combat are not implemented. CrazyGames approval is not guaranteed; final acceptance depends on their current gameplay, visual, technical and policy review.
