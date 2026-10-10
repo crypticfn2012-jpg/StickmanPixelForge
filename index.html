@@ -164,6 +164,57 @@ window.__pfSDKReady = new Promise(resolve => {
 }
 @media(max-width:640px) and (orientation:portrait){.lobby-copy{top:14%;width:75vw}.lobby-bottom{bottom:10px}.mode-wrap{max-width:68%}}
 
+/* Career-mode layout */
+#lobby{background:#090c12 url("assets/images/LobbyBg.jpg") center/cover no-repeat}
+#lobby:before{background:linear-gradient(90deg,#070a10f5 0%,#0b101bdc 34%,#0a101a65 63%,#05080d25 100%),linear-gradient(0deg,#080b11ed,transparent 58%,#070a10a6)}
+.brand-text{font-family:system-ui,sans-serif;font-weight:750;font-size:clamp(12px,1vw,15px);letter-spacing:.1em;text-shadow:none}.brand-text small{font-weight:500;font-size:clamp(7px,.55vw,9px);letter-spacing:.14em;color:#8f9caf}
+.lobby-top{align-items:center;padding:clamp(10px,1.5vw,22px) clamp(12px,2.2vw,34px)}
+.lobby-actions{gap:7px}
+.small-nav-btn{display:flex;align-items:center;gap:7px;padding:6px 10px;min-height:38px;background:#151b25;border:1px solid #ffffff1d;border-radius:7px;color:#e3eaf3;transform:none;font:10px system-ui,sans-serif;letter-spacing:.06em}
+.small-nav-btn span{display:grid;place-items:center;min-width:22px;height:22px;padding:0 3px;border-radius:4px;background:#263141;color:#a5c4e9;font-weight:800;font-size:9px}
+.small-nav-btn b{font-size:9px;font-weight:700}.small-nav-btn:hover{background:#202a38;border-color:#7f9bbd66}
+.shop-open-btn{border-radius:7px;min-height:38px;padding:0 10px;gap:7px;background:#c9a15e;border:1px solid #e4c68c;box-shadow:0 2px 0 #765b31;color:#17140f;font:700 10px system-ui,sans-serif;letter-spacing:.1em}
+.shop-button-icon{width:20px;height:20px;border-radius:4px;background:#f0d8aa;border:none;color:#2c2418}.shop-open-btn b{font-size:10px;border-color:#46371f4f}
+.lobby-copy{top:20%;left:clamp(20px,4.5vw,68px);width:min(44vw,600px)}.lobby-copy .eyebrow{font:700 clamp(9px,.78vw,12px) system-ui,sans-serif;color:#c5a66e;letter-spacing:.16em;margin-bottom:14px;text-shadow:none}
+#lobby-title{font:900 clamp(41px,4.8vw,73px)/.87 system-ui,Arial,sans-serif;letter-spacing:-.075em;color:#f3f4f6;text-shadow:none}#lobby-title span{color:#d0d7e1}#lobby-title .title-accent{color:#cfa35b}
+.lobby-copy p{font:clamp(11px,.95vw,14px)/1.55 system-ui,sans-serif;color:#c4cbd5;margin:17px 0 0}
+.hero-tags{gap:6px;margin-top:13px}.hero-tags span{font:8px system-ui,sans-serif;letter-spacing:.1em;border-radius:4px;padding:6px 8px;background:#111720ab;border:1px solid #a7b2c21c;color:#9da9b9}
+.career-panel{width:min(100%,390px);margin-top:18px;padding:12px 14px 10px;background:#0e131bd9;border:1px solid #aebbc51f;border-radius:7px;box-shadow:0 10px 22px #0002}
+.career-panel-top{display:flex;justify-content:space-between;gap:8px;align-items:center;font:8px system-ui,sans-serif;letter-spacing:.15em;color:#78879b}.career-panel-top b{font:700 9px system-ui,sans-serif;color:#c9a666;letter-spacing:.05em}
+.career-next{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:11px}.career-next>div:first-child{display:flex;flex-direction:column;gap:3px}.career-next small{font:8px system-ui,sans-serif;color:#8491a3;letter-spacing:.12em}.career-next b{font:800 14px system-ui,sans-serif;color:#edf1f7;letter-spacing:.015em}.career-next span{font:9px system-ui,sans-serif;color:#9aa6b7}.career-stage{padding:6px 8px;border:1px solid #d2b4773a;background:#261f15;color:#d6b574;font:700 8px system-ui,sans-serif;letter-spacing:.08em;border-radius:4px;white-space:nowrap}
+.career-progress{margin-top:12px;width:100%;height:3px;background:#29313d;overflow:hidden}.career-progress i{display:block;width:0;height:100%;background:#c6a15d;transition:width .2s}.career-bottom{display:flex;justify-content:space-between;margin-top:7px;font:8px system-ui,sans-serif;letter-spacing:.07em;color:#78879a}.career-bottom b{color:#d6dee8;font-size:9px}
+.lobby-bottom{left:clamp(12px,2.3vw,32px);right:clamp(12px,2.3vw,32px);bottom:clamp(12px,2.3vh,23px);gap:17px}
+.mode-wrap{max-width:min(59%,720px);padding:11px 13px 10px;border:1px solid #aab5c31c;border-radius:9px;background:#0b1019e8;box-shadow:none;backdrop-filter:blur(7px);gap:8px}
+.section-label{color:#8d9aac;font:700 9px system-ui,sans-serif;letter-spacing:.16em}.mode-row{gap:7px}.mode-choice{min-width:clamp(126px,13vw,180px);padding:9px 12px;border-radius:6px;border:1px solid #c1cbd41c;background:#151c26;box-shadow:none;transform:none}
+.mode-choice:hover{transform:translateY(-1px);background:#202936}.mode-choice.selected{background:#222e3b;border-color:#c5a564;box-shadow:inset 3px 0 #c5a564}
+.mode-choice b{font:750 clamp(11px,1.08vw,14px) system-ui,sans-serif;color:#e6ebf1;letter-spacing:.02em}.mode-choice small{font:10px system-ui,sans-serif;color:#96a3b4}
+.diff-row{font:9px system-ui,sans-serif;color:#94a0b0}.diff{border-radius:4px;padding:5px 8px;background:#151c26;border:1px solid #d0dae11e;box-shadow:none;color:#b1bac5;font:9px system-ui,sans-serif}.diff.selected{background:#b99050;border-color:#d9bd89;color:#17130b;box-shadow:none}
+.fight-wrap{gap:8px;padding-bottom:2px}.fight-label{font:700 8px system-ui,sans-serif;letter-spacing:.15em;color:#8d9caf;text-shadow:none}
+#play-button{width:clamp(160px,18vw,255px);height:clamp(56px,7.5vh,74px);min-width:145px;min-height:51px;border-radius:7px;background:#cba562;border:1px solid #e4c88c;box-shadow:0 3px 0 #795c2d;color:#19150e;transform:none;font:900 clamp(23px,2.6vw,36px) system-ui,sans-serif;text-shadow:none;letter-spacing:-.025em}
+#play-button:hover{filter:brightness(1.06);transform:translateY(-1px)}#play-button:active{transform:translateY(2px);box-shadow:0 1px 0 #795c2d}
+.cg-banner-slot{display:none;position:absolute;z-index:4;left:50%;top:clamp(58px,7vh,78px);transform:translateX(-50%);width:min(468px,38vw);height:60px;overflow:hidden;background:transparent;border-radius:3px}
+.system-screen{z-index:46}.system-window{width:min(900px,94vw);max-height:90dvh;overflow:auto;display:flex;flex-direction:column;gap:16px;padding:clamp(16px,2.4vw,26px);border-radius:10px;border:1px solid #aabbd12e;background:#111720f7;box-shadow:0 22px 70px #000b;text-align:left}
+.system-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}.system-eyebrow{font:700 9px system-ui,sans-serif;color:#c4a266;letter-spacing:.2em}.system-heading h2{margin:7px 0 4px;font:900 clamp(26px,4vw,38px)/1 system-ui,sans-serif;letter-spacing:-.04em;color:#f1f4f8}.system-heading p{margin:0;font:12px/1.5 system-ui,sans-serif;color:#95a2b3}
+.system-wallet{display:flex;flex-direction:column;align-items:flex-end;gap:3px;padding:10px 13px;border:1px solid #c9a26032;background:#201b13;border-radius:6px}.system-wallet b{font:800 20px system-ui,sans-serif;color:#e7c17a}.system-wallet small{font:8px system-ui,sans-serif;color:#a99a7c;letter-spacing:.13em;white-space:nowrap}
+.upgrade-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.upgrade-card{display:flex;flex-direction:column;gap:9px;min-width:0;padding:12px 10px;border:1px solid #c2d1e017;border-radius:7px;background:#171e29}.upgrade-glyph{display:grid;place-items:center;height:49px;background:#0c1119;border-radius:5px;color:#d1b579;font:700 20px system-ui,sans-serif}.upgrade-card h3{margin:0;color:#e1e7ef;font:800 11px system-ui,sans-serif}.upgrade-card p{margin:0;min-height:52px;color:#929fb0;font:10px/1.45 system-ui,sans-serif}.upgrade-levels{display:flex;gap:3px}.upgrade-levels i{height:4px;flex:1;background:#343f4e;border-radius:2px}.upgrade-levels i.on{background:#caa460}.upgrade-card button{margin-top:auto;padding:9px 5px;border-radius:4px;background:#b8904c;color:#18130b;font:800 9px system-ui,sans-serif}.upgrade-card button:disabled{background:#242c36;color:#8793a3;border:1px solid #ffffff10}
+.system-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:3px}.system-footer span{font:10px system-ui,sans-serif;color:#7e8b9b}.system-footer button,.system-actions button{padding:10px 14px;min-width:125px;border-radius:5px;border:1px solid #bdcbd51b;box-shadow:none;font:800 10px system-ui,sans-serif}
+.quest-window{width:min(1000px,94vw)}.quest-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px}.quest-columns>section{min-width:0}.list-title{margin-bottom:8px;color:#d2b173;font:800 9px system-ui,sans-serif;letter-spacing:.15em}.quest-list{display:flex;flex-direction:column;gap:7px}.quest-card{padding:10px 11px;border:1px solid #b8c7d21b;border-radius:6px;background:#171e28}.quest-card.done{border-color:#c7a45c66;background:#1e201e}.quest-card-top{display:flex;justify-content:space-between;gap:7px}.quest-card b{color:#e0e6ee;font:750 11px system-ui,sans-serif}.quest-card-top span{color:#d3b272;font:800 8px system-ui,sans-serif;white-space:nowrap}.quest-card p{margin:5px 0 8px;color:#8e9bac;font:10px/1.4 system-ui,sans-serif}.quest-progress{height:3px;background:#2a3442}.quest-progress i{display:block;height:100%;background:#c5a15d}.quest-empty{padding:13px;color:#8e9bac;font:11px/1.4 system-ui,sans-serif;border:1px dashed #ffffff20;border-radius:5px}
+.record-mark{display:grid;place-items:center;width:60px;height:60px;border:1px solid #cba45b60;border-radius:7px;background:#211c13;color:#d7b777;font:900 16px system-ui,sans-serif}
+.record-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.record-stats>div{padding:14px;border:1px solid #b9c7d21c;background:#171e28;border-radius:6px}.record-stats small{display:block;color:#8794a5;font:800 8px system-ui,sans-serif;letter-spacing:.15em}.record-stats b{display:block;margin-top:8px;color:#edf1f6;font:900 clamp(18px,3vw,28px) system-ui,sans-serif;letter-spacing:-.04em}.global-board-note{display:flex;gap:11px;align-items:flex-start;padding:14px;border:1px solid #b6c4d219;background:#0d131c;border-radius:6px}.global-dot{flex:0 0 8px;width:8px;height:8px;margin-top:4px;border-radius:50%;background:#c6a15d}.global-board-note b{color:#d8e0eb;font:800 10px system-ui,sans-serif;letter-spacing:.06em}.global-board-note p{margin:6px 0 0;color:#929fb0;font:11px/1.5 system-ui,sans-serif}.system-actions{display:flex;gap:8px;flex-wrap:wrap}.system-fineprint{margin:0;color:#707e8e;font:10px/1.4 system-ui,sans-serif}
+.shop-window{border-radius:10px;background:linear-gradient(145deg,#151d28f7,#0d121afc);border-color:#b5c3d321}.shop-item{border-radius:7px;background:#171e28}.shop-item-preview{border-radius:5px;background:#0b1017}.shop-item-action{border-radius:5px;background:#b89250;border-color:#d5b4754d;color:#1c160d;font-weight:800}.shop-item-action.equipped,.shop-item-action:disabled{background:#202936;color:#a6b4c4}
+#fight-hud .stamina-shell{height:6px;min-height:6px;margin-top:5px;background:#06080c;border:1px solid #ffffff20;transform:skewX(-5deg);overflow:hidden}
+.stamina-fill{height:100%;width:100%;background:#76ba83;transition:width .12s linear}.enemy-stamina{background:#c4ad76}
+#fight-hud .hud-sub{font-size:9px;letter-spacing:.09em;color:#b7c2d0}
+@media(max-width:1000px){.small-nav-btn{padding:5px 6px;gap:4px}.small-nav-btn b{font-size:8px}.career-panel{max-width:350px}.upgrade-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){
+ .lobby-top{padding:8px;gap:5px}.brand{gap:4px}.brand img{width:29px;height:29px}.brand-text{font-size:8px}.brand-text small{font-size:5px}.lobby-actions{gap:3px}.small-nav-btn{min-height:28px;padding:3px 4px;border-radius:5px;gap:3px}.small-nav-btn span{min-width:18px;height:18px;font-size:7px}.small-nav-btn b{display:none}.shop-open-btn{min-height:29px;padding:0 6px;gap:4px;font-size:8px}.shop-button-icon{width:16px;height:16px}.shop-open-btn b{font-size:8px;padding-left:4px}.icon-btn{width:28px;height:28px;min-width:28px;min-height:28px;font-size:11px}
+ .cg-banner-slot{top:42px;width:min(320px,84vw);height:50px}
+ .lobby-copy{left:12px;top:14%;width:72vw}.lobby-copy .eyebrow{font-size:7px;margin-bottom:8px;gap:5px}#lobby-title{font-size:clamp(34px,9.1vw,50px)}.lobby-copy p{font-size:9px;margin-top:10px}.hero-tags{margin-top:8px;gap:4px}.hero-tags span{padding:4px 5px;font-size:6px}
+ .career-panel{width:min(100%,300px);margin-top:10px;padding:9px 9px 8px}.career-panel-top{font-size:7px}.career-panel-top b{font-size:7px}.career-next{margin-top:7px}.career-next small{font-size:6px}.career-next b{font-size:10px}.career-next span{font-size:7px}.career-stage{font-size:6px;padding:5px}.career-progress{margin-top:7px}.career-bottom{font-size:7px}
+ .lobby-bottom{left:7px;right:7px;bottom:7px;gap:5px}.mode-wrap{max-width:69%;padding:7px 7px 6px;gap:5px;border-radius:6px}.section-label{font-size:7px}.mode-row{gap:4px}.mode-choice{min-width:0;flex:1;padding:6px 5px;border-radius:5px}.mode-choice b{font-size:9px}.mode-choice small{font-size:6px}.diff-row{font-size:6px;gap:3px}.diff{font-size:6px;padding:3px 4px}.fight-wrap{gap:5px}.fight-label{font-size:5px}#play-button{width:27vw;min-width:80px;height:44px;min-height:43px;font-size:clamp(17px,6vw,23px);border-radius:5px}
+ .system-window,.shop-window{width:96vw;max-height:93dvh;padding:11px;gap:11px;border-radius:8px}.system-heading h2{font-size:23px}.system-heading p{font-size:9px;max-width:225px}.system-eyebrow{font-size:7px}.system-wallet{padding:7px 9px}.system-wallet b{font-size:15px}.system-wallet small{font-size:6px}.upgrade-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.upgrade-card{padding:8px;gap:6px}.upgrade-card p{min-height:0;font-size:9px}.upgrade-card h3{font-size:10px}.upgrade-card button{padding:7px 3px;font-size:8px}.quest-columns{grid-template-columns:1fr;gap:12px}.quest-card{padding:8px}.quest-card b{font-size:10px}.record-stats{grid-template-columns:repeat(2,1fr);gap:6px}.record-stats>div{padding:10px}.record-stats b{margin-top:4px;font-size:22px}.system-footer{align-items:flex-start;flex-direction:column}.system-footer span{font-size:8px}.system-footer button,.system-actions button{font-size:9px;min-width:100px}.system-fineprint{font-size:9px}
+}
+@media(max-height:650px) and (min-width:641px){.lobby-copy{top:14%}.career-panel{margin-top:9px;padding:8px 10px}.lobby-copy p{margin-top:8px}.hero-tags{margin-top:8px}.lobby-bottom{bottom:8px}.mode-wrap{padding:8px 10px}.cg-banner-slot{display:none!important}}
 </style>
 </head>
 <body>
@@ -187,17 +238,27 @@ window.__pfSDKReady = new Promise(resolve => {
  <header class="lobby-top">
   <div class="brand"><img src="assets/images/PixelForgelogo.png" alt="PixelForge"><div class="brand-text">PIXELFORGE<small>INDEPENDENT GAME STUDIO</small></div></div>
   <div class="lobby-actions">
+   <button id="quests-button" class="small-nav-btn" type="button"><span>Q</span><b>QUESTS</b></button>
+   <button id="upgrades-button" class="small-nav-btn" type="button"><span>+</span><b>UPGRADES</b></button>
+   <button id="leaderboard-button" class="small-nav-btn" type="button"><span>W/L</span><b>RECORD</b></button>
    <button id="shop-button" class="shop-open-btn" type="button"><span class="shop-button-icon">S</span><span class="shop-button-label">SHOP</span><b id="shop-coins">350</b></button>
    <button id="help-button" class="icon-btn" aria-label="Show controls" title="Controls">?</button>
    <button id="sound-button" class="icon-btn" aria-label="Toggle sound" title="Sound">♫</button>
    <button id="account-button" class="account-btn" type="button"><img id="account-avatar" src="assets/images/PixelForgelogo.png" alt=""><span><span id="account-name" class="account-name">GUEST PLAYER</span><span id="account-caption" class="account-caption">PLAYING AS GUEST</span></span></button>
   </div>
  </header>
+ <div id="cg-banner-container" class="cg-banner-slot" aria-label="Advertisement"></div>
  <div class="lobby-copy">
-  <div class="eyebrow"><span class="eyebrow-dot"></span> THE ARENA IS YOURS</div>
+  <div class="eyebrow"><span class="eyebrow-dot"></span> THE FIGHT FOR THE TOP STARTS HERE</div>
   <h1 id="lobby-title">STICKMAN <span>SHOWDOWN<span class="title-accent">.</span></span></h1>
-  <p>Learn your timing. Land clean hits. Own the arena.</p>
-  <div class="hero-tags"><span>01&nbsp; / &nbsp;QUICK FIGHTS</span><span>LOCAL MULTIPLAYER</span></div>
+  <p>Read your opponent. Manage your stamina. Earn your place.</p>
+  <div class="hero-tags"><span>12 FIGHTERS</span><span>4 VENUES</span><span>NO FREE WINS</span></div>
+  <div class="career-panel">
+   <div class="career-panel-top"><span>YOUR CAREER</span><b id="career-rank">BACKSTREET ROOKIE</b></div>
+   <div class="career-next"><div><small>NEXT OPPONENT</small><b id="career-opponent">THE ALLEY KID</b><span id="career-class">ALL-ROUNDER · BALANCED</span></div><div class="career-stage" id="career-stage">BACK ALLEY</div></div>
+   <div class="career-progress"><i id="career-progress-fill"></i></div>
+   <div class="career-bottom"><span id="career-fight">FIGHT 01 / 12</span><span>W <b id="career-wins">0</b> &nbsp; L <b id="career-losses">0</b></span></div>
+  </div>
  </div>
  <div class="hidden" aria-hidden="true"><span id="wins-stat">0</span><span id="matches-stat">0</span><span id="combo-stat">0</span><span id="daily-streak">0</span><span id="daily-text"></span><span id="daily-count"></span><i id="daily-progress"></i></div>
  <div class="lobby-bottom">
@@ -211,9 +272,9 @@ window.__pfSDKReady = new Promise(resolve => {
 </section>
 <canvas id="game-canvas" aria-label="Stickman fighting arena"></canvas>
 <section id="fight-hud" aria-label="Fight status">
- <div class="hud-side left"><div class="hud-name-row"><div><div id="player1-name" class="hud-name">PLAYER ONE</div><div class="hud-sub">BLUE CORNER</div></div></div><div class="health-shell"><div id="health1" class="health-fill"></div></div><div id="pips1" class="round-pips"><i></i><i></i></div></div>
+ <div class="hud-side left"><div class="hud-name-row"><div><div id="player1-name" class="hud-name">PLAYER ONE</div><div class="hud-sub">BLUE CORNER</div></div></div><div class="health-shell"><div id="health1" class="health-fill"></div></div><div class="stamina-shell"><div id="stamina1" class="stamina-fill"></div></div><div id="pips1 class="round-pips"><i></i><i></i></div></div>
  <div id="round-center"><div id="round-number">ROUND 1</div><div id="timer">60</div></div>
- <div class="hud-side right"><div class="hud-name-row"><div><div id="player2-name" class="hud-name">CPU FIGHTER</div><div class="hud-sub">ORANGE CORNER</div></div></div><div class="health-shell"><div id="health2" class="health-fill"></div></div><div id="pips2" class="round-pips"><i></i><i></i></div></div>
+ <div class="hud-side right"><div class="hud-name-row"><div><div id="player2-name" class="hud-name">CPU FIGHTER</div><div id="opponent-class" class="hud-sub">ALLEY KID · ALL-ROUNDER</div></div></div><div class="health-shell"><div id="health2" class="health-fill"></div></div><div class="stamina-shell"><div id="stamina2" class="stamina-fill enemy-stamina"></div></div><div id="pips2 class="round-pips"><i></i><i></i></div></div>
  <button id="pause-button" aria-label="Pause fight" title="Pause">Ⅱ</button><div id="callout"></div><div id="fight-hint">A / D MOVE · W JUMP + FLIP · F PUNCH · R KICK · G BLOCK · SHIFT DASH</div>
 </section>
 <section id="pause-screen" class="overlay-screen" aria-label="Paused">
@@ -232,7 +293,7 @@ window.__pfSDKReady = new Promise(resolve => {
 <section id="shop-screen" class="overlay-screen shop-screen" aria-label="Cosmetics shop">
  <div class="shop-window">
   <header class="shop-heading"><div><div class="shop-eyebrow">FIGHTER CUSTOMIZATION</div><h2>THE LOCKER</h2><p>Make your fighter yours. Buy with coins earned from fights.</p></div><div class="shop-wallet"><span>●</span><b id="shop-balance">350</b><small>COINS</small></div></header>
-  <div class="shop-filter-row"><button class="shop-filter selected" data-shop-filter="all">ALL ITEMS</button><button class="shop-filter" data-shop-filter="head">HEADGEAR</button><button class="shop-filter" data-shop-filter="face">FACE</button><button class="shop-filter" data-shop-filter="aura">AURAS</button></div>
+  <div class="shop-filter-row"><button class="shop-filter selected" data-shop-filter="all">ALL ITEMS</button><button class="shop-filter" data-shop-filter="head">HEADGEAR</button><button class="shop-filter" data-shop-filter="face">FACE</button><button class="shop-filter" data-shop-filter="aura">AURAS</button><button class="shop-filter" data-shop-filter="gear">GEAR</button><button class="shop-filter" data-shop-filter="paid">COIN PACKS</button></div>
   <div id="shop-grid" class="shop-grid"></div><footer class="shop-footer"><span>Items are cosmetic only — no gameplay advantage.</span><button id="shop-close" class="secondary">BACK TO LOBBY</button></footer>
  </div>
 </section>
@@ -240,13 +301,36 @@ window.__pfSDKReady = new Promise(resolve => {
  <div class="mobile-group"><button data-mobile="left" aria-label="Move left">◀</button><button data-mobile="right" aria-label="Move right">▶</button><button data-mobile="jump" aria-label="Jump">↑</button></div>
  <div class="mobile-group"><button data-mobile="punch" aria-label="Punch">J</button><button data-mobile="kick" aria-label="Kick">K</button><button data-mobile="block" aria-label="Block">G</button><button data-mobile="dash" aria-label="Dash">»</button></div>
 </div>
+<section id="upgrades-screen" class="overlay-screen system-screen" aria-label="Fighter upgrades">
+ <div class="system-window">
+  <header class="system-heading"><div><div class="system-eyebrow">TRAINING ROOM</div><h2>FIGHTER UPGRADES</h2><p>Small, capped boosts. No stat can be pushed past level 3.</p></div><div class="system-wallet"><b id="upgrade-coins">350</b><small>COINS AVAILABLE</small></div></header>
+  <div id="upgrade-grid" class="upgrade-grid"></div>
+  <footer class="system-footer"><span>Upgrades apply at the start of your next fight.</span><button id="upgrades-close" class="secondary">BACK TO LOBBY</button></footer>
+ </div>
+</section>
+<section id="quests-screen" class="overlay-screen system-screen" aria-label="Quests and challenges">
+ <div class="system-window quest-window">
+  <header class="system-heading"><div><div class="system-eyebrow">KEEP THE RUN GOING</div><h2>QUEST LOG</h2><p>Finish challenges for coins. Daily progress resets each UTC day.</p></div><div class="system-wallet"><b id="quest-coins">350</b><small>COINS</small></div></header>
+  <div class="quest-columns"><section><div class="list-title">DAILY CHALLENGES</div><div id="daily-quest-list" class="quest-list"></div></section><section><div class="list-title">CAREER MILESTONES</div><div id="career-quest-list" class="quest-list"></div></section></div>
+  <footer class="system-footer"><span>Progress saves to your player profile.</span><button id="quests-close" class="secondary">BACK TO LOBBY</button></footer>
+ </div>
+</section>
+<section id="leaderboard-screen" class="overlay-screen system-screen" aria-label="Career record and leaderboard">
+ <div class="system-window record-window">
+  <header class="system-heading"><div><div class="system-eyebrow">YOUR FIGHT HISTORY</div><h2>CAREER RECORD</h2><p>Every match counts. Get better, climb venues, beat the next challenger.</p></div><div class="record-mark">W/L</div></header>
+  <div class="record-stats"><div><small>WINS</small><b id="record-wins">0</b></div><div><small>DEFEATS</small><b id="record-losses">0</b></div><div><small>WIN RATE</small><b id="record-rate">0%</b></div><div><small>RANK</small><b id="record-rank">ROOKIE</b></div></div>
+  <div class="global-board-note"><div class="global-dot"></div><div><b>CRAZYGAMES GLOBAL LEADERBOARD</b><p id="leaderboard-status">Global score submission is waiting for the leaderboard key from your CrazyGames Developer Portal. The board ranks career wins; your defeats stay visible in your record.</p></div></div>
+  <div class="system-actions"><button id="leaderboard-submit" class="primary">SUBMIT CAREER WINS</button><button id="leaderboard-close" class="secondary">BACK TO LOBBY</button></div>
+  <p class="system-fineprint">CrazyGames currently supports one leaderboard per game. Configure and enable it in the Developer Portal before global scores can appear.</p>
+ </div>
+</section>
 <div id="toast" role="status" aria-live="polite"></div>
 <script id="game-code">
 (function(){
 "use strict";
 const $=id=>document.getElementById(id),asset="assets/images/";
-const img={logo:new Image(),mainLogo:new Image(),lobby:new Image(),arena:new Image(),loading:new Image()};
-img.logo.src=asset+"PixelForgelogo.png";img.mainLogo.src=asset+"MainLogo.jpg";img.lobby.src=asset+"LobbyBg.jpg";img.arena.src=asset+"ArenaBg.jpg";img.loading.src=asset+"LoadingScreen.jpg";
+const img={logo:new Image(),mainLogo:new Image(),lobby:new Image(),arena:new Image(),alley:new Image(),parking:new Image(),pro:new Image(),loading:new Image()};
+img.logo.src=asset+"PixelForgelogo.png";img.mainLogo.src=asset+"MainLogo.jpg";img.lobby.src=asset+"LobbyBg.jpg";img.arena.src=asset+"ArenaBg.jpg";img.alley.src=asset+"Alleywaybg.jpg";img.parking.src=asset+"parkinglotbg.jpg";img.pro.src=asset+"probg.jpg";img.loading.src=asset+"LoadingScreen.jpg";
 const app={scene:"boot",mode:"cpu",difficulty:"normal",sdkReady:false,user:null,accountAvailable:false,data:null,audio:true,profile:{wins:0,matches:0,losses:0,bestCombo:0,coins:350,ownedCosmetics:["default"],equippedCosmetic:"default",dailyDay:0,dailyType:0,dailyProgress:0,dailyClaimed:false,dailyStreak:0},round:1,score:[0,0],toWin:2,clock:60,elapsed:0,shake:0,hitStop:0,combo:[0,0],comboTime:[0,0],transitionGoal:null,toastTimer:0,running:false,matchOver:false,started:false};
 const gameCanvas=$("game-canvas");let gameCtx=gameCanvas.getContext("2d");
 const preview=$("lobby-preview");let previewCtx=preview.getContext("2d");
@@ -556,7 +640,7 @@ document.addEventListener("pointerdown",()=>{audioUnlocked=true;if(app.scene==="
 document.addEventListener("click",e=>{if(e.target&&e.target.closest&&e.target.closest("button")){audioUnlocked=true;playSample("button");if(app.scene==="lobby")startMenuMusic()}},true);
 async function boot(){
  $("boot").classList.add("active");setScene("boot");
- let loaded=0;const tasks=[img.logo,img.mainLogo,img.lobby,img.arena,img.loading];
+ let loaded=0;const tasks=[img.logo,img.mainLogo,img.lobby,img.arena,img.alley,img.parking,img.pro,img.loading];
  const assetPromise=Promise.all(tasks.map(i=>new Promise(resolve=>{if(i.complete){loaded++;bootProgress();resolve();return}const done=()=>{loaded++;bootProgress();resolve()};i.addEventListener("load",done,{once:true});i.addEventListener("error",done,{once:true})})));
  const sdkPromise=initSDK();
  function bootProgress(){const p=Math.round(loaded/tasks.length*92);$("boot-fill").style.width=p+"%";$("boot-percent").textContent=p+"%"}
@@ -569,6 +653,503 @@ async function transition(label,goal){
 function startMatch(){app.matchOver=false;app.score=[0,0];transition("LOADING THE ARENA","start")}
 function nextRound(){if(app.matchOver){app.score=[0,0];app.matchOver=false;transition("RESETTING THE ARENA","start")}else transition("NEXT ROUND","round")}
 function home(){app.running=false;keys.clear();pressed.clear();mobile.clear();gameCall("gameplayStop");$("transition").classList.remove("active");setScene("lobby");renderStats()}
+
+/* === PixelForge career fighting-game systems === */
+SHOP_ITEMS.push(
+ {id:"beanie",title:"OLD SCHOOL BEANIE",category:"head",type:"Headwear",cost:105,glyph:"⌒",tone:"ember",description:"A worn street beanie."},
+ {id:"street-cap",title:"STREET CAP",category:"head",type:"Headwear",cost:135,glyph:"⌐",tone:"plain",description:"Low-key streetwear."},
+ {id:"red-bandana",title:"RED BANDANA",category:"head",type:"Headwear",cost:155,glyph:"〰",tone:"ember",description:"A classic fight-night bandana."},
+ {id:"scar",title:"OLD SCAR",category:"face",type:"Face detail",cost:90,glyph:"╱",tone:"ember",description:"A small mark earned the hard way."},
+ {id:"round-shades",title:"ROUND SHADES",category:"face",type:"Eyewear",cost:125,glyph:"◉",tone:"shades",description:"Retro lenses."},
+ {id:"gold-wraps",title:"GOLD WRAPS",category:"gear",type:"Hand wraps",cost:190,glyph:"≋",tone:"gold",description:"Gold-trimmed wrist wraps."},
+ {id:"blue-wraps",title:"BLUE WRAPS",category:"gear",type:"Hand wraps",cost:110,glyph:"≋",tone:"visor",description:"Cyan blue wrist wraps."},
+ {id:"static-aura",title:"STATIC FIELD",category:"aura",type:"Aura",cost:310,glyph:"✳",tone:"plasma",description:"A tight electric outline."},
+ {id:"dust-aura",title:"DUST TRAIL",category:"aura",type:"Aura",cost:230,glyph:"·",tone:"ember-aura",description:"A muted dust-coloured aura."}
+);
+const PF_OPPONENTS=[
+ {name:"THE ALLEY KID",style:"balanced",className:"ALL-ROUNDER",note:"A straightforward opener.",venue:0,stats:{health:1,stamina:1,reach:1,speed:1,damage:1,cooldown:1}},
+ {name:"QUICKSTEP",style:"speedster",className:"SPEEDSTER",note:"Fast feet, light hits, quick recovery.",venue:0,stats:{health:.88,stamina:.95,reach:.88,speed:1.22,damage:.76,cooldown:.72}},
+ {name:"BIG MICK",style:"slugger",className:"SLUGGER",note:"Long reach and heavy hits, but slow wind-ups.",venue:0,stats:{health:1.12,stamina:1.03,reach:1.22,speed:.78,damage:1.32,cooldown:1.28}},
+ {name:"LOT ENFORCER",style:"bruiser",className:"BRUISER",note:"High health and steady pressure.",venue:1,stats:{health:1.28,stamina:1.15,reach:1.05,speed:.78,damage:1.12,cooldown:1.12}},
+ {name:"THE BLUR",style:"speedster",className:"SPEEDSTER",note:"Moves fast and chains quick light attacks.",venue:1,stats:{health:.91,stamina:1.04,reach:.92,speed:1.28,damage:.78,cooldown:.68}},
+ {name:"COUNTERWEIGHT",style:"counter",className:"COUNTER FIGHTER",note:"Waits for your mistake, then punishes it.",venue:1,stats:{health:1.04,stamina:1.12,reach:1.03,speed:.96,damage:1.05,cooldown:.94}},
+ {name:"THE PROSPECT",style:"balanced",className:"TECHNICAL",note:"A patient fighter with no obvious weakness.",venue:2,stats:{health:1.08,stamina:1.16,reach:1.06,speed:1.01,damage:1.05,cooldown:.94}},
+ {name:"LONG ARM",style:"slugger",className:"LONG-REACH SLUGGER",note:"Controls space with slower, longer attacks.",venue:2,stats:{health:1.13,stamina:1.05,reach:1.3,speed:.83,damage:1.27,cooldown:1.2}},
+ {name:"THE MAIN EVENT",style:"counter",className:"CHAMPION",note:"Defends well, then looks for punish windows.",venue:2,stats:{health:1.19,stamina:1.22,reach:1.08,speed:1.02,damage:1.16,cooldown:.88}},
+ {name:"MOONSHOT",style:"speedster",className:"LUNAR SPEEDSTER",note:"Quick movement and attacks; lower damage.",venue:3,stats:{health:1,stamina:1.14,reach:.95,speed:1.3,damage:.82,cooldown:.65}},
+ {name:"LUNAR GUARD",style:"bruiser",className:"HEAVY GUARD",note:"Durable and tough to move. Do not waste stamina.",venue:3,stats:{health:1.4,stamina:1.25,reach:1.12,speed:.83,damage:1.2,cooldown:1.13}},
+ {name:"ORBIT KING",style:"legend",className:"FINAL CHAMPION",note:"The final test of timing, stamina and patience.",venue:3,stats:{health:1.3,stamina:1.35,reach:1.18,speed:1.08,damage:1.17,cooldown:.85}}
+];
+const PF_VENUES=[
+ {name:"BACK ALLEY",kind:"alley"},
+ {name:"PARKING LOT",kind:"parking"},
+ {name:"PRO RING",kind:"pro"},
+ {name:"MOON ARENA",kind:"moon"}
+];
+const PF_RANKS=["BACKSTREET ROOKIE","ALLEY CONTENDER","PARKING LOT PROSPECT","PRO CIRCUIT CONTENDER","LUNAR CHAMPION"];
+const PF_DAILY=[
+ {id:"hits",title:"LAND 12 CLEAN HITS",desc:"Connect with 12 attacks in fights.",key:"hits",target:12,reward:70},
+ {id:"dashes",title:"USE 6 DASHES",desc:"Use the dash to enter or leave range.",key:"dashes",target:6,reward:55},
+ {id:"wins",title:"WIN A MATCH",desc:"Take a best-of-three match against the CPU.",key:"wins",target:1,reward:100}
+];
+const PF_CAREER_QUESTS=[
+ {id:"first-win",title:"FIRST WIN",desc:"Win your first match.",key:"wins",target:1,reward:80},
+ {id:"five-wins",title:"REGULAR",desc:"Win 5 career matches.",key:"wins",target:5,reward:180},
+ {id:"hits-100",title:"FIND YOUR RANGE",desc:"Land 100 clean hits.",key:"hits",target:100,reward:140},
+ {id:"dashes-25",title:"MOVE SMART",desc:"Use 25 dashes.",key:"dashes",target:25,reward:130},
+ {id:"three-styles",title:"COLLECTOR",desc:"Own 3 different cosmetics.",key:"cosmetics",target:3,reward:150},
+ {id:"climb-venues",title:"ROAD TO THE TOP",desc:"Beat 6 CPU opponents.",key:"career",target:6,reward:220}
+];
+// These are intentionally blank until CrazyGames enables the relevant features and provides project settings.
+const CG_LEADERBOARD_ENCRYPTION_KEY="";
+const CG_IAP_CONFIG={enabled:false,xsollaProjectId:"",skus:{small:"",medium:"",large:""}};
+let pfBannerRequested=false;
+function pfCareerIndex(){return clamp(Math.floor(Number(app.profile.careerIndex)||0),0,PF_OPPONENTS.length-1)}
+function pfOpponent(){return PF_OPPONENTS[pfCareerIndex()]}
+function pfVenue(){return PF_VENUES[pfOpponent().venue]}
+function pfRank(){const n=Number(app.profile.careerIndex)||0;return n>=9?"LUNAR CHAMPION":n>=6?"PRO CIRCUIT CONTENDER":n>=3?"PARKING LOT PROSPECT":n>=1?"ALLEY CONTENDER":"BACKSTREET ROOKIE"}
+function pfNormalizeProfile(){
+ const p=app.profile;
+ p.coins=Math.max(0,Number(p.coins===undefined?350:p.coins)||0);
+ p.careerIndex=clamp(Math.floor(Number(p.careerIndex)||0),0,PF_OPPONENTS.length);
+ p.campaignComplete=!!p.campaignComplete||p.careerIndex>=PF_OPPONENTS.length;
+ p.careerIndex=clamp(p.careerIndex,0,PF_OPPONENTS.length);
+ p.upgrades=Object.assign({reach:0,speed:0,stamina:0,health:0,strength:0},p.upgrades||{});
+ Object.keys(p.upgrades).forEach(k=>p.upgrades[k]=clamp(Math.floor(Number(p.upgrades[k])||0),0,3));
+ p.totalHits=Math.max(0,Number(p.totalHits)||0);p.totalDashes=Math.max(0,Number(p.totalDashes)||0);
+ p.dailyQuestDay=Number(p.dailyQuestDay)||0;p.dailyQuestProgress=Object.assign({hits:0,dashes:0,wins:0},p.dailyQuestProgress||{});
+ p.dailyQuestClaimed=Object.assign({},p.dailyQuestClaimed||{});
+ p.careerQuestClaims=Array.isArray(p.careerQuestClaims)?p.careerQuestClaims:[];
+ p.ownedCosmetics=Array.isArray(p.ownedCosmetics)?p.ownedCosmetics.filter(id=>SHOP_ITEMS.some(item=>item.id===id)):["default"];
+ if(!p.ownedCosmetics.includes("default"))p.ownedCosmetics.unshift("default");
+ p.equippedCosmetics=Object.assign({head:"default",face:"",aura:"",gear:""},p.equippedCosmetics||{});
+ if(p.equippedCosmetic){
+  const oldItem=SHOP_ITEMS.find(item=>item.id===p.equippedCosmetic);
+  if(oldItem&&p.ownedCosmetics.includes(oldItem.id))p.equippedCosmetics[oldItem.category]=oldItem.id;
+ }
+ ["head","face","aura","gear"].forEach(slot=>{
+  const chosen=SHOP_ITEMS.find(item=>item.id===p.equippedCosmetics[slot]);
+  if(!chosen||chosen.category!==slot||!p.ownedCosmetics.includes(chosen.id))p.equippedCosmetics[slot]=slot==="head"?"default":"";
+ });
+ p.equippedCosmetic=p.equippedCosmetics.head||"default";
+ const today=Math.floor(Date.now()/86400000);
+ if(p.dailyQuestDay!==today){p.dailyQuestDay=today;p.dailyQuestProgress={hits:0,dashes:0,wins:0};p.dailyQuestClaimed={}}
+ PF_DAILY.forEach(q=>p.dailyQuestProgress[q.key]=clamp(Number(p.dailyQuestProgress[q.key])||0,0,q.target));
+}
+const pfBaseLoadProfile=loadProfile;
+loadProfile=function(){pfBaseLoadProfile();pfNormalizeProfile();pfRenderCareer();pfRenderQuests();pfRenderUpgrades();pfRenderRecord()};
+const pfBaseSaveProfile=saveProfile;
+saveProfile=function(){pfNormalizeProfile();pfBaseSaveProfile();pfRenderCareer();if($("upgrades-screen"))pfRenderUpgrades();if($("quests-screen"))pfRenderQuests();if($("leaderboard-screen"))pfRenderRecord()};
+const pfBaseBumpDaily=bumpDaily;
+function pfQuestValue(q){
+ const p=app.profile;
+ if(q.key==="hits")return p.totalHits||0;
+ if(q.key==="dashes")return p.totalDashes||0;
+ if(q.key==="wins")return p.wins||0;
+ if(q.key==="cosmetics")return (p.ownedCosmetics||[]).length;
+ if(q.key==="career")return Math.min(p.careerIndex||0,PF_OPPONENTS.length);
+ return 0;
+}
+function pfCheckCareerQuests(){
+ let earned=0;const p=app.profile;
+ PF_CAREER_QUESTS.forEach(q=>{if(!p.careerQuestClaims.includes(q.id)&&pfQuestValue(q)>=q.target){p.careerQuestClaims.push(q.id);p.coins+=q.reward;earned+=q.reward}});
+ if(earned)toast("Career milestone complete: +"+earned+" coins.");
+}
+bumpDaily=function(key,amount){
+ const p=app.profile,inc=Math.max(1,Number(amount)||1);
+ pfNormalizeProfile();
+ if(key==="hits")p.totalHits=(Number(p.totalHits)||0)+inc;
+ if(key==="dashes")p.totalDashes=(Number(p.totalDashes)||0)+inc;
+ if(Object.prototype.hasOwnProperty.call(p.dailyQuestProgress,key)){
+  const quest=PF_DAILY.find(q=>q.key===key);
+  if(quest&&!p.dailyQuestClaimed[key]){
+   p.dailyQuestProgress[key]=Math.min(quest.target,(Number(p.dailyQuestProgress[key])||0)+inc);
+   if(p.dailyQuestProgress[key]>=quest.target){p.dailyQuestClaimed[key]=true;p.coins+=quest.reward;toast("Daily quest complete: +"+quest.reward+" coins.");}
+  }
+ }
+ pfCheckCareerQuests();
+ try{pfBaseBumpDaily(key,inc)}catch(e){}
+ if($("quests-screen")&&$("quests-screen").classList.contains("active"))pfRenderQuests();
+};
+function pfCareerStats(side){
+ const p=app.profile,u=p.upgrades||{};
+ if(side===0)return{
+  maxHp:100+8*(u.health||0),
+  maxStamina:100+14*(u.stamina||0),
+  staminaRegen:13+(u.stamina||0)*1.5,
+  reachMultiplier:1+(u.reach||0)*.075,
+  baseSpeedMultiplier:1+(u.speed||0)*.05,
+  damageMultiplier:1+(u.strength||0)*.065,
+  attackCooldownMultiplier:1,
+  style:"player"
+ };
+ const enemy=(app.mode==="cpu"?pfOpponent():null),st=enemy?enemy.stats:{health:1,stamina:1,reach:1,speed:1,damage:1,cooldown:1};
+ return{
+  maxHp:100*(st.health||1),maxStamina:100*(st.stamina||1),
+  staminaRegen:13*(st.stamina||1),reachMultiplier:st.reach||1,
+  baseSpeedMultiplier:st.speed||1,damageMultiplier:st.damage||1,
+  attackCooldownMultiplier:st.cooldown||1,style:enemy?enemy.style:"balanced"
+ };
+}
+const pfBaseSpawnFighter=spawnFighter;
+spawnFighter=function(side,x){
+ const f=pfBaseSpawnFighter(side,x),stats=pfCareerStats(side);
+ f.maxHp=stats.maxHp;f.hp=stats.maxHp;f.maxStamina=stats.maxStamina;f.stamina=stats.maxStamina;f.staminaRegen=stats.staminaRegen;
+ f.reachMultiplier=stats.reachMultiplier;f.baseSpeedMultiplier=stats.baseSpeedMultiplier;f.speedMultiplier=stats.baseSpeedMultiplier;
+ f.damageMultiplier=stats.damageMultiplier;f.attackCooldownMultiplier=stats.attackCooldownMultiplier;f.aiStyle=stats.style;
+ f.staminaDelay=0;f.attackPower=1;f.exhaustedFlash=0;
+ return f;
+};
+const pfBaseResetActors=resetActors;
+resetActors=function(){pfBaseResetActors();pfSyncHud();};
+syncHud=function(){
+ if(!actors.length)return;
+ $("health1").style.width=clamp(actors[0].hp/actors[0].maxHp*100,0,100)+"%";
+ $("health2").style.width=clamp(actors[1].hp/actors[1].maxHp*100,0,100)+"%";
+ $("stamina1").style.width=clamp(actors[0].stamina/actors[0].maxStamina*100,0,100)+"%";
+ $("stamina2").style.width=clamp(actors[1].stamina/actors[1].maxStamina*100,0,100)+"%";
+ $("round-number").textContent="ROUND "+app.round;$("timer").textContent=Math.ceil(Math.max(0,app.clock));$("timer").classList.toggle("low",app.clock<10);
+ const enemy=pfOpponent();$("player2-name").textContent=app.mode==="local"?"PLAYER TWO":enemy.name;$("opponent-class").textContent=app.mode==="local"?"LOCAL PLAYER":enemy.className+" · "+pfVenue().name;
+ for(let side=0;side<2;side++)Array.from($("pips"+(side+1)).children).forEach((p,i)=>p.classList.toggle("on",app.score[side]>i));
+};
+function pfRenderCareer(){
+ if(!$("career-rank"))return;
+ const p=app.profile,idx=pfCareerIndex(),enemy=PF_OPPONENTS[idx],venue=PF_VENUES[enemy.venue];
+ $("career-rank").textContent=pfRank();$("career-opponent").textContent=p.campaignComplete?"ORBIT KING · REMATCH":enemy.name;
+ $("career-class").textContent=p.campaignComplete?"CAMPAIGN COMPLETE":enemy.className+" · "+enemy.note;
+ $("career-stage").textContent=venue.name;$("career-fight").textContent="FIGHT "+String(Math.min(idx+1,PF_OPPONENTS.length)).padStart(2,"0")+" / "+PF_OPPONENTS.length;
+ $("career-progress-fill").style.width=(idx/PF_OPPONENTS.length*100)+"%";
+ $("career-wins").textContent=p.wins||0;$("career-losses").textContent=p.losses||0;
+}
+function pfRenderRecord(){
+ if(!$("record-wins"))return;
+ const p=app.profile,m=Math.max(0,(p.matches||0)),wins=Math.max(0,p.wins||0),losses=Math.max(0,p.losses||0);
+ $("record-wins").textContent=wins;$("record-losses").textContent=losses;$("record-rate").textContent=m?Math.round(wins/m*100)+"%":"—";$("record-rank").textContent=pfRank().replace("BACKSTREET ","").replace(" CONTENDER","").replace(" PROSPECT","").replace(" LUNAR","").replace(" CIRCUIT","");
+ const configured=!!CG_LEADERBOARD_ENCRYPTION_KEY;
+ $("leaderboard-status").textContent=configured?
+  "Career wins are ready to submit through the CrazyGames SDK when the leaderboard is enabled in your Developer Portal.":
+  "Global score submission is waiting for the encryption key from your CrazyGames Developer Portal. The board ranks career wins; defeats are shown in this record.";
+}
+function pfQuestCard(q,current,claimed){
+ const pct=Math.min(100,current/q.target*100),done=claimed||current>=q.target;
+ return '<article class="quest-card '+(done?"done":"")+'"><div class="quest-card-top"><b>'+q.title+'</b><span>'+(done?"COMPLETE":"+"+q.reward+" COINS")+'</span></div><p>'+q.desc+'</p><div class="quest-progress"><i style="width:'+pct+'%"></i></div><p>'+Math.min(q.target,current)+' / '+q.target+'</p></article>';
+}
+function pfRenderQuests(){
+ if(!$("daily-quest-list")||!app.profile.dailyQuestProgress)return;
+ const p=app.profile;
+ $("daily-quest-list").innerHTML=PF_DAILY.map(q=>pfQuestCard(q,p.dailyQuestProgress[q.key]||0,!!p.dailyQuestClaimed[q.key])).join("");
+ $("career-quest-list").innerHTML=PF_CAREER_QUESTS.map(q=>pfQuestCard(q,pfQuestValue(q),p.careerQuestClaims.includes(q.id))).join("");
+ $("quest-coins").textContent=(p.coins||0).toLocaleString();
+}
+const PF_UPGRADES=[
+ {id:"reach",name:"REACH",glyph:"↗",desc:"Slightly extends punch and kick range.",cost:120},
+ {id:"speed",name:"FOOTWORK",glyph:"⇄",desc:"Move and reposition a little faster.",cost:145},
+ {id:"stamina",name:"STAMINA",glyph:"◌",desc:"Raises stamina capacity and recovery.",cost:125},
+ {id:"health",name:"TOUGHNESS",glyph:"+",desc:"Raises maximum health, with a strict cap.",cost:165},
+ {id:"strength",name:"STRENGTH",glyph:"✳",desc:"Improves clean-hit damage by a small amount.",cost:180}
+];
+function pfRenderUpgrades(){
+ if(!$("upgrade-grid"))return;const p=app.profile;
+ $("upgrade-coins").textContent=(p.coins||0).toLocaleString();
+ $("upgrade-grid").innerHTML=PF_UPGRADES.map(q=>{
+  const level=p.upgrades[q.id]||0,cost=q.cost*(level+1);
+  const bars=[0,1,2].map(i=>'<i class="'+(i<level?"on":"")+'"></i>').join("");
+  return '<article class="upgrade-card"><div class="upgrade-glyph">'+q.glyph+'</div><h3>'+q.name+'</h3><p>'+q.desc+'</p><div class="upgrade-levels">'+bars+'</div><button data-upgrade="'+q.id+'" '+(level>=3||p.coins<cost?'disabled':'')+'>'+(level>=3?"MAX LEVEL":"LEVEL "+level+" → "+(level+1)+" · "+cost+" COINS")+'</button></article>';
+ }).join("");
+}
+function pfBuyUpgrade(id){
+ const item=PF_UPGRADES.find(q=>q.id===id);if(!item)return;
+ const p=app.profile,level=p.upgrades[id]||0,cost=item.cost*(level+1);
+ if(level>=3){toast("That upgrade is already capped.");return}
+ if(p.coins<cost){toast("Not enough coins for that upgrade yet.");return}
+ p.coins-=cost;p.upgrades[id]=level+1;saveProfile();pfRenderUpgrades();toast(item.name+" upgraded to level "+(level+1)+".");
+}
+function pfRenderShop(){
+ if(!$("shop-grid"))return;renderWallet();
+ if(shopFilter==="paid"){
+  $("shop-grid").innerHTML='<article class="shop-item"><div class="shop-item-preview tone-gold"><span class="cosmetic-glyph">+</span><small>REAL MONEY</small></div><div class="shop-item-copy"><b>COIN PACKS</b><p>CrazyGames/Xsolla checkout is invite-only. No real-money checkout is enabled until your project and item SKUs are configured.</p></div><button class="shop-item-action" data-iap-pack="small" disabled>NOT ENABLED</button></article><article class="shop-item"><div class="shop-item-preview tone-plasma"><span class="cosmetic-glyph">++</span><small>REAL MONEY</small></div><div class="shop-item-copy"><b>SUPPORTER PACK</b><p>Will be connected to your CrazyGames account after the Xsolla store is approved and configured.</p></div><button class="shop-item-action" data-iap-pack="medium" disabled>NOT ENABLED</button></article>';
+  return;
+ }
+ const owned=app.profile.ownedCosmetics||["default"],equipped=app.profile.equippedCosmetics||{head:"default"};
+ const items=SHOP_ITEMS.filter(item=>item.category!=="paid"&&(shopFilter==="all"||item.category===shopFilter));
+ $("shop-grid").innerHTML=items.map(item=>{
+  const has=owned.includes(item.id),isEquipped=equipped[item.category]===item.id;
+  const label=isEquipped?"EQUIPPED":has?"EQUIP":item.cost===0?"FREE":"BUY · "+item.cost;
+  return '<article class="shop-item '+(isEquipped?"is-equipped":"")+'"><div class="shop-item-preview tone-'+item.tone+'"><span class="cosmetic-glyph">'+item.glyph+'</span><small>'+item.type+'</small></div><div class="shop-item-copy"><b>'+item.title+'</b><p>'+item.description+'</p></div><button class="shop-item-action '+(isEquipped?"equipped":"")+'" data-shop-item="'+item.id+'" '+(isEquipped?'disabled':'')+'>'+label+'</button></article>';
+ }).join("");
+}
+renderShop=pfRenderShop;
+useShopItem=function(id){
+ const item=SHOP_ITEMS.find(q=>q.id===id);if(!item)return;
+ const p=app.profile;if(!p.ownedCosmetics.includes(id)){
+  if(p.coins<item.cost){toast("Not enough coins yet. Win fights and complete quests to earn more.");return}
+  p.coins-=item.cost;p.ownedCosmetics.push(id);
+ }
+ p.equippedCosmetics[item.category]=id;p.equippedCosmetic=item.id;
+ pfCheckCareerQuests();saveProfile();pfRenderShop();toast(item.title+" equipped.");
+};
+drawCosmeticOverlay=function(c,f,s,previewMode,yaw){
+ const equipped=app.profile.equippedCosmetics||{head:"default"},p=equipped;
+ // Slightly nudge all worn items left so they sit over the head, not to its right.
+ c.save();c.translate(f.x-4*s,f.y);c.scale(s*f.face,s);
+ const head=p.head||"default",face=p.face||"",aura=p.aura||"",gear=p.gear||"";
+ if(head==="crown"){c.fillStyle="#d5b35f";c.strokeStyle="#5b4823";c.lineWidth=2;c.beginPath();c.moveTo(-14,-101);c.lineTo(-18,-114);c.lineTo(-8,-108);c.lineTo(0,-118);c.lineTo(8,-108);c.lineTo(18,-114);c.lineTo(14,-101);c.closePath();c.fill();c.stroke();c.fillStyle="#f3dfab";c.fillRect(-10,-103,20,2)}
+ if(head==="horns"){c.fillStyle="#b85d48";c.strokeStyle="#492b27";c.lineWidth=2;c.beginPath();c.moveTo(-11,-100);c.lineTo(-19,-115);c.lineTo(-4,-107);c.closePath();c.fill();c.stroke();c.beginPath();c.moveTo(11,-100);c.lineTo(19,-115);c.lineTo(4,-107);c.closePath();c.fill();c.stroke()}
+ if(head==="halo"){c.strokeStyle="#d6bd7c";c.lineWidth=4;c.beginPath();c.ellipse(0,-119,18,5,-.1,0,Math.PI*2);c.stroke()}
+ if(head==="beanie"){c.fillStyle="#6e463b";c.strokeStyle="#211f22";c.lineWidth=2;c.beginPath();c.moveTo(-14,-102);c.lineTo(-12,-112);c.quadraticCurveTo(0,-124,12,-112);c.lineTo(14,-102);c.closePath();c.fill();c.stroke();c.fillStyle="#b58a60";c.fillRect(-14,-105,28,4)}
+ if(head==="street-cap"){c.fillStyle="#354458";c.strokeStyle="#161c26";c.lineWidth=2;c.beginPath();c.moveTo(-15,-102);c.quadraticCurveTo(-13,-117,1,-115);c.quadraticCurveTo(12,-113,13,-102);c.lineTo(18,-99);c.lineTo(1,-98);c.closePath();c.fill();c.stroke()}
+ if(head==="red-bandana"){c.fillStyle="#8e3934";c.strokeStyle="#422321";c.lineWidth=2;c.beginPath();c.moveTo(-13,-100);c.lineTo(-11,-106);c.lineTo(13,-106);c.lineTo(15,-100);c.closePath();c.fill();c.stroke();c.beginPath();c.moveTo(-12,-103);c.lineTo(-20,-98);c.lineTo(-17,-94);c.stroke()}
+ if(face==="shades"||face==="round-shades"){c.fillStyle="#121923";c.strokeStyle="#e4e9ef";c.lineWidth=1.5;if(face==="round-shades"){c.beginPath();c.arc(-8,-88,5.5,0,Math.PI*2);c.arc(7,-88,5.5,0,Math.PI*2);c.fill();c.stroke()}else{c.beginPath();c.roundRect(-16,-92,13,8,2);c.roundRect(3,-92,13,8,2);c.fill();c.stroke()}c.beginPath();c.moveTo(-3,-88);c.lineTo(3,-88);c.stroke()}
+ if(face==="visor"){c.fillStyle="#13232a";c.strokeStyle="#7bcbd4";c.lineWidth=2;c.beginPath();c.roundRect(-16,-94,32,10,3);c.fill();c.stroke()}
+ if(face==="scar"){c.strokeStyle="#bc7464";c.lineWidth=2;c.beginPath();c.moveTo(4,-94);c.lineTo(-1,-85);c.lineTo(4,-79);c.stroke()}
+ if(aura==="plasma"||aura==="static-aura"||aura==="ember"||aura==="dust-aura"){
+  const color=(aura==="ember"||aura==="dust-aura")?"#bd875e":aura==="static-aura"?"#80c7ca":"#74b6c7";
+  c.globalAlpha=.16;c.fillStyle=color;c.beginPath();c.ellipse(0,-55,39,53,0,0,Math.PI*2);c.fill();c.globalAlpha=.72;c.strokeStyle=color;c.lineWidth=1.7;c.beginPath();c.ellipse(0,-55,39+Math.sin(performance.now()*.004)*1.5,53,0,0,Math.PI*2);c.stroke();c.globalAlpha=1;
+ }
+ if(gear==="gold-wraps"||gear==="blue-wraps"){
+  const color=gear==="gold-wraps"?"#d9b15d":"#78bdcf";c.strokeStyle=color;c.lineWidth=4;c.beginPath();c.moveTo(9,-74);c.lineTo(15,-70);c.moveTo(-12,-75);c.lineTo(-18,-70);c.stroke();
+ }
+ c.restore();
+};
+const pfBaseDrawPerson=drawPerson;
+drawPerson=function(c,f,s,previewMode,yaw){
+ // Use the original hand-drawn fighter renderer for every frame. This keeps combat poses, idle frames and equipment in one consistent style.
+ drawVectorPerson(c,f,s,previewMode,yaw);
+ if(f.side===0)drawCosmeticOverlay(c,f,s,previewMode,yaw);
+};
+drawLobby=function(now){
+ previewCtx.clearRect(0,0,W,H);previewTarget=Math.sin(now*.0002)*.13;previewYaw+=(previewTarget-previewYaw)*.045;
+ const s=clamp(H/760,.9,1.48),heroScale=s*1.08,x=W*(W<640?.64:.595),y=H*.81;
+ const g=previewCtx.createRadialGradient(x,y-145*heroScale,1,x,y-100*heroScale,230*heroScale);g.addColorStop(0,"#c5d5ed22");g.addColorStop(1,"#fff0");previewCtx.fillStyle=g;previewCtx.fillRect(0,0,W,H);
+ drawPodium(previewCtx,x,y,heroScale*.93,previewYaw);
+ const fighter={side:0,x,y:y+heroScale,vx:0,vy:0,face:Math.cos(previewYaw)>=0?1:-1,grounded:true,action:"idle",t:0,len:0,type:"punch",hit:false,cool:0,stun:0,guard:0,dash:0,airSpin:0,phase:Math.sin(now*.001)*.04,breath:now*.001,flash:0,squash:0,maxHp:100,hp:100,maxStamina:100,stamina:100,maxStaminaBase:100,reachMultiplier:1};
+ drawPerson(previewCtx,fighter,heroScale,true,previewYaw);
+};
+drawArena=function(){
+ if(app.mode==="cpu"&&pfVenue().kind==="moon"){pfDrawMoonArena();return}
+ const venue=app.mode==="cpu"?pfVenue():PF_VENUES[0];
+ const bg=venue.kind==="parking"?img.parking:venue.kind==="pro"?img.pro:img.alley;
+ cover(gameCtx,bg,W,H,1.02);
+ const g=gameCtx.createLinearGradient(0,0,0,H);g.addColorStop(0,"#04080a20");g.addColorStop(.54,"#06090d22");g.addColorStop(.78,"#080b10a6");g.addColorStop(1,"#05070cdd");gameCtx.fillStyle=g;gameCtx.fillRect(0,0,W,H);
+ gameCtx.strokeStyle="#d2d9e21e";gameCtx.lineWidth=1;gameCtx.beginPath();gameCtx.moveTo(0,floorY+2*scale);gameCtx.lineTo(W,floorY+2*scale);gameCtx.stroke();
+};
+function pfDrawMoonArena(){
+ gameCtx.fillStyle="#07090f";gameCtx.fillRect(0,0,W,H);
+ for(let i=0;i<94;i++){const x=((i*193+47)%997)/997*W,y=((i*317+19)%613)/613*(H*.72);gameCtx.globalAlpha=.25+((i*13)%70)/100;gameCtx.fillStyle=i%6===0?"#d8d9cf":"#a8bbd2";gameCtx.fillRect(x,y,i%9===0?2:1,i%9===0?2:1)}
+ gameCtx.globalAlpha=1;
+ const mx=W*.79,my=H*.18,mr=Math.min(W,H)*.095;gameCtx.fillStyle="#c2c9d1";gameCtx.beginPath();gameCtx.arc(mx,my,mr,0,Math.PI*2);gameCtx.fill();
+ gameCtx.fillStyle="#9ea7b2";[[.77,.12,.17],[.83,.2,.11],[.73,.22,.08],[.79,.28,.07]].forEach(([a,b,r])=>{gameCtx.beginPath();gameCtx.arc(W*a,H*b,mr*r/.095,0,Math.PI*2);gameCtx.fill()});
+ gameCtx.globalAlpha=.95;gameCtx.fillStyle="#23374e";gameCtx.beginPath();gameCtx.arc(W*.07,H*.1,Math.min(W,H)*.043,0,Math.PI*2);gameCtx.fill();gameCtx.globalAlpha=1;
+ const ground=gameCtx.createLinearGradient(0,H*.68,0,H);ground.addColorStop(0,"#4a4d56");ground.addColorStop(.22,"#292d36");ground.addColorStop(1,"#0c0f16");gameCtx.fillStyle=ground;gameCtx.beginPath();gameCtx.moveTo(0,H*.73);gameCtx.lineTo(W*.13,H*.7);gameCtx.lineTo(W*.22,H*.75);gameCtx.lineTo(W*.32,H*.72);gameCtx.lineTo(W*.43,H*.76);gameCtx.lineTo(W*.58,H*.71);gameCtx.lineTo(W*.7,H*.75);gameCtx.lineTo(W*.83,H*.72);gameCtx.lineTo(W,H*.75);gameCtx.lineTo(W,H);gameCtx.lineTo(0,H);gameCtx.closePath();gameCtx.fill();
+ for(let i=0;i<8;i++){const x=((i*149+31)%997)/997*W,y=H*(.79+(i%4)*.045),r=8+(i*17)%21;gameCtx.fillStyle="#777d8755";gameCtx.beginPath();gameCtx.ellipse(x,y,r,r*.35,(i%5)*.3,0,Math.PI*2);gameCtx.fill()}
+ gameCtx.strokeStyle="#c4cbd024";gameCtx.beginPath();gameCtx.moveTo(0,floorY+2*scale);gameCtx.lineTo(W,floorY+2*scale);gameCtx.stroke();
+}
+guard=function(f,on){
+ if(on){if(f.stamina<3||f.stun>0||f.dash>0||["punch","kick","spin"].includes(f.action))return;f.guard=.09;f.action="block";f.t=0;f.len=.12}
+ else if(f.action==="block"){f.guard=0;f.action=f.grounded?"idle":"air";f.t=0}
+};
+const pfBaseHitMove=hitMove;
+hitMove=function(f,type){
+ if(f.stun>0||f.guard>0||f.cool>0||f.dash>0||["punch","kick","spin"].includes(f.action))return;
+ if(!f.grounded&&type==="kick")type="spin";
+ const cost=type==="punch"?16:type==="kick"?25:34;
+ if(f.stamina<cost){f.exhaustedFlash=.16;return}
+ const before=f.stamina/(f.maxStamina||100),oldAction=f.action;
+ pfBaseHitMove(f,type);
+ if(f.action===type&&f.t===0&&oldAction!==type){
+  f.stamina=Math.max(0,f.stamina-cost);f.staminaDelay=.5;
+  f.attackPower=.57+.43*before;
+  f.cool=(f.cool+(1-before)*.42)*(f.attackCooldownMultiplier||1);
+  f.len+=Math.max(0,1-before)*.12;
+ }
+};
+const pfBaseJump=jump;
+jump=function(f){if(f.stamina<10)return;const old=f.action,oldY=f.vy;pfBaseJump(f);if(f.action==="flip"&&old!=="flip"&&f.vy<oldY){f.stamina-=10;f.staminaDelay=.35;f.speedMultiplier=f.baseSpeedMultiplier||1}};
+const pfBaseDash=dash;
+dash=function(f,d){if(f.stamina<22)return;const old=f.dash;pfBaseDash(f,d);if(f.dash>old){f.stamina=Math.max(0,f.stamina-22);f.staminaDelay=.42}};
+const pfBaseUpdateFighter=updateFighter;
+updateFighter=function(f,o,dt,side){
+ f.stamina=Math.max(0,Math.min(f.maxStamina||100,f.stamina===undefined?100:f.stamina));
+ f.staminaDelay=Math.max(0,(f.staminaDelay||0)-dt);
+ if(f.action==="block"||f.guard>0){
+  f.stamina=Math.max(0,f.stamina-21*dt);
+  if(f.stamina<=0){f.guard=0;if(f.action==="block")f.action=f.grounded?"idle":"air"}
+ }else if(f.staminaDelay<=0){
+  f.stamina=Math.min(f.maxStamina||100,f.stamina+(f.staminaRegen||13)*dt*(f.grounded?1:.6));
+ }
+ const staminaRatio=f.stamina/(f.maxStamina||100);
+ f.speedMultiplier=(f.baseSpeedMultiplier||1)*(.78+.22*staminaRatio);
+ pfBaseUpdateFighter(f,o,dt,side);
+ f.vx*=.78+.22*staminaRatio;
+};
+cpu=function(f,o,dt){
+ const dist=Math.abs(o.x-f.x),toward=Math.sign(o.x-f.x)||f.face,style=f.aiStyle||"balanced";
+ f.aiWait-=dt;
+ if(f.aiWait<=0){
+  f.aiWait=style==="speedster"?rnd(.055,.12):style==="counter"?rnd(.12,.22):style==="slugger"?rnd(.16,.29):rnd(.09,.2);
+  const enemyAttacking=["punch","kick","spin"].includes(o.action)&&o.t<.27&&dist<175*scale;
+  if(f.stamina<24)f.aiIntent=dist<145*scale?"retreat":"recover";
+  else if(style==="counter"&&enemyAttacking&&Math.random()<.76)f.aiIntent="block";
+  else if(dist>210*scale)f.aiIntent=Math.random()<(style==="speedster"?.36:.15)?"dash":"approach";
+  else if(enemyAttacking&&Math.random()<(style==="counter"?.72:.33))f.aiIntent="block";
+  else if(Math.random()<(style==="speedster"?.78:style==="slugger"?.52:style==="counter"?.42:.62))f.aiIntent="attack";
+  else f.aiIntent=Math.random()<.5?"approach":"feint";
+  f.hesitate=Math.random()>(style==="speedster"?.97:.91)?rnd(.06,.18):0;
+ }
+ if(f.hesitate>0){f.hesitate-=dt;return}
+ if(f.stun>0)return;
+ if(f.aiIntent==="recover"){guard(f,false);if(dist<180*scale)f.vx-=toward*500*scale*dt}
+ else if(f.aiIntent==="retreat"){guard(f,false);f.vx-=toward*650*scale*dt}
+ else if(f.aiIntent==="approach"){guard(f,false);if(dist>80*scale)f.vx+=toward*(style==="speedster"?1940:style==="slugger"?950:1350)*scale*dt;else if(dist<58*scale)f.vx-=toward*640*scale*dt;if(dist>260*scale&&style==="speedster"&&f.cool<=0&&Math.random()<dt*.5)dash(f,toward)}
+ else if(f.aiIntent==="block"){if(dist<(style==="slugger"?185:155)*scale){guard(f,true);f.vx*=.8}else guard(f,false)}
+ else if(f.aiIntent==="attack"){
+  guard(f,false);
+  const bestReach=(style==="slugger"?135:style==="speedster"?82:116)*scale*(f.reachMultiplier||1);
+  if(dist>bestReach){f.vx+=toward*(style==="speedster"?1500:1000)*scale*dt;if(dist>230*scale&&style!=="slugger"&&Math.random()<dt*.2)jump(f)}
+  else if(f.cool<=0){
+   let type=style==="slugger"?(Math.random()<.78?"kick":"punch"):style==="speedster"?(Math.random()<.83?"punch":"kick"):dist<86*scale?(Math.random()<.73?"punch":"kick"):"kick";
+   if(style==="counter"&&o.action==="block"&&Math.random()<.65)type="kick";
+   if(!f.grounded&&Math.random()<.35)type="spin";
+   hitMove(f,type);
+  }
+ }else{guard(f,false);if(dist<160*scale)f.vx-=toward*400*scale*dt;else if(dist>255*scale&&Math.random()<dt*.12)dash(f,-toward)}
+};
+hitCheck=function(a,b){
+ if(!["punch","kick","spin"].includes(a.action)||a.hit)return;
+ const q=attack[a.action];if(a.t<q.start||a.t>q.end)return;
+ const dx=(b.x-a.x)*a.face,reach=q.reach*scale*(a.reachMultiplier||1);
+ if(dx<10*scale||dx>reach||Math.abs((a.y-b.y)/scale)>96||b.hp<=0)return;
+ a.hit=true;const blocked=b.guard>0&&b.grounded;
+ const fatigue=clamp(a.attackPower===undefined?1:a.attackPower,.48,1);
+ const dmg=blocked?q.dmg*.14:q.dmg*(a.damageMultiplier||1)*fatigue;
+ b.hp=Math.max(0,b.hp-dmg);b.flash=blocked?.07:.16;b.stun=blocked?.07:q.stun;
+ b.vx+=a.face*(blocked?85:q.knock)*scale;if(!blocked)b.vy=Math.min(b.vy,-(a.action==="kick"?160:95)*scale);
+ b.action=blocked?"block":"hit";b.t=0;b.len=blocked?.1:.21;b.guard=blocked?b.guard:0;b.staminaDelay=Math.max(b.staminaDelay||0,.24);
+ app.combo[a.side]++;app.comboTime[a.side]=1.05;app.profile.bestCombo=Math.max(app.profile.bestCombo,app.combo[a.side]);
+ if(a.side===0)bumpDaily("hits",1);
+ app.hitStop=blocked?.018:.035;app.shake=Math.max(app.shake,blocked?1.4:q.shake*.62);
+ const color=blocked?"#d9e0e8":a.side===0?"#a8cbd4":"#cfaa81";
+ burst(a.x+a.face*dx*.66,a.y-68*scale,color,blocked?3:7,(blocked?150:240)*scale,.22);
+ textPop(b.x,b.y-111*scale,blocked?"BLOCK":a.action==="kick"?"CLEAN HIT":a.action==="spin"?"AIR HIT":"HIT",color,blocked?15*scale:20*scale);
+ if(app.combo[a.side]>1&&!blocked)textPop(a.x,a.y-141*scale,app.combo[a.side]+" HIT",color,16*scale);
+ sound(blocked?"block":a.action==="punch"?"hit":"kick");
+ if(b.hp<=0){finishRound(a.side);return}
+ syncHud();
+};
+const pfBaseFinishRound=finishRound;
+finishRound=function(winner){
+ if(app.scene!=="fight")return;
+ app.running=false;sound("death");app.score[winner]++;
+ app.matchOver=app.score[winner]>=app.toWin;
+ let coinsEarned=0;
+ if(app.matchOver){
+  app.profile.matches=(app.profile.matches||0)+1;
+  if(winner===0){
+   app.profile.wins=(app.profile.wins||0)+1;
+   if(app.mode==="cpu"){
+    app.profile.careerIndex=Math.min(PF_OPPONENTS.length,Math.max(0,Number(app.profile.careerIndex)||0)+1);
+    app.profile.campaignComplete=app.profile.careerIndex>=PF_OPPONENTS.length;
+    const pReward=115+Math.min(120,(pfCareerIndex())*15);coinsEarned=pReward;app.profile.coins=(app.profile.coins||0)+coinsEarned;
+    bumpDaily("wins",1);pfCheckCareerQuests();
+    submitCrazyGamesCareerWins();
+   }else {coinsEarned=65;app.profile.coins=(app.profile.coins||0)+coinsEarned;bumpDaily("wins",1)}
+  }else{
+   app.profile.losses=(app.profile.losses||0)+1;
+   coinsEarned=20;app.profile.coins=(app.profile.coins||0)+coinsEarned;
+  }
+ }else{
+  coinsEarned=0;
+ }
+ saveProfile();setScene("result");gameCall("gameplayStop");
+ const oldName=app.mode==="cpu"?PF_OPPONENTS[Math.max(0,pfCareerIndex()-(winner===0?1:0))].name:"PLAYER "+(winner===0?"TWO":"ONE");
+ $("result-eyebrow").textContent=app.matchOver?(winner===0&&app.mode==="cpu"?"CAREER MATCH WON":"MATCH COMPLETE"):"ROUND "+app.round+" COMPLETE";
+ $("result-title").textContent=app.matchOver?(winner===0?(app.profile.campaignComplete&&app.mode==="cpu"?"LUNAR CHAMPION!":"YOU WIN!"):"MATCH LOST"):(winner===0?"ROUND WON":"ROUND LOST");
+ $("result-title").classList.toggle("win",winner===0);
+ let copy=oldName+" "+(winner===0?"is beaten.":"takes the match.")+" ";
+ if(app.matchOver&&winner===0&&app.mode==="cpu"){
+  copy+=(app.profile.campaignComplete?"You have cleared the whole circuit. You're the final champion!":"Next up: "+pfOpponent().name+" at the "+pfVenue().name+".")+" ";
+ }
+ if(app.matchOver)copy+="Match reward: "+coinsEarned+" coins.";
+ else copy+="First to two rounds wins the match.";
+ $("result-copy").textContent=copy;$("result-primary").textContent=app.matchOver?"CONTINUE CAREER":"NEXT ROUND";
+};
+const pfBaseNextRound=nextRound;
+nextRound=function(){
+ if(app.matchOver){app.score=[0,0];app.matchOver=false;transition("PREPARING YOUR NEXT CHALLENGER","start")}
+ else transition("NEXT ROUND","round");
+};
+const pfBaseSetScene=setScene;
+setScene=function(next){
+ pfBaseSetScene(next);
+ if(next==="lobby"){
+  pfRenderCareer();
+  if(app.sdkReady)pfRequestBanner();
+ }else pfClearBanner();
+};
+async function pfRequestBanner(){
+ const box=$("cg-banner-container"),sdk=window.CrazyGames&&window.CrazyGames.SDK;
+ if(!box||!sdk||!sdk.banner||typeof sdk.banner.requestResponsiveBanner!=="function"||app.scene!=="lobby")return;
+ box.style.display="block";
+ try{await sdk.banner.requestResponsiveBanner("cg-banner-container");pfBannerRequested=true}
+ catch(e){box.style.display="none";if(e&&e.code!=="unfilled")console.warn("CrazyGames banner unavailable:",e&&e.code||e)}
+}
+function pfClearBanner(){
+ const box=$("cg-banner-container"),sdk=window.CrazyGames&&window.CrazyGames.SDK;
+ if(sdk&&sdk.banner){try{if(typeof sdk.banner.clearAllBanners==="function")sdk.banner.clearAllBanners()}catch(e){}}
+ if(box)box.style.display="none";pfBannerRequested=false;
+}
+async function pfEncryptScore(score,key){
+ const iv=window.crypto.getRandomValues(new Uint8Array(12));
+ const algorithm={name:"AES-GCM",iv};
+ const keyBytes=new Uint8Array(atob(key).split("").map(c=>c.charCodeAt(0)));
+ if(keyBytes.length!==32)throw new Error("Leaderboard key must decode to 32 bytes.");
+ const cryptoKey=await window.crypto.subtle.importKey("raw",keyBytes,algorithm,false,["encrypt"]);
+ const plain=new TextEncoder().encode(String(score));
+ const encrypted=await window.crypto.subtle.encrypt(algorithm,cryptoKey,plain);
+ const combined=new Uint8Array(iv.length+encrypted.byteLength);combined.set(iv);combined.set(new Uint8Array(encrypted),iv.length);
+ return btoa(String.fromCharCode(...combined));
+}
+async function submitCrazyGamesCareerWins(){
+ if(!app.sdkReady||!window.CrazyGames||!window.CrazyGames.SDK||!CG_LEADERBOARD_ENCRYPTION_KEY)return;
+ try{
+  const score=Math.max(0,Number(app.profile.wins)||0);
+  const encryptedScore=await pfEncryptScore(score,CG_LEADERBOARD_ENCRYPTION_KEY);
+  const userApi=window.CrazyGames.SDK.user;
+  if(userApi&&typeof userApi.submitScore==="function")userApi.submitScore({encryptedScore,score});
+ }catch(e){console.warn("CrazyGames leaderboard submission is not configured:",e)}
+}
+async function startCrazyGamesPurchase(packId){
+ if(!CG_IAP_CONFIG.enabled||!CG_IAP_CONFIG.xsollaProjectId||!CG_IAP_CONFIG.skus[packId]){
+  toast("Real-money purchases need CrazyGames IAP approval plus your Xsolla project ID and item SKUs.");return;
+ }
+ if(!app.sdkReady||!window.CrazyGames||!window.CrazyGames.SDK){toast("Open the game on CrazyGames to use the platform store.");return}
+ try{
+  if(!app.user)await signIn();
+  if(!app.user){toast("Sign in to your CrazyGames account before purchasing.");return}
+  const token=await window.CrazyGames.SDK.user.getXsollaUserToken();
+  if(!token){toast("Could not get a CrazyGames purchase token.");return}
+  // Checkout intentionally remains gated until the project's Xsolla PayStation/Web SDK and SKU catalog are supplied.
+  toast("CrazyGames account verified. Xsolla checkout still needs the approved store configuration.");
+ }catch(e){console.warn("CrazyGames purchase setup incomplete",e);toast("The CrazyGames store is not configured yet.")}
+}
+function pfCloseSystems(){
+ ["upgrades-screen","quests-screen","leaderboard-screen","shop-screen"].forEach(id=>{if($(id))$(id).classList.remove("active")});
+}
+$("quests-button").addEventListener("click",()=>{pfCloseSystems();$("quests-screen").classList.add("active");pfRenderQuests();pfClearBanner()});
+$("upgrades-button").addEventListener("click",()=>{pfCloseSystems();$("upgrades-screen").classList.add("active");pfRenderUpgrades();pfClearBanner()});
+$("leaderboard-button").addEventListener("click",()=>{pfCloseSystems();$("leaderboard-screen").classList.add("active");pfRenderRecord();pfClearBanner()});
+$("quests-close").addEventListener("click",()=>{$("quests-screen").classList.remove("active");if(app.scene==="lobby"&&app.sdkReady)pfRequestBanner()});
+$("upgrades-close").addEventListener("click",()=>{$("upgrades-screen").classList.remove("active");if(app.scene==="lobby"&&app.sdkReady)pfRequestBanner()});
+$("leaderboard-close").addEventListener("click",()=>{$("leaderboard-screen").classList.remove("active");if(app.scene==="lobby"&&app.sdkReady)pfRequestBanner()});
+$("leaderboard-submit").addEventListener("click",async()=>{if(!CG_LEADERBOARD_ENCRYPTION_KEY){toast("Add the encryption key from your CrazyGames Developer Portal first.");return}await submitCrazyGamesCareerWins();toast("Your current career wins were sent to the CrazyGames SDK.")});
+$("upgrade-grid").addEventListener("click",e=>{const b=e.target.closest("[data-upgrade]");if(b)pfBuyUpgrade(b.dataset.upgrade)});
+$("shop-grid").addEventListener("click",e=>{const b=e.target.closest("[data-iap-pack]");if(b)startCrazyGamesPurchase(b.dataset.iapPack);else{const item=e.target.closest("[data-shop-item]");if(item)useShopItem(item.dataset.shopItem)}});
+document.querySelectorAll(".shop-filter").forEach(b=>b.addEventListener("click",()=>{shopFilter=b.dataset.shopFilter;document.querySelectorAll(".shop-filter").forEach(x=>x.classList.toggle("selected",x===b));pfRenderShop()}));
+const pfBaseShopOpen=$("shop-button").onclick;
+$("shop-button").addEventListener("click",()=>{pfClearBanner();pfRenderShop()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")pfCloseSystems()});
+pfRenderCareer();
+
 resize();resetActors();initModeUI();requestAnimationFrame(loop);boot();
 })();
 </script>
