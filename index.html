@@ -624,7 +624,7 @@ preview.addEventListener("pointermove",e=>{if(!dragging)return;previewTarget+=(e
 function stopDrag(){dragging=false;preview.classList.remove("dragging")}preview.addEventListener("pointerup",stopDrag);preview.addEventListener("pointercancel",stopDrag);
 $("account-button").addEventListener("click",signIn);$("play-button").addEventListener("click",startMatch);
 $("shop-button").addEventListener("click",()=>{$("shop-screen").classList.add("active");shopFilter="all";document.querySelectorAll(".shop-filter").forEach(b=>b.classList.toggle("selected",b.dataset.shopFilter==="all"));renderShop()});
-$("shop-close").addEventListener("click",()=>$("shop-screen").classList.remove("active"));
+$("shop-close").addEventListener("click",()=>{$("shop-screen").classList.remove("active");if(app.scene==="lobby"&&app.sdkReady)pfRequestBanner()});
 $("shop-screen").addEventListener("click",e=>{if(e.target===$("shop-screen"))$("shop-screen").classList.remove("active")});
 document.querySelectorAll(".shop-filter").forEach(b=>b.addEventListener("click",()=>{shopFilter=b.dataset.shopFilter;document.querySelectorAll(".shop-filter").forEach(x=>x.classList.toggle("selected",x===b));renderShop()}));
 $("shop-grid").addEventListener("click",e=>{const button=e.target.closest("[data-shop-item]");if(button)useShopItem(button.dataset.shopItem)});
@@ -769,6 +769,7 @@ bumpDaily=function(key,amount){
  }
  pfCheckCareerQuests();
  try{pfBaseBumpDaily(key,inc)}catch(e){}
+ try{pfBaseSaveProfile()}catch(e){}
  if($("quests-screen")&&$("quests-screen").classList.contains("active"))pfRenderQuests();
 };
 function pfCareerStats(side){
@@ -818,7 +819,7 @@ function pfRenderCareer(){
  $("career-rank").textContent=pfRank();$("career-opponent").textContent=p.campaignComplete?"ORBIT KING · REMATCH":enemy.name;
  $("career-class").textContent=p.campaignComplete?"CAMPAIGN COMPLETE":enemy.className+" · "+enemy.note;
  $("career-stage").textContent=venue.name;$("career-fight").textContent="FIGHT "+String(Math.min(idx+1,PF_OPPONENTS.length)).padStart(2,"0")+" / "+PF_OPPONENTS.length;
- $("career-progress-fill").style.width=(idx/PF_OPPONENTS.length*100)+"%";
+ $("career-progress-fill").style.width=(p.campaignComplete?100:idx/PF_OPPONENTS.length*100)+"%";
  $("career-wins").textContent=p.wins||0;$("career-losses").textContent=p.losses||0;
 }
 function pfRenderRecord(){
@@ -938,7 +939,7 @@ function pfDrawMoonArena(){
  for(let i=0;i<94;i++){const x=((i*193+47)%997)/997*W,y=((i*317+19)%613)/613*(H*.72);gameCtx.globalAlpha=.25+((i*13)%70)/100;gameCtx.fillStyle=i%6===0?"#d8d9cf":"#a8bbd2";gameCtx.fillRect(x,y,i%9===0?2:1,i%9===0?2:1)}
  gameCtx.globalAlpha=1;
  const mx=W*.79,my=H*.18,mr=Math.min(W,H)*.095;gameCtx.fillStyle="#c2c9d1";gameCtx.beginPath();gameCtx.arc(mx,my,mr,0,Math.PI*2);gameCtx.fill();
- gameCtx.fillStyle="#9ea7b2";[[.77,.12,.17],[.83,.2,.11],[.73,.22,.08],[.79,.28,.07]].forEach(([a,b,r])=>{gameCtx.beginPath();gameCtx.arc(W*a,H*b,mr*r/.095,0,Math.PI*2);gameCtx.fill()});
+ gameCtx.fillStyle="#9ea7b2";[[.77,.12,.17],[.83,.2,.11],[.73,.22,.08],[.79,.28,.07]].forEach(([a,b,r])=>{gameCtx.beginPath();gameCtx.arc(W*a,H*b,mr*r,0,Math.PI*2);gameCtx.fill()});
  gameCtx.globalAlpha=.95;gameCtx.fillStyle="#23374e";gameCtx.beginPath();gameCtx.arc(W*.07,H*.1,Math.min(W,H)*.043,0,Math.PI*2);gameCtx.fill();gameCtx.globalAlpha=1;
  const ground=gameCtx.createLinearGradient(0,H*.68,0,H);ground.addColorStop(0,"#4a4d56");ground.addColorStop(.22,"#292d36");ground.addColorStop(1,"#0c0f16");gameCtx.fillStyle=ground;gameCtx.beginPath();gameCtx.moveTo(0,H*.73);gameCtx.lineTo(W*.13,H*.7);gameCtx.lineTo(W*.22,H*.75);gameCtx.lineTo(W*.32,H*.72);gameCtx.lineTo(W*.43,H*.76);gameCtx.lineTo(W*.58,H*.71);gameCtx.lineTo(W*.7,H*.75);gameCtx.lineTo(W*.83,H*.72);gameCtx.lineTo(W,H*.75);gameCtx.lineTo(W,H);gameCtx.lineTo(0,H);gameCtx.closePath();gameCtx.fill();
  for(let i=0;i<8;i++){const x=((i*149+31)%997)/997*W,y=H*(.79+(i%4)*.045),r=8+(i*17)%21;gameCtx.fillStyle="#777d8755";gameCtx.beginPath();gameCtx.ellipse(x,y,r,r*.35,(i%5)*.3,0,Math.PI*2);gameCtx.fill()}
@@ -1039,6 +1040,7 @@ hitCheck=function(a,b){
 const pfBaseFinishRound=finishRound;
 finishRound=function(winner){
  if(app.scene!=="fight")return;
+ const foughtOpponent=app.mode==="cpu"?pfOpponent().name:"LOCAL OPPONENT";
  app.running=false;sound("death");app.score[winner]++;
  app.matchOver=app.score[winner]>=app.toWin;
  let coinsEarned=0;
@@ -1061,7 +1063,7 @@ finishRound=function(winner){
   coinsEarned=0;
  }
  saveProfile();setScene("result");gameCall("gameplayStop");
- const oldName=app.mode==="cpu"?PF_OPPONENTS[Math.max(0,pfCareerIndex()-(winner===0?1:0))].name:"PLAYER "+(winner===0?"TWO":"ONE");
+ const oldName=app.mode==="cpu"?foughtOpponent:"PLAYER "+(winner===0?"TWO":"ONE");
  $("result-eyebrow").textContent=app.matchOver?(winner===0&&app.mode==="cpu"?"CAREER MATCH WON":"MATCH COMPLETE"):"ROUND "+app.round+" COMPLETE";
  $("result-title").textContent=app.matchOver?(winner===0?(app.profile.campaignComplete&&app.mode==="cpu"?"LUNAR CHAMPION!":"YOU WIN!"):"MATCH LOST"):(winner===0?"ROUND WON":"ROUND LOST");
  $("result-title").classList.toggle("win",winner===0);
@@ -1078,6 +1080,8 @@ nextRound=function(){
  if(app.matchOver){app.score=[0,0];app.matchOver=false;transition("PREPARING YOUR NEXT CHALLENGER","start")}
  else transition("NEXT ROUND","round");
 };
+$("result-primary").removeEventListener("click",pfBaseNextRound);
+$("result-primary").addEventListener("click",()=>nextRound());
 const pfBaseSetScene=setScene;
 setScene=function(next){
  pfBaseSetScene(next);
@@ -1110,13 +1114,13 @@ async function pfEncryptScore(score,key){
  return btoa(String.fromCharCode(...combined));
 }
 async function submitCrazyGamesCareerWins(){
- if(!app.sdkReady||!window.CrazyGames||!window.CrazyGames.SDK||!CG_LEADERBOARD_ENCRYPTION_KEY)return;
+ if(!app.sdkReady||!window.CrazyGames||!window.CrazyGames.SDK||!CG_LEADERBOARD_ENCRYPTION_KEY)return false;
  try{
-  const score=Math.max(0,Number(app.profile.wins)||0);
-  const encryptedScore=await pfEncryptScore(score,CG_LEADERBOARD_ENCRYPTION_KEY);
+  const score=Math.max(0,Number(app.profile.wins)||0),encryptedScore=await pfEncryptScore(score,CG_LEADERBOARD_ENCRYPTION_KEY);
   const userApi=window.CrazyGames.SDK.user;
-  if(userApi&&typeof userApi.submitScore==="function")userApi.submitScore({encryptedScore,score});
+  if(userApi&&typeof userApi.submitScore==="function"){await userApi.submitScore({encryptedScore,score});return true}
  }catch(e){console.warn("CrazyGames leaderboard submission is not configured:",e)}
+ return false;
 }
 async function startCrazyGamesPurchase(packId){
  if(!CG_IAP_CONFIG.enabled||!CG_IAP_CONFIG.xsollaProjectId||!CG_IAP_CONFIG.skus[packId]){
@@ -1141,13 +1145,14 @@ $("leaderboard-button").addEventListener("click",()=>{pfCloseSystems();$("leader
 $("quests-close").addEventListener("click",()=>{$("quests-screen").classList.remove("active");if(app.scene==="lobby"&&app.sdkReady)pfRequestBanner()});
 $("upgrades-close").addEventListener("click",()=>{$("upgrades-screen").classList.remove("active");if(app.scene==="lobby"&&app.sdkReady)pfRequestBanner()});
 $("leaderboard-close").addEventListener("click",()=>{$("leaderboard-screen").classList.remove("active");if(app.scene==="lobby"&&app.sdkReady)pfRequestBanner()});
-$("leaderboard-submit").addEventListener("click",async()=>{if(!CG_LEADERBOARD_ENCRYPTION_KEY){toast("Add the encryption key from your CrazyGames Developer Portal first.");return}await submitCrazyGamesCareerWins();toast("Your current career wins were sent to the CrazyGames SDK.")});
+$("leaderboard-submit").addEventListener("click",async()=>{if(!CG_LEADERBOARD_ENCRYPTION_KEY){toast("Add the encryption key from your CrazyGames Developer Portal first.");return}const submitted=await submitCrazyGamesCareerWins();toast(submitted?"Career wins submitted to CrazyGames.":"CrazyGames SDK is unavailable or the leaderboard is not enabled.");});
 $("upgrade-grid").addEventListener("click",e=>{const b=e.target.closest("[data-upgrade]");if(b)pfBuyUpgrade(b.dataset.upgrade)});
 $("shop-grid").addEventListener("click",e=>{const b=e.target.closest("[data-iap-pack]");if(b)startCrazyGamesPurchase(b.dataset.iapPack);else{const item=e.target.closest("[data-shop-item]");if(item)useShopItem(item.dataset.shopItem)}});
 document.querySelectorAll(".shop-filter").forEach(b=>b.addEventListener("click",()=>{shopFilter=b.dataset.shopFilter;document.querySelectorAll(".shop-filter").forEach(x=>x.classList.toggle("selected",x===b));pfRenderShop()}));
 const pfBaseShopOpen=$("shop-button").onclick;
 $("shop-button").addEventListener("click",()=>{pfClearBanner();pfRenderShop()});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")pfCloseSystems()});
+$("shop-screen").addEventListener("click",e=>{if(e.target===$("shop-screen")&&app.scene==="lobby"&&app.sdkReady)pfRequestBanner()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){const hadOverlay=["shop-screen","upgrades-screen","quests-screen","leaderboard-screen"].some(id=>$(id)&&$(id).classList.contains("active"));pfCloseSystems();if(hadOverlay&&app.scene==="lobby"&&app.sdkReady)pfRequestBanner()}});
 pfRenderCareer();
 
 resize();resetActors();initModeUI();requestAnimationFrame(loop);boot();
