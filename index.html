@@ -1,90 +1,45 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#090b13"><meta name="description" content="Stickman Showdown — a fast local stickman fighter by PixelForge.">
-<title>Stickman Showdown — PixelForge</title>
-<style>
-:root{color-scheme:dark;--bg:#090b13;--panel:#111522;--line:#292f42;--muted:#8c96b0;--cyan:#6ee7f9;--pink:#ff668d;--gold:#ffd166}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#202a49 0,transparent 55%),var(--bg);color:#f5f7ff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
-button{font:inherit;color:inherit;cursor:pointer;border:1px solid var(--line);background:#1a2031;border-radius:10px;padding:11px 16px;font-weight:750;transition:transform .15s,border-color .15s,background .15s}button:hover{border-color:#707b9e;transform:translateY(-1px)}button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}.primary{background:linear-gradient(135deg,#74e6f7,#6e9dff);border:0;color:#08101a}.active{border-color:var(--cyan);box-shadow:0 0 0 1px #6ee7f933 inset}
-header{max-width:1180px;margin:auto;padding:22px 22px 14px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.04em;font-size:19px}.brandmark{width:37px;height:37px;border-radius:11px;background:linear-gradient(145deg,#77edff,#687aff);display:grid;place-items:center;color:#09101a;font-weight:1000;font-size:19px;box-shadow:0 5px 24px #69caff30}.brand small{display:block;font-size:10px;color:var(--muted);letter-spacing:.16em;margin-top:2px}.status{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}.dot{width:7px;height:7px;background:#6ce6a1;border-radius:50%;box-shadow:0 0 12px #6ce6a1}
-main{max-width:1180px;margin:auto;padding:14px 22px 36px}.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:10px 0 20px}.eyebrow{font-size:11px;color:var(--cyan);letter-spacing:.19em;font-weight:900}.hero h1{font-size:clamp(30px,5vw,48px);letter-spacing:-.055em;margin:7px 0 6px;line-height:1}.hero p{margin:0;color:var(--muted);font-size:14px}.buildtag{font-size:11px;color:#aab4ce;border:1px solid var(--line);padding:7px 10px;border-radius:999px;white-space:nowrap}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:16px}.arena-card,.sidecard{background:linear-gradient(180deg,#131827,#0e121e);border:1px solid var(--line);border-radius:17px;overflow:hidden;box-shadow:0 18px 50px #0003}.arena-top{display:flex;justify-content:space-between;align-items:center;padding:13px 15px;border-bottom:1px solid var(--line);gap:12px}.mode-tabs{display:flex;gap:6px}.mode-tabs button{font-size:12px;padding:8px 12px}.roundlabel{font-size:11px;color:var(--muted);font-weight:800;letter-spacing:.12em}.stage{position:relative;background:#0b1020;aspect-ratio:16/9;min-height:260px;max-height:560px;overflow:hidden}.stage canvas{width:100%;height:100%;display:block;touch-action:none}.overlay{position:absolute;inset:0;display:grid;place-items:center;background:#070a12b8;backdrop-filter:blur(7px);padding:20px;text-align:center}.overlay.hidden{display:none}.overlay-box{max-width:380px}.overlay h2{font-size:clamp(24px,4vw,37px);margin:0 0 9px;letter-spacing:-.04em}.overlay p{color:#aab3c9;line-height:1.55;font-size:13px;margin:0 auto 18px}.overlay .actions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.matchhud{position:absolute;top:14px;left:15px;right:15px;display:flex;justify-content:space-between;gap:20px;pointer-events:none}.fighterhud{width:42%;max-width:300px}.fighterhud.right{text-align:right;margin-left:auto}.fightername{font-size:11px;letter-spacing:.12em;font-weight:900;margin-bottom:6px}.healthbar{height:10px;background:#20283a;border:1px solid #3b4356;border-radius:99px;overflow:hidden}.healthfill{height:100%;width:100%;background:linear-gradient(90deg,#56edb0,#a3f4bd);transition:width .16s}.right .healthfill{margin-left:auto;background:linear-gradient(90deg,#ff9baf,#ff547c)}.subhud{font-size:10px;color:#b0bad0;margin-top:5px}.arena-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 15px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}.key{display:inline-block;padding:3px 6px;border:1px solid #3b4358;border-bottom-width:2px;border-radius:5px;color:#edf2ff;font-size:10px;font-weight:850;margin:0 2px}.side{display:flex;flex-direction:column;gap:13px}.sidecard{padding:16px}.sidecard h3{font-size:13px;margin:0 0 12px;letter-spacing:.02em}.sidecard p{font-size:12px;line-height:1.55;color:var(--muted);margin:8px 0 0}.controls{display:grid;grid-template-columns:1fr 1fr;gap:8px}.control{background:#0c111e;border:1px solid #252d41;border-radius:9px;padding:9px}.control b{display:block;font-size:11px;margin-bottom:4px}.control span{color:var(--muted);font-size:10px}.full{width:100%;margin-top:10px}.settingrow{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#c3cbe0;font-size:12px;margin-top:13px}.settingrow select{background:#0b1020;color:#fff;border:1px solid var(--line);border-radius:8px;padding:7px;max-width:130px}.notice{font-size:11px!important;border-left:2px solid var(--gold);padding-left:10px;color:#b7bfd1!important}.footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:20px 2px;color:#68738e;font-size:11px}.footer strong{color:#a5aec6}.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#20283b;border:1px solid #3a4560;border-radius:10px;padding:11px 15px;font-size:12px;z-index:5;transition:.2s;box-shadow:0 12px 40px #0008}.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:850px){.layout{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr}.sidecard:last-child{grid-column:1/-1}.hero{align-items:flex-start;flex-direction:column}.buildtag{display:none}}
-@media(max-width:520px){header{padding:15px 14px}main{padding:10px 12px 24px}.status{font-size:10px}.layout{gap:11px}.stage{min-height:250px;aspect-ratio:4/3}.arena-top{align-items:flex-start;flex-direction:column}.arena-bottom{align-items:flex-start;flex-direction:column}.side{grid-template-columns:1fr}.sidecard:last-child{grid-column:auto}.mode-tabs{width:100%}.mode-tabs button{flex:1;padding:8px 5px}.fighterhud{width:45%}.fightername{font-size:9px}}
-</style>
-<script src="https://sdk.crazygames.com/crazygames-sdk-v3.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="Stickman Showdown — a fast stickman fighter from PixelForge.">
+  <title>Stickman Showdown — PixelForge</title>
+  <link rel="icon" href="assets/images/pixelforge-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://sdk.crazygames.com/crazygames-sdk-v3.js"></script>
 </head>
 <body>
-<header><div class="brand"><div class="brandmark">PF</div><div>PIXELFORGE<small>INDEPENDENT GAME STUDIO</small></div></div><div class="status"><span class="dot"></span><span id="sdkStatus">Starting game…</span></div></header>
-<main>
-<section class="hero"><div><div class="eyebrow">PIXELFORGE ORIGINAL</div><h1>STICKMAN SHOWDOWN</h1><p>Step into the arena. Land your hits. Take the round.</p></div><div class="buildtag">EARLY BUILD · COMBAT PROTOTYPE</div></section>
-<div class="layout"><section class="arena-card">
-<div class="arena-top"><div class="mode-tabs"><button id="cpuMode" class="active">VS CPU</button><button id="localMode">LOCAL 2P</button><button id="onlineMode">ONLINE</button></div><div class="roundlabel" id="roundLabel">ROUND 1</div></div>
-<div class="stage"><canvas id="game" width="960" height="540" aria-label="Stickman fighting arena"></canvas>
-<div class="matchhud"><div class="fighterhud"><div class="fightername">PLAYER 1</div><div class="healthbar"><div class="healthfill" id="health1"></div></div><div class="subhud" id="score1">ROUNDS 0</div></div><div class="fighterhud right"><div class="fightername" id="fighter2Name">CPU FIGHTER</div><div class="healthbar"><div class="healthfill" id="health2"></div></div><div class="subhud" id="score2">ROUNDS 0</div></div></div>
-<div class="overlay" id="startOverlay"><div class="overlay-box"><div class="eyebrow">READY TO FIGHT?</div><h2>ENTER THE ARENA</h2><p>Fast, responsive stickman combat. Learn the timing, block incoming hits, and knock your opponent back.</p><div class="actions"><button class="primary" id="startBtn">START FIGHT</button><button id="howBtn">HOW TO PLAY</button></div></div></div>
-<div class="overlay hidden" id="endOverlay"><div class="overlay-box"><div class="eyebrow" id="endEyebrow">ROUND OVER</div><h2 id="endTitle">ROUND WON</h2><p id="endText">Good fight.</p><div class="actions"><button class="primary" id="nextBtn">NEXT ROUND</button><button id="resetBtn">RESET MATCH</button></div></div></div>
-</div>
-<div class="arena-bottom"><span id="matchStatus">Choose a mode and start fighting.</span><span><span class="key">A</span><span class="key">D</span> Move <span class="key">W</span> Jump <span class="key">F</span> Attack <span class="key">G</span> Block</span></div>
-</section>
-<aside class="side">
-<div class="sidecard"><h3>PLAYER 1 CONTROLS</h3><div class="controls"><div class="control"><b>Move</b><span>A / D</span></div><div class="control"><b>Jump</b><span>W</span></div><div class="control"><b>Quick punch</b><span>F</span></div><div class="control"><b>Heavy kick</b><span>R</span></div><div class="control"><b>Block</b><span>G (hold)</span></div><div class="control"><b>Dash</b><span>Shift</span></div></div><p>Face your opponent and time your attacks. Blocking reduces damage, but you can't block forever.</p></div>
-<div class="sidecard"><h3>GAME SETTINGS</h3><div class="settingrow"><label for="difficulty">CPU difficulty</label><select id="difficulty"><option value="easy">Chill</option><option value="normal" selected>Balanced</option><option value="hard">Tough</option></select></div><div class="settingrow"><label for="rounds">Rounds to win</label><select id="rounds"><option value="1">1 round</option><option value="2" selected>2 rounds</option><option value="3">3 rounds</option></select></div><button class="full" id="restartBtn">RESTART MATCH</button></div>
-<div class="sidecard"><h3>PIXELFORGE ONLINE</h3><p id="onlineCopy">Online mode is reserved for the CrazyGames multiplayer connection. Local combat works right now; an actual online match requires a configured matchmaking/signalling service.</p><button class="full" id="onlineInfo">ONLINE STATUS</button><p class="notice">This build does not pretend to connect players when no multiplayer service is configured.</p></div>
-</aside></div>
-<footer class="footer"><span><strong>PIXELFORGE</strong> · Made for the web</span><span>Prototype build · More modes and features coming later</span></footer>
-</main><div class="toast" id="toast" role="status"></div>
-<script>
-(()=>{'use strict';
-const canvas=document.getElementById('game'),ctx=canvas.getContext('2d');
-const $=id=>document.getElementById(id);
-const keys=new Set();let mode='cpu',running=false,roundOver=false,round=1,score=[0,0],last=0,elapsed=0,toastTimer=0,roundsToWin=2;
-const FLOOR=444,GRAVITY=1700;
-let fighters=[];
-function makeFighter(x,color,side){return{x,y:FLOOR, vx:0,vy:0, hp:100, maxHp:100, color,side,face:side===0?1:-1,grounded:true,attack:0,attackType:'punch',cooldown:0,block:0,stun:0,dash:0,anim:0,hitFlash:0,aiThink:0,aiAction:'',walk:0}}
-function resetFighters(){fighters=[makeFighter(330,'#70e7f7',0),makeFighter(630,'#ff668d',1)];score.forEach((_,i)=>{});roundOver=false;running=false;elapsed=0;syncHud();draw()}
-function syncHud(){if(!fighters.length)return;$('health1').style.width=Math.max(0,fighters[0].hp)+'%';$('health2').style.width=Math.max(0,fighters[1].hp)+'%';$('score1').textContent='ROUNDS '+score[0];$('score2').textContent='ROUNDS '+score[1];$('roundLabel').textContent='ROUND '+round;$('fighter2Name').textContent=mode==='local'?'PLAYER 2':'CPU FIGHTER'}
-function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2500)}
-function setMode(next){if(next==='online'){toast('Online multiplayer is not connected in this build yet.');return}mode=next;$('cpuMode').classList.toggle('active',mode==='cpu');$('localMode').classList.toggle('active',mode==='local');$('onlineMode').classList.remove('active');$('matchStatus').textContent=mode==='cpu'?'Fight the CPU.':'Two players, one keyboard.';$('onlineCopy').textContent='Online mode is reserved for the CrazyGames multiplayer connection. Local combat works right now; an actual online match requires a configured matchmaking/signalling service.';$('startOverlay').classList.remove('hidden');$('endOverlay').classList.add('hidden');score=[0,0];round=1;resetFighters()}
-function start(){if(roundOver)return;running=true;roundOver=false;$('startOverlay').classList.add('hidden');$('endOverlay').classList.add('hidden');$('matchStatus').textContent='Fight!';last=performance.now();try{if(window.CrazyGames&&CrazyGames.SDK&&CrazyGames.SDK.gameplay)CrazyGames.SDK.gameplay.start()}catch(e){}}
-function beginNext(){round++;resetFighters();start()}
-function restart(){score=[0,0];round=1;resetFighters();$('startOverlay').classList.remove('hidden');$('endOverlay').classList.add('hidden');$('matchStatus').textContent='Match reset.'}
-function endRound(winner){if(roundOver)return;roundOver=true;running=false;score[winner]++;syncHud();const matchWon=score[winner]>=roundsToWin;$('endEyebrow').textContent=matchWon?'MATCH COMPLETE':'ROUND '+round+' COMPLETE';$('endTitle').textContent=matchWon?(winner===0?'YOU WIN THE MATCH':'YOU LOST THE MATCH'):(winner===0?'ROUND WON':'ROUND LOST');$('endText').textContent=matchWon?'Final score: '+score[0]+' — '+score[1]+'. '+(winner===0?'Nice work.':'Run it back?'):'Score: '+score[0]+' — '+score[1]+'. Get ready for the next round.';$('nextBtn').textContent=matchWon?'PLAY AGAIN':'NEXT ROUND';$('endOverlay').classList.remove('hidden');$('matchStatus').textContent=matchWon?'Match finished.':'Round finished.';try{if(window.CrazyGames&&CrazyGames.SDK&&CrazyGames.SDK.gameplay)CrazyGames.SDK.gameplay.stop()}catch(e){}}
-function doAttack(f,type){if(!running||f.cooldown>0||f.stun>0||f.block>0)return;f.attack=type==='heavy'?.42:.28;f.attackType=type;f.cooldown=type==='heavy'?.78:.43;f.vx+=f.face*(type==='heavy'?85:35)}
-function hitCheck(f,o){if(f.attack<=0)return;const reach=f.attackType==='heavy'?91:73;const dx=(o.x-f.x)*f.face;if(dx<10||dx>reach||Math.abs(o.y-f.y)>95)return;if(o.hitFlash>0)return;const damage=f.attackType==='heavy'?17:9;const blocked=o.block>0&&o.grounded&&o.face===-f.face;const dealt=blocked?Math.max(2,damage*.2):damage;o.hp=Math.max(0,o.hp-dealt);o.hitFlash=.2;o.stun=blocked?.09:(f.attackType==='heavy'?.28:.16);o.vx+=f.face*(blocked?120:(f.attackType==='heavy'?430:250));if(!blocked)o.vy=Math.min(o.vy,-85);f.attack=0;syncHud();if(o.hp<=0)endRound(f.side)}
-function cpuAI(f,o,dt){const diff=$('difficulty').value;f.aiThink-=dt;if(f.aiThink<=0){f.aiThink=diff==='hard'?.12:diff==='easy'?.32:.21;const d=Math.abs(o.x-f.x);if(d>112)f.aiAction='approach';else{const roll=Math.random();f.aiAction=roll<(diff==='hard'?.56:.38)?'attack':roll<.64?'block':'approach'}if(diff==='hard'&&o.attack>0&&d<110&&Math.random()<.42)f.aiAction='block'}const d=Math.abs(o.x-f.x);if(f.aiAction==='approach'){f.vx+=Math.sign(o.x-f.x)*((diff==='hard'?480:diff==='easy'?260:360))*dt;f.block=0}else if(f.aiAction==='block'&&d<125){f.block=.09;f.vx*=.88}else{f.block=0;if(d<105&&f.cooldown<=0&&Math.random()<(diff==='hard'?.14:.07))doAttack(f,Math.random()<.24?'heavy':'punch');if(d>140)f.vx+=Math.sign(o.x-f.x)*250*dt}if(diff!=='easy'&&f.grounded&&d>160&&Math.random()<.006)f.vy=-590}
-function updateFighter(f,o,dt,index){f.cooldown=Math.max(0,f.cooldown-dt);f.attack=Math.max(0,f.attack-dt);f.stun=Math.max(0,f.stun-dt);f.hitFlash=Math.max(0,f.hitFlash-dt);f.dash=Math.max(0,f.dash-dt);f.block=Math.max(0,f.block-dt);f.anim+=dt*Math.min(12,Math.abs(f.vx)*.025+2);f.face=o.x>=f.x?1:-1;
-if(f.stun<=0){if(index===0){const left=keys.has('a'),right=keys.has('d');if(f.dash<=0){if(left)f.vx-=1050*dt;if(right)f.vx+=1050*dt}if(keys.has('w')&&f.grounded){f.vy=-650;f.grounded=false}if(keys.has('f'))doAttack(f,'punch');if(keys.has('r'))doAttack(f,'heavy');f.block=keys.has('g')?.04:0;if(keys.has('shift')&&f.dash<=0&&(left||right)){f.dash=.18;f.vx+=(right?1:-1)*760}}else if(mode==='local'){const left=keys.has('arrowleft'),right=keys.has('arrowright');if(left)f.vx-=1050*dt;if(right)f.vx+=1050*dt;if(keys.has('arrowup')&&f.grounded){f.vy=-650;f.grounded=false}if(keys.has('k'))doAttack(f,'punch');if(keys.has('l'))doAttack(f,'heavy');f.block=keys.has('o')?.04:0}else cpuAI(f,o,dt)}else f.block=0;
-f.vx*=Math.pow(f.grounded?.78:.96,dt*60);f.vx=Math.max(-620,Math.min(620,f.vx));f.vy+=GRAVITY*dt;f.x+=f.vx*dt;f.y+=f.vy*dt;if(f.y>=FLOOR){f.y=FLOOR;f.vy=0;f.grounded=true}else f.grounded=false;f.x=Math.max(65,Math.min(895,f.x));}
-function update(dt){if(!running)return;elapsed+=dt;for(let i=0;i<2;i++)updateFighter(fighters[i],fighters[1-i],dt,i);const [a,b]=fighters;if(Math.abs(a.x-b.x)<42&&Math.abs(a.y-b.y)<50){const dir=a.x<b.x?-1:1;a.x+=dir*1.7;b.x-=dir*1.7}hitCheck(a,b);hitCheck(b,a);syncHud()}
-function line(x1,y1,x2,y2,color,width=8){ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.lineCap='round';ctx.lineJoin='round';ctx.stroke()}
-function drawFighter(f){const x=f.x,y=f.y,dir=f.face,c=f.hitFlash>0?'#fff':f.color,move=Math.sin(f.anim)*Math.min(13,Math.abs(f.vx)*.025),air=f.grounded?0:7;ctx.save();ctx.translate(x,y);ctx.scale(dir,1);ctx.shadowColor=c;ctx.shadowBlur=12;ctx.globalAlpha=.2;ctx.fillStyle='#000';ctx.beginPath();ctx.ellipse(0,3,24,6,0,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;ctx.shadowBlur=f.hitFlash>0?22:4;
-const headY=-91+air;ctx.beginPath();ctx.arc(0,headY,13,0,Math.PI*2);ctx.fillStyle='#101525';ctx.fill();ctx.strokeStyle=c;ctx.lineWidth=5;ctx.stroke();
-line(0,headY+14,0,-47,c,8);
-const shoulderY=-73,hipY=-46;line(0,shoulderY,-15+move*.3,-59,c,6);
-if(f.block>0){line(0,shoulderY,23,-86,c,7);line(23,-86,33,-72,c,6)}else if(f.attack>0){const heavy=f.attackType==='heavy';const extension=heavy?58:48;line(0,shoulderY,extension*(.4+f.attack/.6),shoulderY+(heavy?-5:7),c,heavy?9:7)}else{line(0,shoulderY,17,-59+move*.2,c,6)}
-line(0,hipY,-10+move,-23,c,7);line(-10+move,-23,-15+move,-3,c,7);line(0,hipY,11-move,-22+air,c,7);line(11-move,-22+air,17-move,-3+air,c,7);
-ctx.shadowBlur=0;ctx.fillStyle=c;ctx.beginPath();ctx.arc(4,-94,2,0,Math.PI*2);ctx.fill();if(f.block>0){ctx.strokeStyle='#fff9';ctx.lineWidth=2;ctx.beginPath();ctx.arc(25,-74,20,-.8,.8);ctx.stroke()}ctx.restore()}
-function draw(){const w=canvas.width,h=canvas.height;ctx.clearRect(0,0,w,h);const sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#121a32');sky.addColorStop(1,'#20263a');ctx.fillStyle=sky;ctx.fillRect(0,0,w,h);
-for(let i=0;i<70;i++){const x=(i*137)%w,y=(i*79)%365;ctx.fillStyle='rgba(190,210,255,'+(.12+(i%4)*.05)+')';ctx.fillRect(x,y,2,2)}
-ctx.strokeStyle='#283650';ctx.lineWidth=1;for(let x=0;x<w;x+=48){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,FLOOR);ctx.stroke()}for(let y=60;y<FLOOR;y+=48){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
-ctx.fillStyle='#121827';ctx.fillRect(0,FLOOR,w,h-FLOOR);ctx.fillStyle='#323c56';ctx.fillRect(0,FLOOR,w,5);ctx.fillStyle='#6ee7f9';ctx.globalAlpha=.35;ctx.fillRect(0,FLOOR,w,2);ctx.globalAlpha=1;
-ctx.fillStyle='#a5b2d0';ctx.font='800 12px system-ui';ctx.textAlign='center';ctx.fillText('PIXELFORGE FIGHT CLUB',w/2,58);
-for(let x=100;x<w;x+=190){ctx.globalAlpha=.18;ctx.fillStyle='#7180aa';ctx.fillRect(x,105,2,290);ctx.globalAlpha=1}
-if(fighters.length){fighters.forEach(drawFighter)}
-if(!running&&!roundOver){ctx.fillStyle='#c4cce0';ctx.font='600 14px system-ui';ctx.textAlign='center';ctx.fillText('A / D MOVE   •   W JUMP   •   F PUNCH   •   R KICK   •   G BLOCK',w/2,500)}
-}
-function loop(t){const dt=Math.min(.033,(t-last)/1000||0);last=t;update(dt);draw();requestAnimationFrame(loop)}
-function keyName(e){return e.key.toLowerCase()}
-window.addEventListener('keydown',e=>{const k=keyName(e);if(['arrowleft','arrowright','arrowup',' ','shift'].includes(k))e.preventDefault();if(!keys.has(k)){keys.add(k);if(k==='escape'&&running){running=false;$('startOverlay').classList.remove('hidden');$('matchStatus').textContent='Paused.'}else if(k==='enter'&&!running&&!roundOver)start()}});
-window.addEventListener('keyup',e=>keys.delete(keyName(e)));window.addEventListener('blur',()=>keys.clear());
-$('cpuMode').onclick=()=>setMode('cpu');$('localMode').onclick=()=>setMode('local');$('onlineMode').onclick=()=>setMode('online');$('startBtn').onclick=start;$('nextBtn').onclick=()=>{if(score[0]>=roundsToWin||score[1]>=roundsToWin)restart();else beginNext()};$('resetBtn').onclick=restart;$('restartBtn').onclick=restart;$('rounds').onchange=e=>{roundsToWin=Number(e.target.value);restart()};$('difficulty').onchange=()=>toast('CPU difficulty updated.');$('onlineInfo').onclick=()=>toast('No online matchmaking/signalling service is configured yet.');
-$('howBtn').onclick=()=>toast(mode==='cpu'?'A/D move · W jump · F punch · R heavy kick · G block · Shift dash':'P1: A/D/W/F/R/G · P2: arrows + K/L/O');
-let sdkStarted=false;
-(async()=>{try{if(window.CrazyGames&&CrazyGames.SDK){await CrazyGames.SDK.init();$('sdkStatus').textContent='CrazyGames SDK ready';sdkStarted=true;try{CrazyGames.SDK.game.loadingStop()}catch(e){}}else{$('sdkStatus').textContent='Standalone mode'}}catch(e){$('sdkStatus').textContent='Standalone mode'}})();
-roundsToWin=Number($('rounds').value);resetFighters();requestAnimationFrame(loop);
-})();
-</script>
-</body></html>
+  <main class="menu">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="PixelForge home">
+        <img src="assets/images/pixelforge-mark.svg" alt="">
+        <span class="brand-name">PIXELFORGE<span class="brand-sub">INDEPENDENT GAME STUDIO</span></span>
+      </a>
+      <button class="account" id="accountButton" type="button" aria-label="CrazyGames account">
+        <img class="avatar" id="accountAvatar" alt="" src="assets/images/pixelforge-mark.svg">
+        <span class="account-name" id="accountName">Guest</span>
+        <span class="account-action" id="accountAction">Sign in</span>
+      </button>
+    </header>
+    <section class="showcase" aria-label="Stickman character showcase">
+      <canvas id="fighter-showcase" tabindex="0" aria-label="Drag to rotate the stickman on the podium"></canvas>
+      <div class="game-title">
+        <div class="kicker">A PIXELFORGE ORIGINAL</div>
+        <h1>STICKMAN<span>SHOWDOWN</span></h1>
+        <p>Fast fights. Clean hits. One more round.</p>
+      </div>
+      <div class="spin-hint">DRAG TO ROTATE</div>
+    </section>
+    <div class="play-area">
+      <button class="play-button" id="playButton" type="button"><span>PLAY NOW</span><span class="play-arrow" aria-hidden="true">↗</span></button>
+    </div>
+    <div class="version">PIXELFORGE · EARLY ACCESS BUILD</div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+  <script src="assets/js/crazygames.js"></script>
+  <script src="assets/js/character.js"></script>
+  <script src="assets/js/menu.js"></script>
+</body>
+</html>
