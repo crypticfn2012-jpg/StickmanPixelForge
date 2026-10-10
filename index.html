@@ -216,34 +216,6 @@ window.__pfSDKReady = new Promise(resolve => {
 }
 @media(max-height:650px) and (min-width:641px){.lobby-copy{top:14%}.career-panel{margin-top:9px;padding:8px 10px}.lobby-copy p{margin-top:8px}.hero-tags{margin-top:8px}.lobby-bottom{bottom:8px}.mode-wrap{padding:8px 10px}.cg-banner-slot{display:none!important}}
 
-/* PixelForge lobby refresh: cleaner arcade styling, clearer hierarchy, fewer skewed controls. */
-#lobby{background-color:#101a2b;background-image:radial-gradient(ellipse at 78% 38%,#263d5e 0%,#17253b 35%,#0d1422 76%)}
-#lobby:before{background:linear-gradient(90deg,#0b1328b8 0%,#101b2c55 54%,#10192b28 100%),linear-gradient(0deg,#090f1bd9 0%,transparent 47%,#0a1220a8 100%)}
-#lobby-preview{opacity:.94}
-.lobby-top{padding:16px clamp(14px,2.3vw,34px);align-items:center;background:linear-gradient(180deg,#0b1220c9,#0b122000);gap:14px}
-.brand img{filter:drop-shadow(0 4px 14px #0007)}.brand-text{text-shadow:none;letter-spacing:.06em}.brand-text small{color:#9eafc8;letter-spacing:.14em}
-.lobby-actions{gap:7px}.small-nav-btn{min-height:39px;padding:6px 11px;border-radius:9px;background:#111c2edb;border:1px solid #ffffff20;box-shadow:0 5px 15px #0002;transition:background .15s,border-color .15s}
-.small-nav-btn span{background:#24364c;color:#c4dcfa;border-radius:6px}.small-nav-btn:hover{background:#1b2c43;border-color:#91b7e35c}
-.shop-open-btn{border-radius:9px;min-height:39px;background:linear-gradient(135deg,#ffd27a,#f3a53b);border:1px solid #ffe5b0;box-shadow:0 4px 0 #9c6529,0 8px 20px #0003}
-.icon-btn{border-radius:9px;transform:none;background:#18273bd9;border:1px solid #ffffff28;box-shadow:0 4px 12px #0003}.icon-btn:hover{background:#263a54}
-.account-btn{border-radius:10px;transform:none;background:#111c2edb;border:1px solid #ffffff22;box-shadow:0 4px 15px #0003}.account-btn img{border:1px solid #ffffff30}
-.lobby-copy{top:19%;left:clamp(18px,4.2vw,64px);width:min(44vw,600px);padding:clamp(18px,2.1vw,30px);border:1px solid #ffffff1d;border-left:3px solid #f0b45b;border-radius:16px;background:linear-gradient(145deg,#101a2be8,#101725c9);box-shadow:0 22px 70px #0004;backdrop-filter:blur(9px);text-shadow:none}
-.lobby-copy .eyebrow{font:700 clamp(9px,.78vw,12px) system-ui,sans-serif;color:#e9bd79;letter-spacing:.14em;text-shadow:none;margin-bottom:12px}
-#lobby-title{font-size:clamp(38px,4.25vw,68px);line-height:.95;letter-spacing:-.035em;text-shadow:none}#lobby-title span{color:#b8d9f4}#lobby-title .title-accent{color:#f4b85d}
-.lobby-copy p{font:clamp(11px,.9vw,14px)/1.6 system-ui,sans-serif;color:#c6d0df;margin-top:14px}
-.hero-tags{gap:6px;margin-top:14px}.hero-tags span{border-radius:6px;background:#ffffff0b;border:1px solid #ffffff1b;color:#b9c7d9;letter-spacing:.1em}
-.career-panel{border-radius:10px;background:#0b1422c9;border:1px solid #ffffff1a;box-shadow:none;transform:none}.career-panel-top{color:#e7bd7b}.career-progress{background:#263347}.career-progress i{background:linear-gradient(90deg,#d79b43,#ffcf7c)}
-.lobby-bottom{left:clamp(14px,2.2vw,32px);right:clamp(14px,2.2vw,32px);bottom:clamp(12px,2vh,22px);padding:14px 16px;align-items:center;gap:18px;border:1px solid #ffffff20;border-radius:15px;background:#0c1524e8;box-shadow:0 15px 45px #0004;backdrop-filter:blur(10px)}
-.mode-wrap{max-width:76%;gap:9px}.section-label{font:700 11px system-ui,sans-serif;letter-spacing:.16em;color:#c2cede;text-shadow:none}.mode-row{gap:8px}
-.mode-choice{min-width:170px;padding:10px 14px;border:1px solid #ffffff20;border-radius:9px;background:#18263a;box-shadow:none;transform:none;transition:background .15s,border-color .15s,transform .15s}
-.mode-choice b{font-size:17px}.mode-choice small{font-size:10px;color:#aebbd0}.mode-choice.selected{background:#1d3b57;border:1px solid #e6b667;box-shadow:inset 0 0 0 1px #e6b66725}.mode-choice:hover{transform:translateY(-1px);filter:none;background:#22364d}
-.diff-row{font:10px system-ui,sans-serif;letter-spacing:.08em;color:#b7c4d6}.diff{border-radius:7px;padding:6px 10px;background:#172235;border:1px solid #ffffff1c;box-shadow:none;font:700 10px system-ui,sans-serif}.diff.selected{background:#e5ae58;border-color:#ffda9a;color:#1a1b20;box-shadow:none}
-.fight-wrap{gap:8px}.fight-label{font:700 10px system-ui,sans-serif;letter-spacing:.12em;color:#aab9cd;text-shadow:none}
-#play-button{width:clamp(170px,20vw,280px);height:68px;min-height:56px;border-radius:11px;background:linear-gradient(135deg,#ffd17b,#f0a43b);border:1px solid #ffe5ae;box-shadow:0 5px 0 #996126,0 9px 22px #0003;color:#24190e;transform:none;font-size:clamp(25px,2.7vw,40px);text-shadow:none;letter-spacing:.01em}
-#play-button:hover{filter:brightness(1.06);transform:translateY(-2px)}#play-button:active{transform:translateY(3px);box-shadow:0 2px 0 #996126}.cg-banner-slot{border-radius:8px;box-shadow:0 8px 24px #0004}
-@media(max-width:900px){.lobby-top{padding:10px 12px}.lobby-copy{top:17%;left:16px;width:min(48vw,520px);padding:16px}.lobby-bottom{padding:11px;gap:9px}.mode-wrap{max-width:72%}.mode-choice{min-width:132px;padding:9px 10px}.mode-choice b{font-size:14px}#play-button{width:clamp(125px,22vw,200px);height:58px;font-size:clamp(22px,3vw,30px)}}
-@media(max-width:640px){.lobby-top{padding:8px;gap:5px}.lobby-actions{gap:4px}.lobby-copy{top:15%;left:10px;width:min(75vw,380px);padding:13px;border-radius:12px}.lobby-copy .eyebrow{font-size:7px;margin-bottom:7px}#lobby-title{font-size:clamp(31px,8.1vw,46px)}.lobby-copy p{font-size:9px;margin-top:8px}.hero-tags{margin-top:7px}.career-panel{margin-top:8px;padding:8px}.career-panel-top{font-size:8px}.career-next b{font-size:11px}.career-next small,.career-next span,.career-stage,.career-bottom{font-size:7px}.lobby-bottom{left:8px;right:8px;bottom:8px;padding:8px;gap:6px;border-radius:10px;align-items:flex-end}.mode-wrap{max-width:69%;gap:5px}.section-label{font-size:8px}.mode-row{gap:4px}.mode-choice{min-width:0;flex:1;padding:7px 6px;border-radius:7px}.mode-choice b{font-size:10px}.mode-choice small{font-size:7px}.diff-row{font-size:7px;gap:3px}.diff{padding:4px 5px;font-size:7px}.fight-wrap{gap:5px}.fight-label{font-size:6px}#play-button{min-width:90px;width:27vw;height:47px;min-height:45px;font-size:clamp(18px,5.5vw,27px);border-radius:8px;box-shadow:0 4px 0 #996126,0 7px 16px #0003}}
-
 </style>
 </head>
 <body>
