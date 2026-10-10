@@ -216,6 +216,73 @@ window.__pfSDKReady = new Promise(resolve => {
 }
 @media(max-height:650px) and (min-width:641px){.lobby-copy{top:14%}.career-panel{margin-top:9px;padding:8px 10px}.lobby-copy p{margin-top:8px}.hero-tags{margin-top:8px}.lobby-bottom{bottom:8px}.mode-wrap{padding:8px 10px}.cg-banner-slot{display:none!important}}
 
+
+/* PixelForge lobby pass: reduce noise, give the fighter the stage. */
+#lobby{background-color:#101a34;background-image:linear-gradient(115deg,#0b1428 0%,#101f3c 52%,#152c4b 100%)!important}
+#lobby:before{background:radial-gradient(ellipse at 74% 40%,#1b5d8a4a 0%,transparent 42%),linear-gradient(90deg,#091224f5 0%,#0b162be8 39%,#0d1b30a1 70%,#0b1427a8 100%)!important}
+#lobby-preview{z-index:1;opacity:.2}
+.hero-fighter{position:absolute;z-index:2;right:clamp(3%,7vw,115px);top:15%;height:68%;width:min(35vw,430px);display:flex;align-items:center;justify-content:center;pointer-events:none;filter:drop-shadow(0 24px 36px #0005)}
+.hero-fighter svg{position:relative;z-index:2;width:100%;height:100%;overflow:visible}
+.hero-fighter-glow{position:absolute;width:82%;height:70%;right:8%;top:14%;border-radius:50%;background:#2f9fe52b;filter:blur(44px)}
+.lobby-top{padding:clamp(14px,2.2vh,24px) clamp(18px,3vw,42px)!important;align-items:center!important;gap:14px!important}
+.brand{gap:10px!important}.brand img{width:70px!important;height:48px!important}.brand-text{font-size:17px!important;letter-spacing:.08em!important}.brand-text small{font-size:9px!important;letter-spacing:.13em!important;margin-top:5px!important}
+.lobby-actions{gap:8px!important;align-items:center!important}
+.lobby-more{position:relative;order:0}
+.lobby-more summary{list-style:none;cursor:pointer;display:grid;place-items:center;min-width:72px;height:38px;padding:0 13px;border:1px solid #c8ddf633;border-radius:7px;background:#101c31;color:#dce8f7;font:700 10px system-ui,sans-serif;letter-spacing:.13em}
+.lobby-more summary::-webkit-details-marker{display:none}
+.lobby-more[open] summary{border-color:#79cfff;background:#172b45}
+.lobby-more-menu{position:absolute;top:calc(100% + 9px);right:0;z-index:30;display:grid;grid-template-columns:1fr 1fr;gap:8px;width:250px;padding:12px;border:1px solid #b9d6ef2b;border-radius:10px;background:#0c1729f5;box-shadow:0 18px 45px #0008;backdrop-filter:blur(14px)}
+.lobby-more-menu .small-nav-btn,.lobby-more-menu .shop-open-btn{min-width:0;width:100%;height:42px;min-height:42px;padding:7px 9px;transform:none!important;box-shadow:none!important;border-radius:6px;font-size:10px!important}
+.lobby-more-menu .shop-open-btn{grid-column:span 2;justify-content:center}
+.lobby-actions>.icon-btn{width:39px!important;height:38px!important;min-width:39px!important;min-height:38px!important;transform:none!important;border:1px solid #c8ddf62b!important;border-radius:7px!important;background:#101c31!important;box-shadow:none!important;font-size:17px!important}
+.account-btn{min-height:38px!important;padding:4px 10px 4px 5px!important;gap:8px!important;transform:none!important;border:1px solid #c8ddf62b!important;border-radius:7px!important;background:#101c31!important;box-shadow:none!important}
+.account-btn img{width:27px!important;height:27px!important;min-width:27px!important;min-height:27px!important}
+.account-name{font-size:10px!important;max-width:125px!important}.account-caption{font-size:8px!important}
+.lobby-copy{z-index:3!important;top:23%!important;left:clamp(24px,6.2vw,92px)!important;width:min(45vw,570px)!important}
+.lobby-copy .eyebrow{font-size:10px!important;letter-spacing:.16em!important;margin-bottom:17px!important;color:#a6c5df!important}
+#lobby-title{font-size:clamp(44px,5.4vw,76px)!important;line-height:.91!important;letter-spacing:-.055em!important;font-weight:800!important;text-shadow:none!important}
+#lobby-title span{color:#8bd9ff!important}.lobby-copy p{font-size:14px!important;color:#aebed1!important;margin-top:17px!important}
+.hero-tags{display:none!important}
+.career-panel{display:none!important}
+.lobby-bottom{z-index:4!important;left:clamp(24px,6.2vw,92px)!important;right:clamp(24px,6.2vw,92px)!important;bottom:clamp(24px,4vh,46px)!important;display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:18px!important}
+.mode-wrap{max-width:510px!important;width:min(51%,510px)!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;gap:10px!important}
+.section-label{font-size:10px!important;letter-spacing:.17em!important;color:#93aecb!important;margin-bottom:2px!important}
+.mode-row{gap:8px!important}
+.mode-choice{min-width:0!important;flex:1!important;padding:12px 14px!important;border-radius:7px!important;background:#101c31d9!important;border:1px solid #c5dcf02a!important}
+.mode-choice.selected{background:#173654!important;border-color:#78ceff!important;box-shadow:inset 0 0 0 1px #78ceff26!important}
+.mode-choice b{font-size:12px!important}.mode-choice small{font-size:9px!important}
+.diff-row{margin-top:8px!important;font-size:9px!important;gap:6px!important}
+.diff{font-size:9px!important;padding:6px 9px!important}
+.fight-wrap{min-width:205px!important;align-items:flex-end!important;gap:8px!important}
+.fight-label{font-size:9px!important;letter-spacing:.17em!important;color:#9cb5d0!important}
+#play-button{min-width:205px!important;width:min(25vw,280px)!important;height:65px!important;padding:0 24px!important;border:0!important;border-radius:8px!important;transform:none!important;background:#ffbd57!important;color:#1b1a20!important;box-shadow:0 5px 0 #b46c27!important;font-size:23px!important;font-weight:900!important;letter-spacing:.04em!important}
+#play-button:hover{filter:brightness(1.06)!important;transform:translateY(-2px)!important}
+#cg-banner-container{z-index:3}
+@media(max-width:900px){
+ .brand img{width:52px!important;height:39px!important}.brand-text{font-size:14px!important}.brand-text small{font-size:7px!important}
+ .hero-fighter{right:1%;top:22%;height:49%;width:43vw;opacity:.8}
+ .lobby-copy{top:23%!important;left:5%!important;width:55%!important}
+ #lobby-title{font-size:clamp(38px,7vw,60px)!important}
+ .lobby-bottom{left:5%!important;right:5%!important;bottom:3%!important}
+ .mode-wrap{width:56%!important}.fight-wrap{min-width:170px!important}#play-button{min-width:170px!important;height:57px!important;font-size:20px!important}
+}
+@media(max-width:600px){
+ .lobby-top{padding:10px 12px!important}.brand-text{display:none!important}.brand img{width:45px!important;height:34px!important}
+ .lobby-actions{gap:5px!important}.account-btn{max-width:120px!important}.account-name{max-width:70px!important;font-size:9px!important}.account-caption{display:none!important}
+ .lobby-actions>.icon-btn{width:32px!important;height:32px!important;min-width:32px!important;min-height:32px!important}
+ .lobby-more summary{min-width:52px!important;height:32px!important;padding:0 8px!important;font-size:9px!important}
+ .hero-fighter{right:-7%;top:18%;height:42%;width:52vw;opacity:.72}
+ .lobby-copy{top:18%!important;left:6%!important;width:70%!important}
+ .lobby-copy .eyebrow{font-size:8px!important;margin-bottom:10px!important}
+ #lobby-title{font-size:clamp(34px,10vw,49px)!important}
+ .lobby-copy p{font-size:11px!important;max-width:245px!important;margin-top:10px!important}
+ .lobby-bottom{flex-direction:column!important;align-items:stretch!important;gap:12px!important;bottom:12px!important;left:5%!important;right:5%!important}
+ .mode-wrap{width:100%!important;max-width:none!important}.mode-choice{padding:9px 8px!important}.mode-choice b{font-size:10px!important}.mode-choice small{font-size:8px!important}
+ .diff-row{flex-wrap:wrap!important}.fight-wrap{width:100%!important;align-items:stretch!important;min-width:0!important;gap:5px!important}
+ .fight-label{text-align:center!important}#play-button{width:100%!important;min-width:0!important;height:52px!important}
+ .lobby-more-menu{width:215px!important}
+}
+@media(prefers-reduced-motion:reduce){.hero-fighter,.hero-fighter svg{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -236,13 +303,43 @@ window.__pfSDKReady = new Promise(resolve => {
 </section>
 <section id="lobby" class="screen active" aria-label="Main lobby">
  <canvas id="lobby-preview" aria-label="Drag to rotate your fighter"></canvas>
+ <div class="hero-fighter" aria-hidden="true">
+  <svg viewBox="0 0 420 560" role="presentation" xmlns="http://www.w3.org/2000/svg">
+   <defs>
+    <linearGradient id="pfHeroJacket" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#55c9ff"/><stop offset="1" stop-color="#1465d7"/></linearGradient>
+    <linearGradient id="pfHeroGlove" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#ffcf6b"/><stop offset="1" stop-color="#e88426"/></linearGradient>
+    <filter id="pfHeroShadow" x="-50%" y="-30%" width="200%" height="180%"><feGaussianBlur stdDeviation="9"/></filter>
+   </defs>
+   <ellipse cx="214" cy="524" rx="112" ry="18" fill="#030918" opacity=".42" filter="url(#pfHeroShadow)"/>
+   <path d="M182 290 Q154 341 150 392 L130 480 Q128 499 147 502 L171 504 Q188 501 188 482 L212 405 L239 480 Q245 497 264 493 L283 487 Q298 481 289 464 L271 382 Q267 331 247 293Z" fill="#101b36" stroke="#080f22" stroke-width="12" stroke-linejoin="round"/>
+   <path d="M145 479 L130 506 Q125 520 142 526 L177 526 Q194 523 190 510 L183 485Z" fill="#eaf5ff" stroke="#111b30" stroke-width="10" stroke-linejoin="round"/>
+   <path d="M246 476 L249 506 Q249 521 266 522 L300 514 Q316 507 304 495 L283 477Z" fill="#eaf5ff" stroke="#111b30" stroke-width="10" stroke-linejoin="round"/>
+   <path d="M171 204 Q204 187 244 208 L274 294 Q220 324 158 294Z" fill="url(#pfHeroJacket)" stroke="#101a31" stroke-width="13" stroke-linejoin="round"/>
+   <path d="M184 220 L203 251 L225 220 L241 293 L181 293Z" fill="#eaf6ff" opacity=".92"/>
+   <path d="M183 222 L144 270 L119 306" fill="none" stroke="#101a31" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+   <path d="M183 222 L144 270 L119 306" fill="none" stroke="url(#pfHeroJacket)" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+   <path d="M241 222 L276 249 L303 218" fill="none" stroke="#101a31" stroke-width="31" stroke-linecap="round" stroke-linejoin="round"/>
+   <path d="M241 222 L276 249 L303 218" fill="none" stroke="url(#pfHeroJacket)" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+   <path d="M106 293 Q111 278 128 284 L143 297 Q151 311 138 327 L124 341 Q109 349 99 334 L91 319 Q89 305 106 293Z" fill="url(#pfHeroGlove)" stroke="#111a30" stroke-width="10"/>
+   <path d="M292 194 Q301 179 317 187 L336 199 Q347 211 335 227 L321 242 Q307 249 297 234 L287 217 Q283 205 292 194Z" fill="url(#pfHeroGlove)" stroke="#111a30" stroke-width="10"/>
+   <path d="M174 78 Q181 39 219 37 Q260 40 269 81 L263 135 Q252 174 220 181 Q187 171 175 136Z" fill="#f5f8ff" stroke="#101a30" stroke-width="13" stroke-linejoin="round"/>
+   <path d="M173 85 Q214 103 267 81 L264 105 Q215 124 176 105Z" fill="#1a73e8" stroke="#101a30" stroke-width="8" stroke-linejoin="round"/>
+   <path d="M198 132 L213 135 M232 135 L245 131" stroke="#18223a" stroke-width="8" stroke-linecap="round"/>
+   <path d="M207 150 Q221 159 237 148" fill="none" stroke="#18223a" stroke-width="6" stroke-linecap="round"/>
+   <path d="M188 188 L183 207 M244 189 L250 207" stroke="#101a30" stroke-width="10" stroke-linecap="round"/>
+   <path d="M157 300 Q214 320 273 299" fill="none" stroke="#9ee4ff" stroke-width="5" opacity=".8"/>
+  </svg>
+  <span class="hero-fighter-glow"></span>
+ </div>
  <header class="lobby-top">
   <div class="brand"><img src="assets/images/PixelForgelogo.png" alt="PixelForge"><div class="brand-text">PIXELFORGE<small>INDEPENDENT GAME STUDIO</small></div></div>
   <div class="lobby-actions">
-   <button id="quests-button" class="small-nav-btn" type="button"><span>Q</span><b>QUESTS</b></button>
-   <button id="upgrades-button" class="small-nav-btn" type="button"><span>+</span><b>UPGRADES</b></button>
-   <button id="leaderboard-button" class="small-nav-btn" type="button"><span>W/L</span><b>RECORD</b></button>
-   <button id="shop-button" class="shop-open-btn" type="button"><span class="shop-button-icon">S</span><span class="shop-button-label">SHOP</span><b id="shop-coins">350</b></button>
+   <details class="lobby-more"><summary>MORE</summary><div class="lobby-more-menu">
+    <button id="quests-button" class="small-nav-btn" type="button"><span>Q</span><b>QUESTS</b></button>
+    <button id="upgrades-button" class="small-nav-btn" type="button"><span>+</span><b>UPGRADES</b></button>
+    <button id="leaderboard-button" class="small-nav-btn" type="button"><span>W/L</span><b>RECORD</b></button>
+    <button id="shop-button" class="shop-open-btn" type="button"><span class="shop-button-icon">S</span><span class="shop-button-label">SHOP</span><b id="shop-coins">350</b></button>
+   </div></details>
    <button id="help-button" class="icon-btn" aria-label="Show controls" title="Controls">?</button>
    <button id="sound-button" class="icon-btn" aria-label="Toggle sound" title="Sound">♫</button>
    <button id="account-button" class="account-btn" type="button"><img id="account-avatar" src="assets/images/PixelForgelogo.png" alt=""><span><span id="account-name" class="account-name">GUEST PLAYER</span><span id="account-caption" class="account-caption">PLAYING AS GUEST</span></span></button>
