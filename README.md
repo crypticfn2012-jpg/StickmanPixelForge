@@ -1,37 +1,29 @@
 # Stickman Showdown — PixelForge
 
-A single-file HTML5 stickman fighting game. The menu, combat code, physics, animation renderer, audio handling, CrazyGames integration and match progression live in **`index.html`**. Local images and sound effects remain in `assets/images/` and `assets/audio/`.
+A browser-based stickman fighting game made by PixelForge. The UI, hand-drawn fighter renderer, combat simulation, progression, quests, cosmetics, save handling and CrazyGames hooks are in `index.html`. Local art and sound effects are in `assets/images/` and `assets/audio/`.
 
-## Current game
+## Game systems
 
-- Initial black PixelForge loading screen, with an actual loading bar
-- Lobby uses `LobbyBg.jpg`; the title display crops the wordmark from the portrait `MainLogo.jpg` rather than scaling the full poster down to a tiny thumbnail
-- Main-menu stickman has a podium and idle/run/jump/roll animation states
-- Full-screen fight uses `ArenaBg.jpg`
-- Between-match loading uses `LoadingScreen.jpg` without the PixelForge studio logo
-- Fast running, dashes, jumps/flips, punch/kick timing, blocking, hit stun, impact sparks, combos, screen shake and knockouts
-- VS CPU with Chill/Standard/Elite difficulty, or same-device local two-player mode
-- Health bars, round timer, best-of-three matches, pause/result screens and mobile touch controls
-- Optional CrazyGames profile sign-in, player name/avatar, match stats and save support
-- Audio uses the actual user-supplied MP3s: looping lobby music, button clicks, punches, kicks, ground impacts and knockout sounds. The music starts after the first player interaction to comply with browser autoplay restrictions.
-- The lobby UI hides redundant stats/cards and keeps the game title, account/music controls, mode selector and main fight button.
+- **Career climb:** Fight your way through 12 CPU opponents, from the back alley through the parking lot and pro ring to a moon arena. Winning a CPU match unlocks the next opponent; losing means you can rematch.
+- **Distinct opponents:** All-rounders, quick speedsters, heavy long-reach sluggers, bruisers, counter fighters and the final champion use different speed, reach, stamina, health, damage and recovery settings.
+- **Stamina:** Punches, kicks, jump and dash consume stamina. Holding block drains it. Stamina regenerates over time; low stamina lowers damage and slows movement, so repeatedly attacking is less effective than timing actions and recovering.
+- **Upgrades:** Reach, footwork, stamina, toughness and strength can each be upgraded to level 3. Boosts are deliberately capped.
+- **Quests:** Three daily challenges track clean hits, dashes and match wins. Career milestones track match wins, total hits, dashes, cosmetics and progress through the venues. Rewards pay coins and are saved.
+- **Cosmetics:** Headwear, face details, auras and hand wraps can be bought with earned coins and equipped in separate slots. Coins, unlocks, upgrades and career progress use the existing CrazyGames Data module when available, with local storage as the fallback.
+- **Modes:** VS CPU career mode and same-device local two-player. Online matchmaking is not implemented.
+- **Audio:** Uses the actual supplied MP3s in `assets/audio/` for lobby music, button clicks, punches, kicks, movement impacts and knockout cues.
+- **Lobby:** The original hand-drawn fighter renderer is used for idle, punch, kick, block and movement poses. No external sprite-sheet downloads are required for the character.
 
-## Character art and licence
+## Arenas
 
-The character renderer first tries the separate idle, run, jump and roll sprite strips from **“Simple animated character 16x16” by MScull**, published on OpenGameArt under **CC0** (public domain dedication). The game falls back to the built-in drawn character if a remote image is unavailable.
+The career uses the supplied local assets:
 
-Source and licence: https://opengameart.org/content/simple-animated-character-16x16
+- `assets/images/Alleywaybg.jpg` — the first three fights
+- `assets/images/parkinglotbg.jpg` — the next three
+- `assets/images/probg.jpg` — the professional circuit
+- The final venue is drawn in canvas as a moon arena
 
-The tiny sprite sheets are currently requested directly from OpenGameArt rather than duplicated into this repository. Before final distribution, it is preferable to vendor those PNGs into `assets/characters/` and point the game at the local copies, so the build has no runtime dependency on a third-party art host.
-
-## Sound files
-
-- `ButtonClicked.mp3` — UI clicks
-- `MainMenuMusic.mp3` — lobby music loop
-- `Punch.mp3` — punches and blocks
-- `kick.mp3` — kicks
-- `groundImpact.mp3` — jumping/dashing/landings
-- `death.mp3` — knockout / end of round
+The lobby continues to use `LobbyBg.jpg`; the between-match loader uses `LoadingScreen.jpg`.
 
 ## Controls
 
@@ -39,23 +31,31 @@ The tiny sprite sheets are currently requested directly from OpenGameArt rather 
 
 **Player 2 (local mode):** Left/Right arrows move, Up jump/flip, K punch, L kick, hold O to block, Right Ctrl dash.
 
-Press **P** to pause. Use the result or pause screen to return to the lobby.
+Press **P** to pause. Return to the lobby from the pause or result screen.
+
+## CrazyGames integrations and setup
+
+The game uses the CrazyGames SDK v3 loader already in `index.html`. The following items need Developer Portal configuration before production behaviour can be fully enabled:
+
+- **Leaderboard:** The score-submission adapter uses `CrazyGames.SDK.user.submitScore()` and the client-side AES-GCM flow from the SDK documentation. Set `CG_LEADERBOARD_ENCRYPTION_KEY` near the career systems code to the same 32-byte base64 key configured in the Developer Portal, and enable the leaderboard for the game. CrazyGames currently supports one leaderboard per game, so the global score is career wins; in-game records show both wins and defeats.
+- **In-game purchases:** The UI deliberately keeps real-money coin packs disabled. CrazyGames IAP is invite-only and requires an approved Xsolla project, product SKUs, and correct order/inventory validation. Set up the project and its checkout flow before enabling `CG_IAP_CONFIG`; do not mark a purchase complete or grant paid currency before the order is confirmed.
+- **Banners:** A responsive banner is requested from the SDK while the lobby is visible and cleared when leaving it. The game handles unavailable/unfilled banners without blocking gameplay. Test this in CrazyGames Preview; banners may not be available during Basic Launch.
+
+References:
+- https://docs.crazygames.com/sdk/leaderboards/
+- https://docs.crazygames.com/sdk/in-game-purchases/
+- https://docs.crazygames.com/sdk/banners/
 
 ## Run locally
 
-Don't double-click `index.html` to test the CrazyGames SDK. From this folder, run:
+From this folder:
 
 ```bash
 python -m http.server 8000
 ```
 
-Open `http://localhost:8000/`. The SDK is skipped only for `file://` mode, which runs as a guest to avoid browser file-origin warnings. Use localhost or CrazyGames Preview for SDK testing.
+Open `http://localhost:8000/`. Local testing skips the CrazyGames SDK when launched as `file://`; use localhost or CrazyGames Preview to check platform integrations.
 
-## CrazyGames release checklist
+## Release checks
 
-- Verify in CrazyGames Preview at the supported review viewports, including 907×510.
-- Test the live CC0 sprite fetch, all six MP3 paths, mobile controls, music mute, account prompt, round transitions and browser console.
-- Enable Progress Save in the Developer Portal if using CrazyGames' Data module; rely on the module for submitted builds.
-- Keep the first playable action within one click of the initial screen. CrazyGames supplies fullscreen controls, so the game does not add a custom fullscreen button.
-
-The current build supports **local combat** (CPU and same-device two-player). It does not implement online matchmaking or synchronized online fights. Approval cannot be guaranteed before the real CrazyGames QA/Preview run.
+Before submitting or updating the live build, test the game in CrazyGames Preview at both desktop and mobile viewports. Verify stamina depletion/recovery, each enemy archetype, venue unlocking, upgrades, each daily quest and career milestone, cosmetic slot switching, persistence, sound, mobile controls, leaderboard key configuration, and banner behaviour. Real-money purchases remain disabled until the CrazyGames/Xsolla setup is completed.
