@@ -1141,7 +1141,7 @@ $("upgrades-close").addEventListener("click",()=>{$("upgrades-screen").classList
 $("leaderboard-close").addEventListener("click",()=>{$("leaderboard-screen").classList.remove("active");if(app.scene==="lobby"&&app.sdkReady)pfRequestBanner()});
 $("leaderboard-submit").addEventListener("click",async()=>{if(!CG_LEADERBOARD_ENCRYPTION_KEY){toast("Add the encryption key from your CrazyGames Developer Portal first.");return}const submitted=await submitCrazyGamesCareerWins();toast(submitted?"Career wins submitted to CrazyGames.":"CrazyGames SDK is unavailable or the leaderboard is not enabled.");});
 $("upgrade-grid").addEventListener("click",e=>{const b=e.target.closest("[data-upgrade]");if(b)pfBuyUpgrade(b.dataset.upgrade)});
-$("shop-grid").addEventListener("click",e=>{const b=e.target.closest("[data-iap-pack]");if(b)startCrazyGamesPurchase(b.dataset.iapPack);else{const item=e.target.closest("[data-shop-item]");if(item)useShopItem(item.dataset.shopItem)}});
+$("shop-grid").addEventListener("click",e=>{const b=e.target.closest("[data-iap-pack]");if(b)startCrazyGamesPurchase(b.dataset.iapPack)});
 document.querySelectorAll(".shop-filter").forEach(b=>b.addEventListener("click",()=>{shopFilter=b.dataset.shopFilter;document.querySelectorAll(".shop-filter").forEach(x=>x.classList.toggle("selected",x===b));pfRenderShop()}));
 const pfBaseShopOpen=$("shop-button").onclick;
 $("shop-button").addEventListener("click",()=>{pfClearBanner();pfRenderShop()});
