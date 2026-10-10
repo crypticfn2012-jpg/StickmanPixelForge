@@ -516,16 +516,10 @@ function drawVectorPerson(c,f,s,previewMode,yaw){
  if(f.action==="punch"&&f.t>.05&&f.t<.21){c.strokeStyle=accent;c.lineWidth=2;c.beginPath();c.moveTo(46,-91);c.lineTo(54,-96);c.moveTo(49,-83);c.lineTo(60,-83);c.stroke()}
  c.restore()
 }
-const cc0StickmanSheets = {
- idle: "https://opengameart.org/sites/default/files/spr_stickman_idle.png",
- run: "https://opengameart.org/sites/default/files/spr_stickman_run.png",
- jump: "https://opengameart.org/sites/default/files/spr_stickman_jump.png",
- roll: "https://opengameart.org/sites/default/files/spr_stickman_roll.png"
-};
+// The final renderer uses the game's own hand-drawn stickman for every pose.
+// No third-party character image is fetched at runtime.
+const cc0StickmanSheets = {};
 const cc0Stickman = {};
-Object.entries(cc0StickmanSheets).forEach(([name,src])=>{
- const im=new Image(); im.decoding="async"; im.src=src; cc0Stickman[name]=im;
-});
 function drawSpritePerson(c,f,s,previewMode,yaw){
  let state="idle";
  if(f.action==="flip"||f.action==="spin") state="roll";
