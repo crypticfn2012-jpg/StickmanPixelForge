@@ -106,7 +106,7 @@ window.__pfSDKReady = new Promise(resolve => {
 .brand-text small{font-size:clamp(8px,.65vw,11px);letter-spacing:.12em}
 .lobby-copy{top:17%;left:clamp(20px,4vw,72px);width:min(45vw,650px)}
 .lobby-copy .eyebrow{font-size:clamp(11px,1.1vw,17px);margin-bottom:10px}
-#main-game-logo{width:min(100%,600px);height:clamp(76px,14vh,158px);object-fit:contain;object-position:left center;mix-blend-mode:screen;filter:drop-shadow(0 5px 10px #050a2dbb);margin:0}
+#main-game-logo{width:min(44vw,520px);height:clamp(176px,27vh,270px);object-fit:cover;object-position:center bottom;mix-blend-mode:screen;filter:drop-shadow(0 5px 10px #050a2dbb);margin:0}
 .lobby-copy p{margin-top:clamp(6px,1.2vh,15px);font-size:clamp(11px,1vw,16px);letter-spacing:.035em;color:#ecf1ff}
 .stats,.daily-card,.menu-foot{display:none!important}
 .lobby-bottom{left:clamp(16px,2.5vw,42px);right:clamp(16px,2.5vw,42px);bottom:clamp(16px,3vh,34px);gap:20px}
@@ -124,7 +124,7 @@ window.__pfSDKReady = new Promise(resolve => {
 @media(max-width:640px){
  .brand-text{font-size:11px}.brand-text small{font-size:7px}
  .lobby-copy{top:15%;left:14px;width:67vw}
- #main-game-logo{height:clamp(56px,10vh,84px);width:100%}
+ #main-game-logo{height:clamp(126px,22vh,190px);width:min(62vw,360px);object-fit:cover;object-position:center bottom}
  .lobby-copy p{font-size:10px;margin-top:4px}
  .lobby-bottom{left:10px;right:10px;bottom:11px;gap:6px}
  .mode-wrap{max-width:67%;gap:5px}
@@ -416,7 +416,7 @@ function drawPerson(c,f,s,previewMode,yaw){
  drawVectorPerson(c,f,s,previewMode,yaw);
 }
 function drawPodium(c,x,y,s,yaw){c.save();c.translate(x,y);const rx=115*s,ry=24*s;c.fillStyle="#080b17aa";c.beginPath();c.ellipse(0,8*s,rx*1.22,ry*1.45,0,0,Math.PI*2);c.fill();c.fillStyle="#17204b";c.beginPath();c.moveTo(-rx,-4*s);c.lineTo(-rx*.82,21*s);c.quadraticCurveTo(0,45*s,rx*.82,21*s);c.lineTo(rx,-4*s);c.closePath();c.fill();c.fillStyle="#273c94";c.beginPath();c.ellipse(0,-4*s,rx,ry,0,0,Math.PI*2);c.fill();c.strokeStyle="#fff7";c.lineWidth=2*s;c.beginPath();c.ellipse(0,-4*s,rx*.93,ry*.82,0,0,Math.PI*2);c.stroke();c.strokeStyle="#72e9ff";c.lineWidth=2*s;c.globalAlpha=.55;c.beginPath();c.ellipse(0,-4*s,rx*.7,ry*.6,yaw*.1,Math.PI*.08,Math.PI*.92);c.stroke();c.globalAlpha=1;c.fillStyle="#ffb528";c.beginPath();c.ellipse(Math.cos(yaw)*rx*.76,-4*s,4*s,2.5*s,0,0,Math.PI*2);c.fill();c.restore()}
-function drawLobby(now){previewCtx.clearRect(0,0,W,H);previewTarget+=.0013;previewYaw+=(previewTarget-previewYaw)*.08;const s=clamp(H/820,.82,1.42),x=W*(W<640?.73:.73),y=H*.79;const glow=previewCtx.createRadialGradient(x,y-150*s,3,x,y-130*s,260*s);glow.addColorStop(0,"#b8d3ff30");glow.addColorStop(1,"#fff0");previewCtx.fillStyle=glow;previewCtx.fillRect(0,0,W,H);drawPodium(previewCtx,x,y,s,previewYaw);const cycle=(now%7200)/1000;let action="idle",t=0,len=0,grounded=true,airSpin=0,rootY=y+1*s;
+function drawLobby(now){previewCtx.clearRect(0,0,W,H);previewTarget+=.0013;previewYaw+=(previewTarget-previewYaw)*.08;const s=clamp(H/820,.82,1.42),x=W*(W<640?.72:.67),y=H*.79;const glow=previewCtx.createRadialGradient(x,y-150*s,3,x,y-130*s,260*s);glow.addColorStop(0,"#b8d3ff30");glow.addColorStop(1,"#fff0");previewCtx.fillStyle=glow;previewCtx.fillRect(0,0,W,H);drawPodium(previewCtx,x,y,s,previewYaw);const cycle=(now%7200)/1000;let action="idle",t=0,len=0,grounded=true,airSpin=0,rootY=y+1*s;
  if(cycle>2.5&&cycle<2.82){action="punch";t=cycle-2.5;len=.29}
  else if(cycle>4.25&&cycle<4.67){action="kick";t=cycle-4.25;len=.43}
  else if(cycle>5.6&&cycle<6.4){action="flip";t=cycle-5.6;len=.8;grounded=false;airSpin=(t/.8)*Math.PI*2;rootY-=Math.sin(t/.8*Math.PI)*62*s}
