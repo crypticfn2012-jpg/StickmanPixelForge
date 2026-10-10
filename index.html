@@ -802,7 +802,7 @@ spawnFighter=function(side,x){
  return f;
 };
 const pfBaseResetActors=resetActors;
-resetActors=function(){pfBaseResetActors();pfSyncHud();};
+resetActors=function(){pfBaseResetActors();};
 syncHud=function(){
  if(!actors.length)return;
  $("health1").style.width=clamp(actors[0].hp/actors[0].maxHp*100,0,100)+"%";
