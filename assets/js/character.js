@@ -56,10 +56,11 @@
     const bob = Math.sin(time*2.3)*2.5*scale;
     const step = Math.sin(time*4.4)*2.2*scale;
     const showFlip = model.flip > 0;
-    const flipT = showFlip ? model.flip : 0;
-    const rotation = flipT > 0 ? Math.sin((1-flipT)*Math.PI*2)*.28 : 0;
+    const progress = showFlip ? 1-model.flip : 0;
+    const rotation = showFlip ? progress*Math.PI*2 : 0;
+    const flipLift = showFlip ? Math.sin(progress*Math.PI)*72 : 0;
     ctx.save();
-    ctx.translate(cx,footY-10*scale+bob);
+    ctx.translate(cx,footY-10*scale+bob-flipLift*scale);
     ctx.rotate(rotation);
     ctx.scale(scale*(0.82+squash*.18),scale);
     const ink = "#f1f2f4", shade = "#9ca3af";
