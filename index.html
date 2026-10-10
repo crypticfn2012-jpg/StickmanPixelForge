@@ -69,6 +69,36 @@ window.__pfSDKReady = new Promise(resolve => {
  .daily-head{font-size:7px}.daily-head b{font-size:7px}.daily-text{font-size:10px;margin-top:3px}.daily-foot{margin-top:4px;gap:6px}.daily-track{height:5px}#daily-count{font-size:7px}
  .lobby-copy{top:12%}.stats{margin-top:7px}
 }
+
+/* Preserve readable labels in CrazyGames' smaller review iframe sizes. */
+@media(min-width:641px) and (max-width:1600px){
+ .brand-text small{font-size:clamp(8px,calc(var(--u)*12),12px)}
+ .account-caption{font-size:clamp(8px,calc(var(--u)*10),10px)}
+ .stat span{font-size:clamp(9px,calc(var(--u)*10),10px)}
+ .section-label{font-size:clamp(11px,calc(var(--u)*14),14px)}
+ .mode-choice b{font-size:clamp(14px,calc(var(--u)*20),20px)}
+ .mode-choice small{font-size:clamp(10px,calc(var(--u)*11),11px)}
+ .diff-row{font-size:clamp(10px,calc(var(--u)*12),12px)}
+ .diff{font-size:clamp(9px,calc(var(--u)*12),12px)}
+ .daily-head{font-size:clamp(9px,calc(var(--u)*11),11px)}
+ .daily-head b{font-size:clamp(8px,calc(var(--u)*10),10px)}
+ .daily-text{font-size:clamp(12px,calc(var(--u)*17),17px)}
+ #daily-count{font-size:clamp(9px,calc(var(--u)*10),10px)}
+ .fight-label{font-size:clamp(9px,calc(var(--u)*12),12px)}
+ .menu-foot{font-size:clamp(8px,calc(var(--u)*10),10px)}
+}
+@media(min-width:641px) and (max-width:900px){
+ .lobby-copy{top:calc(var(--u)*120)}
+ #main-game-logo{height:calc(var(--u)*118)}
+ .stats{margin-top:calc(var(--u)*12)}
+ .daily-card{margin-top:calc(var(--u)*8);padding:calc(var(--u)*8) calc(var(--u)*10)}
+}
+@media(min-width:901px) and (max-height:620px){
+ .lobby-copy{top:calc(var(--u)*95)}
+ #main-game-logo{height:calc(var(--u)*118)}
+ .stats{margin-top:calc(var(--u)*10)}
+ .daily-card{margin-top:calc(var(--u)*8)}
+}
 </style>
 </head>
 <body>
