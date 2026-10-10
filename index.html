@@ -9,7 +9,16 @@
 <link rel="icon" href="assets/images/PixelForgelogo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
-<script src="https://sdk.crazygames.com/crazygames-sdk-v3.js"></script>
+<script>
+window.__pfSDKReady = new Promise(resolve => {
+  if (location.protocol === "file:") { window.__pfLocalFile = true; resolve(false); return; }
+  const sdkScript = document.createElement("script");
+  sdkScript.src = "https://sdk.crazygames.com/crazygames-sdk-v3.js";
+  sdkScript.onload = () => resolve(true);
+  sdkScript.onerror = () => resolve(false);
+  document.head.appendChild(sdkScript);
+});
+</script>
 <style>
 :root{--u:min(calc(100vw / 1912),calc(100vh / 1031));--blue:#1273d8;--blue2:#0a4a9c;--navy:#1f2b6b;--orange:#ff9a0a;--orange2:#b86a00;--pale:#f1edff;--font:"Lilita One","Arial Rounded MT Bold","Trebuchet MS",system-ui,sans-serif}
 *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#10162b;color:#fff;font-family:var(--font);user-select:none;-webkit-user-select:none;touch-action:manipulation}button{font:inherit;color:inherit;cursor:pointer;border:0;-webkit-tap-highlight-color:transparent}button:focus-visible{outline:3px solid #ffd23f;outline-offset:3px}.hidden{display:none!important}
@@ -40,6 +49,26 @@
 @media(max-width:640px){:root{--u:min(calc(100vw / 760),calc(100vh / 620))}.lobby-top{padding:12px 10px}.brand{gap:5px}.brand img{width:37px;height:35px}.brand-text{font-size:12px}.brand-text small{font-size:7px;margin-top:4px}.lobby-actions{gap:5px}.account-btn{gap:6px;padding:4px 7px 4px 4px;max-width:44vw;min-height:34px}.account-btn img{width:26px;height:26px}.account-name{font-size:10px;max-width:26vw}.account-caption{font-size:7px}.icon-btn{width:33px;height:33px;font-size:14px}.lobby-copy{left:14px;top:16%;width:72vw}.eyebrow{font-size:10px}.lobby-copy h1{font-size:clamp(33px,8.9vw,53px)}.lobby-copy p{font-size:11px;max-width:245px;margin-top:9px}.stats{margin-top:11px;gap:6px}.stat{min-width:58px;padding:6px 8px}.stat b{font-size:16px}.stat span{font-size:7px}.lobby-bottom{left:10px;right:10px;bottom:13px;gap:7px}.mode-wrap{max-width:66%;gap:6px}.section-label{font-size:9px}.mode-row{gap:5px}.mode-choice{min-width:0;flex:1;padding:8px 9px;border-width:2px}.mode-choice b{font-size:12px}.mode-choice small{font-size:8px}.diff-row{font-size:8px;gap:4px}.diff{font-size:8px;padding:4px 5px}.fight-wrap{gap:7px}.fight-label{font-size:7px}#play-button{min-width:100px;width:30vw;height:54px;min-height:50px;font-size:clamp(20px,7vw,32px);box-shadow:0 6px 0 #b86a00,0 0 0 3px #ffbc48 inset}.menu-foot{top:65px;right:10px;font-size:7px}.hud-side{top:10px;width:35vw}.hud-side.left{left:9px}.hud-side.right{right:9px}.hud-name{font-size:11px}.hud-sub{font-size:7px}.health-shell{height:13px;border-width:2px}.round-pips{margin-top:5px;gap:3px}.round-pips i{width:8px;height:5px}#round-center{top:10px}#round-number{font-size:12px}#timer{font-size:20px}#pause-button{right:9px;top:68px;width:30px;height:30px;font-size:13px}#fight-hint{bottom:8px;font-size:8px;padding:5px 8px}#mobile-controls{display:flex}#fight-hud.mobile #fight-hint{bottom:72px}.overlay-box{padding:19px 14px}.overlay-buttons button{padding:10px 13px;min-width:118px;font-size:15px}}
 @media(orientation:portrait){.lobby-copy{top:15%}.menu-foot{display:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+#boot{background:#000}#boot:before{display:none}
+#transition .loader-logo{display:none}
+#transition .loader-inner{max-width:430px;background:#0b102a80;padding:24px 28px;border:1px solid #ffffff30;box-shadow:0 10px 45px #0008}
+#transition .loader-kicker{margin-top:0}
+#main-game-logo{display:block;width:min(100%,calc(var(--u)*570));height:calc(var(--u)*158);object-fit:contain;object-position:left center;mix-blend-mode:screen;filter:drop-shadow(0 5px 9px #071039a8);margin:calc(var(--u)*9) 0 0 -3px}
+.daily-card{width:min(100%,calc(var(--u)*420));margin-top:calc(var(--u)*16);padding:calc(var(--u)*11) calc(var(--u)*14);background:#142568ed;border:2px solid #ffffff50;border-left:calc(var(--u)*5) solid #ffb53b;box-shadow:0 calc(var(--u)*5) 0 #0a164e;transform:skewX(-2deg)}
+.daily-head{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#ffcf75;font-size:calc(var(--u)*11);letter-spacing:.13em}
+.daily-head b{font-size:calc(var(--u)*10);color:#dce5ff;letter-spacing:.08em}
+.daily-text{font-size:calc(var(--u)*17);margin-top:5px}
+.daily-foot{display:flex;align-items:center;gap:10px;margin-top:8px}
+.daily-track{height:8px;flex:1;background:#09133e;border:1px solid #ffffff55;overflow:hidden}
+.daily-track i{display:block;width:0;height:100%;background:linear-gradient(90deg,#ff9a0a,#ffe17b);transition:width .18s}
+#daily-count{font:10px system-ui,sans-serif;color:#ecf0ff;white-space:nowrap}
+#help-screen .control-copy b{color:#ffcf75;letter-spacing:.12em}
+@media(max-width:640px){
+ #main-game-logo{height:calc(var(--u)*82);width:68vw;margin-top:6px}
+ .daily-card{width:68vw;margin-top:7px;padding:6px 8px;border-left-width:3px}
+ .daily-head{font-size:7px}.daily-head b{font-size:7px}.daily-text{font-size:10px;margin-top:3px}.daily-foot{margin-top:4px;gap:6px}.daily-track{height:5px}#daily-count{font-size:7px}
+ .lobby-copy{top:12%}.stats{margin-top:7px}
+}
 </style>
 </head>
 <body>
@@ -53,7 +82,6 @@
 </section>
 <section id="transition" class="screen" aria-label="Loading next match">
  <div class="loader-inner">
-  <img class="loader-logo" src="assets/images/PixelForgelogo.png" alt="PixelForge">
   <div id="transition-label" class="loader-kicker">PREPARING THE ARENA</div>
   <div class="loader-track"><div id="transition-fill" class="loader-fill"></div></div>
   <div id="transition-percent" class="loader-percent">0%</div>
@@ -64,19 +92,24 @@
  <header class="lobby-top">
   <div class="brand"><img src="assets/images/PixelForgelogo.png" alt="PixelForge"><div class="brand-text">STICKMAN SHOWDOWN<small>PIXELFORGE ORIGINAL</small></div></div>
   <div class="lobby-actions">
-   <button id="fullscreen-button" class="icon-btn" aria-label="Toggle fullscreen" title="Fullscreen">⛶</button>
+   <button id="help-button" class="icon-btn" aria-label="Show controls" title="Controls">?</button>
    <button id="sound-button" class="icon-btn" aria-label="Toggle sound" title="Sound">♫</button>
    <button id="account-button" class="account-btn" type="button"><img id="account-avatar" src="assets/images/PixelForgelogo.png" alt=""><span><span id="account-name" class="account-name">GUEST PLAYER</span><span id="account-caption" class="account-caption">PLAYING AS GUEST</span></span></button>
   </div>
  </header>
  <div class="lobby-copy">
   <div class="eyebrow">NO RULES. JUST HANDS.</div>
-  <h1>STICKMAN <span>SHOWDOWN</span></h1>
+  <img id="main-game-logo" src="assets/images/MainLogo.jpg" alt="Stickman Showdown">
   <p>Move fast. Flip over your opponent. Land the hit. Win the round.</p>
   <div class="stats">
    <div class="stat"><b id="wins-stat">0</b><span>WINS</span></div>
    <div class="stat"><b id="matches-stat">0</b><span>FIGHTS</span></div>
    <div class="stat"><b id="combo-stat">0</b><span>BEST COMBO</span></div>
+  </div>
+  <div class="daily-card" aria-live="polite">
+   <div class="daily-head"><span>DAILY CHALLENGE</span><b id="daily-streak">STREAK 0</b></div>
+   <div id="daily-text" class="daily-text">Land 12 clean hits</div>
+   <div class="daily-foot"><div class="daily-track"><i id="daily-progress"></i></div><span id="daily-count">0 / 12</span></div>
   </div>
  </div>
  <div class="menu-foot">DRAG TO SPIN YOUR FIGHTER · MADE BY PIXELFORGE</div>
@@ -102,6 +135,13 @@
 <section id="result-screen" class="overlay-screen" aria-label="Round result">
  <div class="overlay-box"><div id="result-eyebrow" class="overlay-eyebrow">ROUND COMPLETE</div><h2 id="result-title">KNOCKOUT!</h2><p id="result-copy">Nice one.</p><div class="overlay-buttons"><button id="result-primary" class="primary">NEXT ROUND</button><button id="result-lobby" class="secondary">MAIN LOBBY</button></div></div>
 </section>
+<section id="help-screen" class="overlay-screen" aria-label="Controls">
+ <div class="overlay-box">
+  <div class="overlay-eyebrow">CONTROLS</div><h2>GET IN THE FIGHT</h2>
+  <p class="control-copy"><b>PLAYER 1</b><br>A / D move · W jump / flip · F punch · R kick · G hold to block · SHIFT dash<br><br><b>LOCAL PLAYER 2</b><br>← / → move · ↑ jump / flip · K punch · L kick · O hold to block · RIGHT CTRL dash<br><br>Land hits, time your blocks and use the dash to close the gap. Press P to pause during a fight.</p>
+  <div class="overlay-buttons"><button id="help-close" class="secondary">BACK</button><button id="help-play" class="primary">LET'S FIGHT</button></div>
+ </div>
+</section>
 <div id="mobile-controls">
  <div class="mobile-group"><button data-mobile="left" aria-label="Move left">◀</button><button data-mobile="right" aria-label="Move right">▶</button><button data-mobile="jump" aria-label="Jump">↑</button></div>
  <div class="mobile-group"><button data-mobile="punch" aria-label="Punch">J</button><button data-mobile="kick" aria-label="Kick">K</button><button data-mobile="block" aria-label="Block">G</button><button data-mobile="dash" aria-label="Dash">»</button></div>
@@ -111,9 +151,9 @@
 (function(){
 "use strict";
 const $=id=>document.getElementById(id),asset="assets/images/";
-const img={logo:new Image(),lobby:new Image(),arena:new Image(),loading:new Image()};
-img.logo.src=asset+"PixelForgelogo.png";img.lobby.src=asset+"LobbyBg.jpg";img.arena.src=asset+"ArenaBg.jpg";img.loading.src=asset+"LoadingScreen.jpg";
-const app={scene:"boot",mode:"cpu",difficulty:"normal",sdkReady:false,user:null,accountAvailable:false,data:null,audio:true,profile:{wins:0,matches:0,losses:0,bestCombo:0},round:1,score:[0,0],toWin:2,clock:60,elapsed:0,shake:0,hitStop:0,combo:[0,0],comboTime:[0,0],transitionGoal:null,toastTimer:0,running:false,matchOver:false,started:false};
+const img={logo:new Image(),mainLogo:new Image(),lobby:new Image(),arena:new Image(),loading:new Image()};
+img.logo.src=asset+"PixelForgelogo.png";img.mainLogo.src=asset+"MainLogo.jpg";img.lobby.src=asset+"LobbyBg.jpg";img.arena.src=asset+"ArenaBg.jpg";img.loading.src=asset+"LoadingScreen.jpg";
+const app={scene:"boot",mode:"cpu",difficulty:"normal",sdkReady:false,user:null,accountAvailable:false,data:null,audio:true,profile:{wins:0,matches:0,losses:0,bestCombo:0,dailyDay:0,dailyType:0,dailyProgress:0,dailyClaimed:false,dailyStreak:0},round:1,score:[0,0],toWin:2,clock:60,elapsed:0,shake:0,hitStop:0,combo:[0,0],comboTime:[0,0],transitionGoal:null,toastTimer:0,running:false,matchOver:false,started:false};
 const gameCanvas=$("game-canvas");let gameCtx=gameCanvas.getContext("2d");
 const preview=$("lobby-preview");let previewCtx=preview.getContext("2d");
 let W=innerWidth,H=innerHeight,DPR=Math.min(devicePixelRatio||1,2),floorY=H*.81,scale=clamp(H/900,.68,1.25),actors=[],particles=[],texts=[],keys=new Set(),pressed=new Set(),mobile=new Set(),previewYaw=0,previewTarget=0,dragging=false,dragX=0,lastFrame=0,audioCtx=null;
@@ -122,11 +162,14 @@ function toast(s){const e=$("toast");e.textContent=s;e.classList.add("show");cle
 function gameCall(method){try{const g=window.CrazyGames&&CrazyGames.SDK&&CrazyGames.SDK.game;if(g&&typeof g[method]==="function")g[method]()}catch(e){}}
 function readSaved(k){try{if(app.data){const v=app.data.getItem(k);if(v!==null&&v!==undefined)return v}}catch(e){}try{return localStorage.getItem(k)}catch(e){return null}}
 function writeSaved(k,v){try{if(app.data){app.data.setItem(k,v);return}}catch(e){}try{localStorage.setItem(k,v)}catch(e){}}
-function loadProfile(){const raw=readSaved("pixelforge.stickman.showdown.profile.v1");if(raw)try{const p=JSON.parse(raw);app.profile={wins:Math.max(0,+p.wins||0),matches:Math.max(0,+p.matches||0),losses:Math.max(0,+p.losses||0),bestCombo:Math.max(0,+p.bestCombo||0)}}catch(e){}renderStats()}
+const DAILY=[{key:"hits",target:12,label:"Land 12 clean hits"},{key:"dashes",target:8,label:"Use 8 dashes"},{key:"wins",target:1,label:"Win a match"}];
+function ensureDaily(){const day=Math.floor(Date.now()/86400000),p=app.profile,prev=Number(p.dailyDay)||0;if(!prev){p.dailyDay=day;p.dailyType=day%DAILY.length;p.dailyProgress=0;p.dailyClaimed=false;p.dailyStreak=0}else if(prev!==day){if(day-prev>1||!p.dailyClaimed)p.dailyStreak=0;p.dailyDay=day;p.dailyType=day%DAILY.length;p.dailyProgress=0;p.dailyClaimed=false}p.dailyType=((Number(p.dailyType)||0)%DAILY.length);p.dailyProgress=Math.max(0,Number(p.dailyProgress)||0);p.dailyStreak=Math.max(0,Number(p.dailyStreak)||0);p.dailyClaimed=!!p.dailyClaimed}
+function loadProfile(){const raw=readSaved("pixelforge.stickman.showdown.profile.v1");if(raw)try{app.profile=Object.assign(app.profile,JSON.parse(raw))}catch(e){}app.profile.wins=Math.max(0,Number(app.profile.wins)||0);app.profile.matches=Math.max(0,Number(app.profile.matches)||0);app.profile.losses=Math.max(0,Number(app.profile.losses)||0);app.profile.bestCombo=Math.max(0,Number(app.profile.bestCombo)||0);ensureDaily();renderStats()}
 function saveProfile(){writeSaved("pixelforge.stickman.showdown.profile.v1",JSON.stringify(app.profile));renderStats()}
-function renderStats(){$("wins-stat").textContent=app.profile.wins;$("matches-stat").textContent=app.profile.matches;$("combo-stat").textContent=app.profile.bestCombo}
+function bumpDaily(key,amount){if(app.profile.dailyClaimed)return;const mission=DAILY[app.profile.dailyType];if(mission.key!==key)return;const before=app.profile.dailyProgress;app.profile.dailyProgress=Math.min(mission.target,before+(amount||1));if(app.profile.dailyProgress>=mission.target){app.profile.dailyClaimed=true;app.profile.dailyStreak++;toast("Daily challenge complete! Streak: "+app.profile.dailyStreak)}if(app.profile.dailyProgress!==before)saveProfile()}
+function renderStats(){$("wins-stat").textContent=app.profile.wins;$("matches-stat").textContent=app.profile.matches;$("combo-stat").textContent=app.profile.bestCombo;const m=DAILY[app.profile.dailyType||0],p=Math.min(m.target,app.profile.dailyProgress||0);$("daily-text").textContent=app.profile.dailyClaimed?"Challenge complete — come back tomorrow":m.label;$("daily-count").textContent=app.profile.dailyClaimed?"DONE":p+" / "+m.target;$("daily-progress").style.width=(app.profile.dailyClaimed?100:p/m.target*100)+"%";$("daily-streak").textContent="STREAK "+(app.profile.dailyStreak||0)}
 function renderAccount(){const u=app.user;$("account-name").textContent=u&&u.username?u.username:"GUEST PLAYER";$("account-caption").textContent=u?"CRAZYGAMES ACCOUNT":app.accountAvailable?"SIGN IN OR PLAY AS GUEST":"PLAYING AS GUEST";$("account-avatar").src=u&&u.profilePictureUrl?u.profilePictureUrl:asset+"PixelForgelogo.png";$("account-avatar").alt=u&&u.username?u.username+" profile picture":"PixelForge profile";$("player1-name").textContent=u&&u.username?u.username:"PLAYER ONE"}
-async function initSDK(){try{if(window.CrazyGames&&window.CrazyGames.SDK){await window.CrazyGames.SDK.init();app.sdkReady=true;gameCall("loadingStart");app.accountAvailable=!!window.CrazyGames.SDK.user.isUserAccountAvailable;try{app.user=await window.CrazyGames.SDK.user.getUser()}catch(e){app.user=null}try{app.data=window.CrazyGames.SDK.data||null}catch(e){app.data=null}try{const s=window.CrazyGames.SDK.game.settings;if(s&&s.muteAudio){app.audio=false;$("sound-button").textContent="×"}if(window.CrazyGames.SDK.game.addSettingsChangeListener)window.CrazyGames.SDK.game.addSettingsChangeListener(n=>{if(n&&n.muteAudio){app.audio=false;$("sound-button").textContent="×"}})}catch(e){}}}catch(e){app.sdkReady=false}renderAccount();loadProfile()}
+async function initSDK(){try{if(window.__pfSDKReady)await window.__pfSDKReady;if(!window.__pfLocalFile&&window.CrazyGames&&window.CrazyGames.SDK){await window.CrazyGames.SDK.init();app.sdkReady=true;gameCall("loadingStart");app.accountAvailable=!!window.CrazyGames.SDK.user.isUserAccountAvailable;try{app.user=await window.CrazyGames.SDK.user.getUser()}catch(e){app.user=null}try{app.data=window.CrazyGames.SDK.data||null}catch(e){app.data=null}try{const s=window.CrazyGames.SDK.game.settings;if(s&&s.muteAudio){app.audio=false;$("sound-button").textContent="×"}if(window.CrazyGames.SDK.game.addSettingsChangeListener)window.CrazyGames.SDK.game.addSettingsChangeListener(n=>{if(n&&n.muteAudio){app.audio=false;$("sound-button").textContent="×"}})}catch(e){}}}catch(e){app.sdkReady=false}renderAccount();loadProfile();if(app.sdkReady&&window.CrazyGames.SDK.user.addAuthListener){window.CrazyGames.SDK.user.addAuthListener(async user=>{app.user=user||null;renderAccount();loadProfile()})}}
 async function signIn(){if(!app.sdkReady||!window.CrazyGames||!window.CrazyGames.SDK){toast("Play on CrazyGames to sign in. Guest play is ready.");return}if(!app.accountAvailable){toast("CrazyGames accounts are unavailable on this host. You can still play as a guest.");return}try{const u=await window.CrazyGames.SDK.user.showAuthPrompt();if(u)app.user=u;try{app.user=await window.CrazyGames.SDK.user.getUser()}catch(e){}renderAccount();loadProfile();toast(app.user?"Signed in as "+app.user.username:"You can play as a guest.")}catch(e){if(!e||!["userCancelled","showAuthPromptInProgress","userAlreadySignedIn"].includes(e.code))toast("Could not open sign-in. Guest play still works.");try{app.user=await window.CrazyGames.SDK.user.getUser()}catch(ignore){}renderAccount()}}
 function sound(kind){if(!app.audio)return;try{const A=window.AudioContext||window.webkitAudioContext;if(!A)return;if(!audioCtx)audioCtx=new A();if(audioCtx.state==="suspended")audioCtx.resume();const t=audioCtx.currentTime,o=audioCtx.createOscillator(),g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);if(kind==="hit"||kind==="kick"){o.type=kind==="hit"?"square":"sawtooth";o.frequency.setValueAtTime(kind==="hit"?rnd(105,175):90,t);o.frequency.exponentialRampToValueAtTime(35,t+.12);g.gain.setValueAtTime(kind==="hit"?.1:.13,t);g.gain.exponentialRampToValueAtTime(.001,t+.14);o.start(t);o.stop(t+.15)}else{o.type="triangle";o.frequency.setValueAtTime(kind==="jump"?250:420,t);o.frequency.exponentialRampToValueAtTime(kind==="jump"?510:105,t+.13);g.gain.setValueAtTime(.045,t);g.gain.exponentialRampToValueAtTime(.001,t+.14);o.start(t);o.stop(t+.15)}}catch(e){}}
 function resize(){W=innerWidth;H=innerHeight;DPR=Math.min(devicePixelRatio||1,2);gameCanvas.width=Math.max(1,W*DPR);gameCanvas.height=Math.max(1,H*DPR);gameCtx.setTransform(DPR,0,0,DPR,0,0);preview.width=Math.max(1,W*DPR);preview.height=Math.max(1,H*DPR);previewCtx.setTransform(DPR,0,0,DPR,0,0);floorY=H*.81;scale=clamp(H/900,.68,1.25);if(actors.length){actors[0].x=clamp(actors[0].x,50*scale,W-50*scale);actors[1].x=clamp(actors[1].x,50*scale,W-50*scale)}}
@@ -137,7 +180,7 @@ function syncHud(){if(!actors.length)return;$("health1").style.width=clamp(actor
 function burst(x,y,color,n,speed,life){for(let i=0;i<n;i++){const a=rnd(-Math.PI,Math.PI),v=rnd(speed*.25,speed);particles.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-life*38,life,max:life,r:rnd(2,5)*scale,color,gravity:480*scale})}}
 function textPop(x,y,text,color,size){texts.push({x,y,text,color,size:size||22*scale,life:.72,max:.72,vy:-65*scale})}
 function jump(f){if(f.stun>0||f.guard>0||f.dash>0||!f.grounded)return;f.vy=-935*scale;f.grounded=false;f.airSpin=0;f.action="flip";f.t=0;f.len=.69;f.vx+=f.face*135*scale;sound("jump");burst(f.x,f.y-4*scale,"#fff",5,160*scale,.22)}
-function dash(f,d){if(f.cool>0||f.stun>0||f.dash>0||f.guard>0)return;f.dash=.19;f.action="dash";f.t=0;f.len=.24;f.vx=(d||f.face)*970*scale;f.vy*=.35;f.cool=.3;sound("dash");burst(f.x-f.face*12*scale,f.y-56*scale,f.side===0?"#65e8ff":"#ffb079",8,185*scale,.24)}
+function dash(f,d){if(f.cool>0||f.stun>0||f.dash>0||f.guard>0)return;bumpDaily("dashes",1);f.dash=.19;f.action="dash";f.t=0;f.len=.24;f.vx=(d||f.face)*970*scale;f.vy*=.35;f.cool=.3;sound("dash");burst(f.x-f.face*12*scale,f.y-56*scale,f.side===0?"#65e8ff":"#ffb079",8,185*scale,.24)}
 const attack={punch:{len:.29,start:.07,end:.185,reach:80,dmg:8,knock:300,stun:.19,shake:3},kick:{len:.43,start:.14,end:.29,reach:115,dmg:14,knock:480,stun:.3,shake:6},spin:{len:.53,start:.16,end:.35,reach:125,dmg:17,knock:525,stun:.37,shake:8}};
 function hitMove(f,type){if(f.stun>0||f.guard>0||f.cool>0||f.dash>0||["punch","kick","spin"].includes(f.action))return;if(!f.grounded&&type==="kick")type="spin";const a=attack[type];f.action=type;f.t=0;f.len=a.len;f.type=type;f.hit=false;f.cool=type==="punch"?.23:type==="kick"?.41:.55;f.vx+=f.face*(type==="punch"?95:type==="kick"?155:100)*scale;if(type==="spin"&&!f.grounded)f.airSpin+=Math.PI*1.25}
 function guard(f,on){if(on&&f.stun<=0&&f.dash<=0&&!["punch","kick","spin"].includes(f.action)){f.guard=.075;f.action="block";f.t=0}else if(!on&&f.action==="block"){f.guard=0;f.action="idle";f.t=0}}
@@ -174,27 +217,28 @@ function updateFighter(f,o,dt,side){
 function hitCheck(a,b){
  if(!["punch","kick","spin"].includes(a.action)||a.hit)return;const q=attack[a.action];if(a.t<q.start||a.t>q.end)return;const dx=(b.x-a.x)*a.face;if(dx<10*scale||dx>q.reach*scale||Math.abs((a.y-b.y)/scale)>96)return;
  if(b.hp<=0)return;a.hit=true;const blocked=b.guard>0&&b.grounded;const dmg=blocked?q.dmg*.18:q.dmg;b.hp=Math.max(0,b.hp-dmg);b.flash=blocked?.08:.2;b.stun=blocked?.07:q.stun;b.vx+=a.face*(blocked?110:q.knock)*scale;if(!blocked)b.vy=Math.min(b.vy,-(a.action==="kick"?185:110)*scale);b.action=blocked?"block":"hit";b.t=0;b.len=blocked?.1:.24;b.guard=blocked?b.guard:0;
- app.combo[a.side]++;app.comboTime[a.side]=1.15;app.profile.bestCombo=Math.max(app.profile.bestCombo,app.combo[a.side]);app.hitStop=blocked?.025:.052;app.shake=Math.max(app.shake,blocked?2:q.shake);
+ app.combo[a.side]++;app.comboTime[a.side]=1.15;app.profile.bestCombo=Math.max(app.profile.bestCombo,app.combo[a.side]);bumpDaily("hits",1);app.hitStop=blocked?.025:.052;app.shake=Math.max(app.shake,blocked?2:q.shake);
  const col=blocked?"#eef5ff":a.side===0?"#69edff":"#ffbb86";burst(a.x+a.face*dx*.68,a.y-70*scale,col,blocked?5:13,(blocked?210:350)*scale,.29);textPop(b.x,b.y-115*scale,blocked?"BLOCK":a.action==="kick"?"WHAM!":a.action==="spin"?"FLIP HIT!":"POW!",col,blocked?17*scale:25*scale);if(app.combo[a.side]>1&&!blocked)textPop(a.x,a.y-150*scale,app.combo[a.side]+" HIT COMBO",col,19*scale);sound(blocked?"block":a.action==="punch"?"hit":"kick");if(b.hp<=0){finishRound(a.side);return}syncHud()
 }
-function finishRound(winner){if(app.scene!=="fight")return;app.running=false;app.score[winner]++;app.matchOver=app.score[winner]>=app.toWin;if(app.matchOver){app.profile.matches++;if(winner===0)app.profile.wins++;else app.profile.losses++}saveProfile();setScene("result");gameCall("gameplayStop");$("result-eyebrow").textContent=app.matchOver?"MATCH COMPLETE":"ROUND "+app.round+" COMPLETE";$("result-title").textContent=app.matchOver?(winner===0?"YOU WIN!":"KNOCKOUT!"):(winner===0?"ROUND WON!":"ROUND LOST");$("result-title").classList.toggle("win",winner===0);$("result-copy").textContent=(winner===0?(app.user&&app.user.username?app.user.username:"PLAYER ONE"):(app.mode==="local"?"PLAYER TWO":"CPU FIGHTER"))+" takes the round. "+(app.matchOver?"Final score: "+app.score[0]+" — "+app.score[1]+".":"Score: "+app.score[0]+" — "+app.score[1]+". First to two.");$("result-primary").textContent=app.matchOver?"RUN IT BACK":"NEXT ROUND"}
+function finishRound(winner){if(app.scene!=="fight")return;app.running=false;app.score[winner]++;app.matchOver=app.score[winner]>=app.toWin;if(app.matchOver){app.profile.matches++;if(winner===0){app.profile.wins++;bumpDaily("wins",1)}else app.profile.losses++}saveProfile();setScene("result");gameCall("gameplayStop");$("result-eyebrow").textContent=app.matchOver?"MATCH COMPLETE":"ROUND "+app.round+" COMPLETE";$("result-title").textContent=app.matchOver?(winner===0?"YOU WIN!":"KNOCKOUT!"):(winner===0?"ROUND WON!":"ROUND LOST");$("result-title").classList.toggle("win",winner===0);$("result-copy").textContent=(winner===0?(app.user&&app.user.username?app.user.username:"PLAYER ONE"):(app.mode==="local"?"PLAYER TWO":"CPU FIGHTER"))+" takes the round. "+(app.matchOver?"Final score: "+app.score[0]+" — "+app.score[1]+".":"Score: "+app.score[0]+" — "+app.score[1]+". First to two.");$("result-primary").textContent=app.matchOver?"RUN IT BACK":"NEXT ROUND"}
 function setMode(m){app.mode=m;document.querySelectorAll(".mode-choice").forEach(b=>b.classList.toggle("selected",b.dataset.mode===m));$("difficulty-area").style.opacity=m==="cpu"?"1":".42";$("difficulty-area").style.pointerEvents=m==="cpu"?"auto":"none";$("play-button").textContent=m==="cpu"?"FIGHT!":"DUEL!"}
 function setDifficulty(d){app.difficulty=d;document.querySelectorAll(".diff").forEach(b=>b.classList.toggle("selected",b.dataset.difficulty===d))}
-async function transition(label,goal){app.transitionGoal=goal;app.scene="transition";$("transition-label").textContent=label;$("transition-fill").style.width="0%";$("transition-percent").textContent="0%";$("transition").classList.add("active");$("lobby").classList.remove("active");gameCanvas.style.display="none";$("fight-hud").style.display="none";$("pause-screen").classList.remove("active");$("result-screen").classList.remove("active");if(app.sdkReady)gameCall("loadingStart");const duration=goal==="round"?780:1000,start=performance.now();while(performance.now()-start<duration){const pct=clamp((performance.now()-start)/duration,0,.94);$("transition-fill").style.width=Math.round(pct*100)+"%";$("transition-percent").textContent=Math.round(pct*100)+"%";await wait(30)}$("transition-fill").style.width="100%";$("transition-percent").textContent="100%";await wait(100);$("transition").classList.remove("active");if(goal==="start"){app.round=1;app.score=[0,0]}else if(goal==="round")app.round++;resetActors();setScene("fight");app.running=false;app.lastCountdown=performance.now();gameCall("loadingStop");gameCall("gameplayStart");countdown()}
-async function countdown(){app.running=true;for(const s of ["3","2","1","FIGHT!"]){if(app.scene!=="fight")return;showCallout(s);await wait(s==="FIGHT!"?320:420)}$("fight-hint").classList.remove("fade");setTimeout(()=>$("fight-hint").classList.add("fade"),6200)}
+async function transition(label,goal){app.transitionGoal=goal;app.scene="transition";$("transition-label").textContent=label;$("transition-fill").style.width="0%";$("transition-percent").textContent="0%";$("transition").classList.add("active");$("lobby").classList.remove("active");gameCanvas.style.display="none";$("fight-hud").style.display="none";$("pause-screen").classList.remove("active");$("result-screen").classList.remove("active");if(app.sdkReady)gameCall("loadingStart");const duration=goal==="round"?780:1000,start=performance.now();while(performance.now()-start<duration){const pct=clamp((performance.now()-start)/duration,0,.94);$("transition-fill").style.width=Math.round(pct*100)+"%";$("transition-percent").textContent=Math.round(pct*100)+"%";await wait(30)}$("transition-fill").style.width="100%";$("transition-percent").textContent="100%";await wait(100);$("transition").classList.remove("active");if(goal==="start"){app.round=1;app.score=[0,0]}else if(goal==="round")app.round++;resetActors();setScene("fight");app.running=false;app.lastCountdown=performance.now();gameCall("loadingStop");countdown()}
+async function countdown(){app.running=false;for(const s of ["3","2","1","FIGHT!"]){if(app.scene!=="fight")return;showCallout(s);await wait(s==="FIGHT!"?320:420)}if(app.scene!=="fight")return;app.running=true;gameCall("gameplayStart");$("fight-hint").classList.remove("fade");setTimeout(()=>$("fight-hint").classList.add("fade"),6200)}
 function startMatch(){app.matchOver=false;transition("LOADING THE ARENA","start")}
 function nextRound(){if(app.matchOver){app.matchOver=false;transition("RESETTING THE ARENA","start")}else transition("NEXT ROUND","round")}
 function home(){app.running=false;keys.clear();pressed.clear();mobile.clear();gameCall("gameplayStop");$("transition").classList.remove("active");setScene("lobby")}
 function pause(){if(app.scene==="fight"){app.running=false;setScene("paused");gameCall("gameplayStop")}else if(app.scene==="paused"){setScene("fight");app.running=true;app.lastFrame=performance.now();gameCall("gameplayStart")}}
 function drawLimb(c,points,color,width){c.lineCap="round";c.lineJoin="round";c.beginPath();points.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));c.strokeStyle="#111824";c.lineWidth=width+5;c.stroke();c.beginPath();points.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));c.strokeStyle=color;c.lineWidth=width;c.stroke()}
 function joint(c,x,y,r,color){c.fillStyle="#111824";c.beginPath();c.arc(x,y,r+2,0,Math.PI*2);c.fill();c.fillStyle=color;c.beginPath();c.arc(x,y,r,0,Math.PI*2);c.fill()}
+function scale2d(c,x,y){c.scale(Number(x),Number(y))}
 function drawPerson(c,f,s,previewMode,yaw){
  const accent=f.side===0?"#64e8ff":"#ff9b58",white="#f2f4f8",dark="#171e2b";
  const run=(f.action==="run"||Math.abs(f.vx)>80*scale),move=run?Math.sin(f.phase)*Math.min(1,Math.abs(f.vx)/(290*scale)):Math.sin(f.breath)*.04;
  let lean=f.action==="punch"?-.13*smooth(f.t/.11):f.action==="kick"?-.1:f.action==="spin"?-.17:f.action==="hit"?.22:f.action==="dash"?-.29:f.action==="block"?.06:0;
  const squash=f.squash>0?1+Math.sin(f.squash/.13*Math.PI)*.12:1;
- const spin=!previewMode&&f.action==="flip"&&!f.grounded?f.airSpin:!previewMode&&f.action==="spin"&&!f.grounded?Math.min(Math.PI*2,f.t*12):0;
- c.save();c.translate(f.x,f.y);if(!previewMode){c.translate(0,-(squash-1)*10*s);c.rotate(spin)}c.scale(s*(1+(f.dash>0?.1:0)),s);c.scale(f.face,1);if(previewMode){c.rotate(Math.sin(yaw)*.12);c.scale(.94+Math.abs(Math.cos(yaw))*.06)}
+ const spin=f.action==="flip"&&!f.grounded?f.airSpin:!previewMode&&f.action==="spin"&&!f.grounded?Math.min(Math.PI*2,f.t*12):0;
+ c.save();c.translate(f.x,f.y);if(!previewMode){c.translate(0,-(squash-1)*10*s);c.rotate(spin)}else if(f.action==="flip"&&!f.grounded){c.rotate(spin)}scale2d(c,s*(1+(f.dash>0?.1:0)),s);scale2d(c,f.face,1);if(previewMode){c.rotate(Math.sin(yaw)*.12);scale2d(c,.94+Math.abs(Math.cos(yaw))*.06)}
  let rh=[-4,-48],fh=[4,-48],rk=[-12+move*17,-26],rf=[-14+move*18,-2],fk=[12-move*17,-27],ff=[14-move*18,-2];
  if(!f.grounded&&!previewMode){rk=[-19,-34];rf=[-27,-19];fk=[17,-39];ff=[28,-32]}
  if(f.action==="kick"){fk=[28,-44];ff=[78,-50];rk=[-8,-25];rf=[-10,-2]}
@@ -216,7 +260,11 @@ function drawPerson(c,f,s,previewMode,yaw){
  c.restore()
 }
 function drawPodium(c,x,y,s,yaw){c.save();c.translate(x,y);const rx=115*s,ry=24*s;c.fillStyle="#080b17aa";c.beginPath();c.ellipse(0,8*s,rx*1.22,ry*1.45,0,0,Math.PI*2);c.fill();c.fillStyle="#17204b";c.beginPath();c.moveTo(-rx,-4*s);c.lineTo(-rx*.82,21*s);c.quadraticCurveTo(0,45*s,rx*.82,21*s);c.lineTo(rx,-4*s);c.closePath();c.fill();c.fillStyle="#273c94";c.beginPath();c.ellipse(0,-4*s,rx,ry,0,0,Math.PI*2);c.fill();c.strokeStyle="#fff7";c.lineWidth=2*s;c.beginPath();c.ellipse(0,-4*s,rx*.93,ry*.82,0,0,Math.PI*2);c.stroke();c.strokeStyle="#72e9ff";c.lineWidth=2*s;c.globalAlpha=.55;c.beginPath();c.ellipse(0,-4*s,rx*.7,ry*.6,yaw*.1,Math.PI*.08,Math.PI*.92);c.stroke();c.globalAlpha=1;c.fillStyle="#ffb528";c.beginPath();c.ellipse(Math.cos(yaw)*rx*.76,-4*s,4*s,2.5*s,0,0,Math.PI*2);c.fill();c.restore()}
-function drawLobby(now){previewCtx.clearRect(0,0,W,H);previewTarget+=.0013;previewYaw+=(previewTarget-previewYaw)*.08;const s=clamp(H/900,.68,1.2)*1.08,x=W*(W<640?.73:.73),y=H*.79;const glow=previewCtx.createRadialGradient(x,y-150*s,3,x,y-130*s,260*s);glow.addColorStop(0,"#b8d3ff30");glow.addColorStop(1,"#fff0");previewCtx.fillStyle=glow;previewCtx.fillRect(0,0,W,H);drawPodium(previewCtx,x,y,s,previewYaw);const f={side:0,x,y:y-8*s,vx:0,vy:0,face:Math.cos(previewYaw)>=0?1:-1,grounded:true,action:"idle",t:0,len:0,type:"punch",hit:false,cool:0,stun:0,guard:0,dash:0,airSpin:0,phase:Math.sin(now*.002)*.1,breath:now*.0018,flash:0,squash:0};drawPerson(previewCtx,f,s,true,previewYaw)}
+function drawLobby(now){previewCtx.clearRect(0,0,W,H);previewTarget+=.0013;previewYaw+=(previewTarget-previewYaw)*.08;const s=clamp(H/820,.82,1.42),x=W*(W<640?.73:.73),y=H*.79;const glow=previewCtx.createRadialGradient(x,y-150*s,3,x,y-130*s,260*s);glow.addColorStop(0,"#b8d3ff30");glow.addColorStop(1,"#fff0");previewCtx.fillStyle=glow;previewCtx.fillRect(0,0,W,H);drawPodium(previewCtx,x,y,s,previewYaw);const cycle=(now%7200)/1000;let action="idle",t=0,len=0,grounded=true,airSpin=0,rootY=y+1*s;
+ if(cycle>2.5&&cycle<2.82){action="punch";t=cycle-2.5;len=.29}
+ else if(cycle>4.25&&cycle<4.67){action="kick";t=cycle-4.25;len=.43}
+ else if(cycle>5.6&&cycle<6.4){action="flip";t=cycle-5.6;len=.8;grounded=false;airSpin=(t/.8)*Math.PI*2;rootY-=Math.sin(t/.8*Math.PI)*62*s}
+ const f={side:0,x,y:rootY,vx:0,vy:0,face:Math.cos(previewYaw)>=0?1:-1,grounded,action,t,len,type:"punch",hit:false,cool:0,stun:0,guard:0,dash:0,airSpin,phase:Math.sin(now*.002)*.18,breath:now*.002,flash:0,squash:0};drawPerson(previewCtx,f,s,true,previewYaw)}
 function cover(c,image,w,h,zoom){if(!image||!image.complete||!image.naturalWidth){c.fillStyle="#19213f";c.fillRect(0,0,w,h);return}const z=zoom||1.04,sc=Math.max(w/image.naturalWidth,h/image.naturalHeight)*z,dw=image.naturalWidth*sc,dh=image.naturalHeight*sc;c.drawImage(image,(w-dw)/2,(h-dh)/2,dw,dh)}
 function drawArena(){cover(gameCtx,img.arena,W,H,1.04);const g=gameCtx.createLinearGradient(0,0,0,H);g.addColorStop(0,"#07102c25");g.addColorStop(.5,"#10182a0a");g.addColorStop(.76,"#080e22a6");g.addColorStop(1,"#070b1cdb");gameCtx.fillStyle=g;gameCtx.fillRect(0,0,W,H);gameCtx.strokeStyle="#d4e4ff30";gameCtx.lineWidth=1;gameCtx.beginPath();gameCtx.moveTo(0,floorY+2*scale);gameCtx.lineTo(W,floorY+2*scale);gameCtx.stroke()}
 function drawEffects(){particles.forEach(p=>{gameCtx.globalAlpha=clamp(p.life/p.max,0,1);gameCtx.fillStyle=p.color;gameCtx.shadowColor=p.color;gameCtx.shadowBlur=8;gameCtx.beginPath();gameCtx.arc(p.x,p.y,p.r*(.3+.7*p.life/p.max),0,Math.PI*2);gameCtx.fill()});gameCtx.shadowBlur=0;gameCtx.globalAlpha=1;texts.forEach(t=>{gameCtx.globalAlpha=clamp(t.life/t.max,0,1);gameCtx.font="900 "+t.size+"px 'Lilita One',system-ui";gameCtx.textAlign="center";gameCtx.lineWidth=4;gameCtx.strokeStyle="#11182dbb";gameCtx.strokeText(t.text,t.x,t.y);gameCtx.fillStyle=t.color;gameCtx.fillText(t.text,t.x,t.y)});gameCtx.globalAlpha=1}
@@ -231,17 +279,17 @@ preview.addEventListener("pointerdown",e=>{if(e.button!==undefined&&e.button!==0
 preview.addEventListener("pointermove",e=>{if(!dragging)return;previewTarget+=(e.clientX-dragX)*.012;dragX=e.clientX});
 function stopDrag(){dragging=false;preview.classList.remove("dragging")}preview.addEventListener("pointerup",stopDrag);preview.addEventListener("pointercancel",stopDrag);
 $("account-button").addEventListener("click",signIn);$("play-button").addEventListener("click",startMatch);
-$("fullscreen-button").addEventListener("click",async()=>{try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen()}catch(e){toast("Fullscreen is unavailable in this browser.")}});
+$("help-button").addEventListener("click",()=>$("help-screen").classList.add("active"));$("help-close").addEventListener("click",()=>$("help-screen").classList.remove("active"));$("help-play").addEventListener("click",()=>{$("help-screen").classList.remove("active");startMatch()});
 $("sound-button").addEventListener("click",()=>{app.audio=!app.audio;$("sound-button").textContent=app.audio?"♫":"×";if(app.audio)sound("jump")});
 $("pause-button").addEventListener("click",pause);$("resume-button").addEventListener("click",pause);$("pause-lobby-button").addEventListener("click",home);$("result-lobby").addEventListener("click",home);$("result-primary").addEventListener("click",nextRound);
 const mobileKeys={left:"left",right:"right",jump:"mobile-jump",punch:"mobile-punch",kick:"mobile-kick",block:"block",dash:"mobile-dash"};
 document.querySelectorAll("[data-mobile]").forEach(b=>{const n=b.dataset.mobile,k=mobileKeys[n],down=e=>{e.preventDefault();if(["left","right","block"].includes(n))mobile.add(n);else pressed.add(k);b.classList.add("pressed");try{b.setPointerCapture(e.pointerId)}catch(x){}},up=e=>{e.preventDefault();mobile.delete(n);pressed.delete(k);b.classList.remove("pressed")};b.addEventListener("pointerdown",down);b.addEventListener("pointerup",up);b.addEventListener("pointercancel",up);b.addEventListener("lostpointercapture",up)});
 function keyName(e){return e.key===" "?"space":e.key.toLowerCase()}
-window.addEventListener("keydown",e=>{const k=keyName(e);if(["arrowleft","arrowright","arrowup","space","shift","control"].includes(k)&&app.scene==="fight")e.preventDefault();if(!keys.has(k))pressed.add(k);keys.add(k);if(k==="escape"){if(app.scene==="fight"||app.scene==="paused")pause();else if(app.scene==="result")home()}if((k==="p"||k==="space"||k==="enter")&&app.scene==="paused")pause()});
+window.addEventListener("keydown",e=>{const k=keyName(e);if(["arrowleft","arrowright","arrowup","space","shift","control"].includes(k)&&app.scene==="fight")e.preventDefault();if(!keys.has(k))pressed.add(k);keys.add(k);if(k==="p"&&app.scene==="fight")pause();else if((k==="p"||k==="enter")&&app.scene==="paused")pause()});
 window.addEventListener("keyup",e=>{const k=keyName(e);keys.delete(k);pressed.delete(k)});window.addEventListener("blur",()=>{keys.clear();pressed.clear();mobile.clear()});document.addEventListener("visibilitychange",()=>{if(document.hidden&&app.scene==="fight")pause()});window.addEventListener("resize",resize);
 async function boot(){
  $("boot").classList.add("active");setScene("boot");
- let loaded=0;const tasks=[img.logo,img.lobby,img.arena,img.loading];
+ let loaded=0;const tasks=[img.logo,img.mainLogo,img.lobby,img.arena,img.loading];
  const assetPromise=Promise.all(tasks.map(i=>new Promise(resolve=>{if(i.complete){loaded++;bootProgress();resolve();return}const done=()=>{loaded++;bootProgress();resolve()};i.addEventListener("load",done,{once:true});i.addEventListener("error",done,{once:true})})));
  const sdkPromise=initSDK();
  function bootProgress(){const p=Math.round(loaded/tasks.length*92);$("boot-fill").style.width=p+"%";$("boot-percent").textContent=p+"%"}
