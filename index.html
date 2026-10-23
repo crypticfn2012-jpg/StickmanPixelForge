@@ -12,7 +12,7 @@
 <script>
 // Only load the CrazyGames SDK on CrazyGames itself. GitHub Pages,
  // local previews and other mirrors run as standalone guest games.
- window.__pfAllowCrazySDK = /(^|\\.)crazygames\\.com$/i.test(location.hostname);
+ window.__pfAllowCrazySDK = /(^|\.)crazygames\.com$/i.test(location.hostname);
  window.__pfLocalFile = location.protocol === "file:";
  window.__pfSDKReady = new Promise(resolve => {
    if (!window.__pfAllowCrazySDK || window.__pfLocalFile) { resolve(false); return; }
@@ -783,7 +783,7 @@ async function boot(){
 }
 async function transition(label,goal){
  app.transitionGoal=goal;app.scene="transition";$("transition-label").textContent=label;$("transition-fill").style.width="0%";$("transition-percent").textContent="0%";$("transition").classList.add("active");$("lobby").classList.remove("active");gameCanvas.style.display="none";$("fight-hud").style.display="none";$("pause-screen").classList.remove("active");$("result-screen").classList.remove("active");if(app.sdkReady)gameCall("loadingStart");
- const duration=goal==="round"?120:180,start=performance.now();while(performance.now()-start<duration){const p=clamp((performance.now()-start)/duration,0,.94);$("transition-fill").style.width=Math.round(p*100)+"%";$("transition-percent").textContent=Math.round(p*100)+"%";await wait(30)}$("transition-fill").style.width="100%";$("transition-percent").textContent="100%";await wait(100);$("transition").classList.remove("active");if(goal==="start"){app.round=1;app.score=[0,0]}else app.round++;resetActors();setScene("fight");app.running=true;gameCall("loadingStop");gameCall("gameplayStart");for(const s of ["3","2","1","FIGHT!"]){if(app.scene!=="fight")return;showCallout(s);await wait(s==="FIGHT!"?320:420)}$("fight-hint").classList.remove("fade");setTimeout(()=>$("fight-hint").classList.add("fade"),6200)
+ const duration=goal==="round"?120:180,start=performance.now();while(performance.now()-start<duration){const p=clamp((performance.now()-start)/duration,0,.94);$("transition-fill").style.width=Math.round(p*100)+"%";$("transition-percent").textContent=Math.round(p*100)+"%";await wait(30)}$("transition-fill").style.width="100%";$("transition-percent").textContent="100%";$("transition").classList.remove("active");if(goal==="start"){app.round=1;app.score=[0,0]}else app.round++;resetActors();setScene("fight");app.running=true;gameCall("loadingStop");gameCall("gameplayStart");for(const s of ["3","2","1","FIGHT!"]){if(app.scene!=="fight")return;showCallout(s);await wait(s==="FIGHT!"?320:420)}$("fight-hint").classList.remove("fade");setTimeout(()=>$("fight-hint").classList.add("fade"),6200)
 }
 function startMatch(){app.matchOver=false;app.score=[0,0];transition("LOADING THE ARENA","start")}
 function nextRound(){if(app.matchOver){app.score=[0,0];app.matchOver=false;transition("RESETTING THE ARENA","start")}else transition("NEXT ROUND","round")}
