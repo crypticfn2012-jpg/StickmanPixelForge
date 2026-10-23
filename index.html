@@ -435,7 +435,29 @@ const preview=$("lobby-preview");let previewCtx=preview.getContext("2d");
 let W=innerWidth,H=innerHeight,DPR=Math.min(devicePixelRatio||1,2),floorY=H*.81,scale=clamp(H/900,.68,1.25),actors=[],particles=[],texts=[],keys=new Set(),pressed=new Set(),mobile=new Set(),previewYaw=0,previewTarget=0,dragging=false,dragX=0,lastFrame=0,audioCtx=null,shopFilter="all";
 function clamp(v,a,b){return Math.max(a,Math.min(b,v))}function mix(a,b,t){return a+(b-a)*t}function rnd(a,b){return a+Math.random()*(b-a)}function smooth(t){t=clamp(t,0,1);return t*t*(3-2*t)}function wait(ms){return new Promise(r=>setTimeout(r,ms))}
 function toast(s){const e=$("toast");e.textContent=s;e.classList.add("show");clearTimeout(app.toastTimer);app.toastTimer=setTimeout(()=>e.classList.remove("show"),2600)}
-function gameCall(method){try{const g=window.CrazyGames&&CrazyGames.SDK&&CrazyGames.SDK.game;if(g&&typeof g[method]==="function")g[method]()}catch(e){}}
+function gameCall(method){
+ // The CrazyGames SDK is only enabled on approved CrazyGames game domains.
+ // GitHub Pages and embedded preview hosts must remain fully playable without it.
+ try{
+  if(!app.sdkReady||!window.CrazyGames||!window.CrazyGames.SDK)return;
+  const g=window.CrazyGames.SDK.game;
+  if(!g||typeof g[method]!=="function")return;
+  const result=g[method]();
+  if(result&&typeof result.then==="function"){
+   result.catch(e=>{
+    if(e&&e.code==="sdkDisabled"){
+     app.sdkReady=false;app.accountAvailable=false;app.user=null;renderAccount();
+     console.info("CrazyGames SDK is disabled on this host; continuing in guest mode.");
+    }else console.warn("CrazyGames SDK "+method+" call failed:",e);
+   });
+  }
+ }catch(e){
+  if(e&&e.code==="sdkDisabled"){
+   app.sdkReady=false;app.accountAvailable=false;app.user=null;renderAccount();
+   console.info("CrazyGames SDK is disabled on this host; continuing in guest mode.");
+  }else console.warn("CrazyGames SDK "+method+" call failed:",e);
+ }
+}
 function readSaved(k){try{if(app.data){const v=app.data.getItem(k);if(v!==null&&v!==undefined)return v}}catch(e){}try{return localStorage.getItem(k)}catch(e){return null}}
 function writeSaved(k,v){try{if(app.data){app.data.setItem(k,v);return}}catch(e){}try{localStorage.setItem(k,v)}catch(e){}}
 const SHOP_ITEMS=[
