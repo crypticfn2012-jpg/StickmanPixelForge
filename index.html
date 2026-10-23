@@ -10,14 +10,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 <script>
-window.__pfSDKReady = new Promise(resolve => {
-  if (location.protocol === "file:") { window.__pfLocalFile = true; resolve(false); return; }
-  const sdkScript = document.createElement("script");
-  sdkScript.src = "https://sdk.crazygames.com/crazygames-sdk-v3.js";
-  sdkScript.onload = () => resolve(true);
-  sdkScript.onerror = () => resolve(false);
-  document.head.appendChild(sdkScript);
-});
+// Only load the CrazyGames SDK on CrazyGames itself. GitHub Pages,
+ // local previews and other mirrors run as standalone guest games.
+ window.__pfAllowCrazySDK = /(^|\\.)crazygames\\.com$/i.test(location.hostname);
+ window.__pfLocalFile = location.protocol === "file:";
+ window.__pfSDKReady = new Promise(resolve => {
+   if (!window.__pfAllowCrazySDK || window.__pfLocalFile) { resolve(false); return; }
+   const sdkScript = document.createElement("script");
+   sdkScript.src = "https://sdk.crazygames.com/crazygames-sdk-v3.js";
+   sdkScript.onload = () => resolve(true);
+   sdkScript.onerror = () => resolve(false);
+   document.head.appendChild(sdkScript);
+ });
 </script>
 <style>
 :root{--u:min(calc(100vw / 1912),calc(100vh / 1031));--blue:#1273d8;--blue2:#0a4a9c;--navy:#1f2b6b;--orange:#ff9a0a;--orange2:#b86a00;--pale:#f1edff;--font:"Lilita One","Arial Rounded MT Bold","Trebuchet MS",system-ui,sans-serif}
@@ -499,7 +503,24 @@ function useShopItem(id){
 function bumpDaily(key,amount){if(app.profile.dailyClaimed)return;const mission=DAILY[app.profile.dailyType];if(mission.key!==key)return;const before=app.profile.dailyProgress;app.profile.dailyProgress=Math.min(mission.target,before+(amount||1));if(app.profile.dailyProgress>=mission.target){app.profile.dailyClaimed=true;app.profile.dailyStreak++;toast("Daily challenge complete! Streak: "+app.profile.dailyStreak)}if(app.profile.dailyProgress!==before)saveProfile()}
 function renderStats(){$("wins-stat").textContent=app.profile.wins;$("matches-stat").textContent=app.profile.matches;$("combo-stat").textContent=app.profile.bestCombo;const m=DAILY[app.profile.dailyType||0],p=Math.min(m.target,app.profile.dailyProgress||0);$("daily-text").textContent=app.profile.dailyClaimed?"Challenge complete — come back tomorrow":m.label;$("daily-count").textContent=app.profile.dailyClaimed?"DONE":p+" / "+m.target;$("daily-progress").style.width=(app.profile.dailyClaimed?100:p/m.target*100)+"%";$("daily-streak").textContent="STREAK "+(app.profile.dailyStreak||0)}
 function renderAccount(){const u=app.user;$("account-name").textContent=u&&u.username?u.username:"GUEST PLAYER";$("account-caption").textContent=u?"CRAZYGAMES ACCOUNT":app.accountAvailable?"SIGN IN OR PLAY AS GUEST":"PLAYING AS GUEST";$("account-avatar").src=u&&u.profilePictureUrl?u.profilePictureUrl:asset+"PixelForgelogo.png";$("account-avatar").alt=u&&u.username?u.username+" profile picture":"PixelForge profile";$("player1-name").textContent=u&&u.username?u.username:"PLAYER ONE"}
-async function initSDK(){try{if(window.__pfSDKReady)await window.__pfSDKReady;if(!window.__pfLocalFile&&window.CrazyGames&&window.CrazyGames.SDK){await window.CrazyGames.SDK.init();app.sdkReady=true;gameCall("loadingStart");app.accountAvailable=!!window.CrazyGames.SDK.user.isUserAccountAvailable;try{app.user=await window.CrazyGames.SDK.user.getUser()}catch(e){app.user=null}try{app.data=window.CrazyGames.SDK.data||null}catch(e){app.data=null}try{const s=window.CrazyGames.SDK.game.settings;platformMuted=!!(s&&s.muteAudio);syncAudioState();if(window.CrazyGames.SDK.game.addSettingsChangeListener)window.CrazyGames.SDK.game.addSettingsChangeListener(n=>{if(n&&typeof n.muteAudio==="boolean"){platformMuted=!!n.muteAudio;syncAudioState()}})}catch(e){}}}catch(e){app.sdkReady=false}renderAccount();loadProfile();if(app.sdkReady&&window.CrazyGames.SDK.user.addAuthListener){window.CrazyGames.SDK.user.addAuthListener(async user=>{app.user=user||null;renderAccount();loadProfile()})}}
+async function initSDK(){
+ try{
+  const scriptLoaded=window.__pfSDKReady?await window.__pfSDKReady:false;
+  if(window.__pfAllowCrazySDK&&scriptLoaded&&window.CrazyGames&&window.CrazyGames.SDK){
+   await Promise.race([window.CrazyGames.SDK.init(),wait(1800).then(()=>{throw new Error("CrazyGames SDK init timeout")})]);
+   app.sdkReady=true;
+   gameCall("loadingStart");
+   app.accountAvailable=!!window.CrazyGames.SDK.user.isUserAccountAvailable;
+   try{app.user=await window.CrazyGames.SDK.user.getUser()}catch(e){app.user=null}
+   try{app.data=window.CrazyGames.SDK.data||null}catch(e){app.data=null}
+   try{const settings=window.CrazyGames.SDK.game.settings;platformMuted=!!(settings&&settings.muteAudio);syncAudioState();if(window.CrazyGames.SDK.game.addSettingsChangeListener)window.CrazyGames.SDK.game.addSettingsChangeListener(n=>{if(n&&typeof n.muteAudio==="boolean"){platformMuted=!!n.muteAudio;syncAudioState()}})}catch(e){}
+  }
+ }catch(e){app.sdkReady=false;app.accountAvailable=false;app.user=null;app.data=null}
+ renderAccount();loadProfile();
+ if(app.sdkReady&&window.CrazyGames&&window.CrazyGames.SDK.user.addAuthListener){
+  try{window.CrazyGames.SDK.user.addAuthListener(async user=>{app.user=user||null;renderAccount();loadProfile()})}catch(e){}
+ }
+}
 async function signIn(){if(!app.sdkReady||!window.CrazyGames||!window.CrazyGames.SDK){toast("Play on CrazyGames to sign in. Guest play is ready.");return}if(!app.accountAvailable){toast("CrazyGames accounts are unavailable on this host. You can still play as a guest.");return}try{const u=await window.CrazyGames.SDK.user.showAuthPrompt();if(u)app.user=u;try{app.user=await window.CrazyGames.SDK.user.getUser()}catch(e){}renderAccount();loadProfile();toast(app.user?"Signed in as "+app.user.username:"You can play as a guest.")}catch(e){if(!e||!["userCancelled","showAuthPromptInProgress","userAlreadySignedIn"].includes(e.code))toast("Could not open sign-in. Guest play still works.");try{app.user=await window.CrazyGames.SDK.user.getUser()}catch(ignore){}renderAccount()}}
 const audioSources={
  button:{src:"assets/audio/ButtonClicked.mp3",volume:.36},
@@ -600,7 +621,7 @@ function finishRound(winner){
 }
 function setMode(m){app.mode=m;document.querySelectorAll(".mode-choice").forEach(b=>b.classList.toggle("selected",b.dataset.mode===m));$("difficulty-area").style.opacity=m==="cpu"?"1":".42";$("difficulty-area").style.pointerEvents=m==="cpu"?"auto":"none";$("play-button").textContent=m==="cpu"?"FIGHT NOW":"START DUEL"}
 function setDifficulty(d){app.difficulty=d;document.querySelectorAll(".diff").forEach(b=>b.classList.toggle("selected",b.dataset.difficulty===d))}
-async function transition(label,goal){stopMenuMusic();app.transitionGoal=goal;app.scene="transition";$("transition-label").textContent=label;$("transition-fill").style.width="0%";$("transition-percent").textContent="0%";$("transition").classList.add("active");$("lobby").classList.remove("active");gameCanvas.style.display="none";$("fight-hud").style.display="none";$("pause-screen").classList.remove("active");$("result-screen").classList.remove("active");if(app.sdkReady)gameCall("loadingStart");const duration=goal==="round"?780:1000,start=performance.now();while(performance.now()-start<duration){const pct=clamp((performance.now()-start)/duration,0,.94);$("transition-fill").style.width=Math.round(pct*100)+"%";$("transition-percent").textContent=Math.round(pct*100)+"%";await wait(30)}$("transition-fill").style.width="100%";$("transition-percent").textContent="100%";await wait(100);$("transition").classList.remove("active");if(goal==="start"){app.round=1;app.score=[0,0]}else if(goal==="round")app.round++;resetActors();setScene("fight");app.running=false;app.lastCountdown=performance.now();gameCall("loadingStop");countdown()}
+async function transition(label,goal){stopMenuMusic();app.transitionGoal=goal;app.scene="transition";$("transition-label").textContent=label;$("transition-fill").style.width="0%";$("transition-percent").textContent="0%";$("transition").classList.add("active");$("lobby").classList.remove("active");gameCanvas.style.display="none";$("fight-hud").style.display="none";$("pause-screen").classList.remove("active");$("result-screen").classList.remove("active");if(app.sdkReady)gameCall("loadingStart");const duration=goal==="round"?780:1000,start=performance.now();while(performance.now()-start<duration){const pct=clamp((performance.now()-start)/duration,0,.94);$("transition-fill").style.width=Math.round(pct*100)+"%";$("transition-percent").textContent=Math.round(pct*100)+"%";await wait(30)}$("transition-fill").style.width="100%";$("transition-percent").textContent="100%";$("transition").classList.remove("active");if(goal==="start"){app.round=1;app.score=[0,0]}else if(goal==="round")app.round++;resetActors();setScene("fight");app.running=false;app.lastCountdown=performance.now();gameCall("loadingStop");countdown()}
 async function countdown(){app.running=false;for(const s of ["3","2","1","FIGHT!"]){if(app.scene!=="fight")return;showCallout(s);await wait(s==="FIGHT!"?320:420)}if(app.scene!=="fight")return;app.running=true;gameCall("gameplayStart");$("fight-hint").classList.remove("fade");setTimeout(()=>$("fight-hint").classList.add("fade"),6200)}
 function startMatch(){app.matchOver=false;transition("LOADING THE ARENA","start")}
 function nextRound(){if(app.matchOver){app.matchOver=false;transition("RESETTING THE ARENA","start")}else transition("NEXT ROUND","round")}
@@ -762,7 +783,7 @@ async function boot(){
 }
 async function transition(label,goal){
  app.transitionGoal=goal;app.scene="transition";$("transition-label").textContent=label;$("transition-fill").style.width="0%";$("transition-percent").textContent="0%";$("transition").classList.add("active");$("lobby").classList.remove("active");gameCanvas.style.display="none";$("fight-hud").style.display="none";$("pause-screen").classList.remove("active");$("result-screen").classList.remove("active");if(app.sdkReady)gameCall("loadingStart");
- const duration=goal==="round"?800:1030,start=performance.now();while(performance.now()-start<duration){const p=clamp((performance.now()-start)/duration,0,.94);$("transition-fill").style.width=Math.round(p*100)+"%";$("transition-percent").textContent=Math.round(p*100)+"%";await wait(30)}$("transition-fill").style.width="100%";$("transition-percent").textContent="100%";await wait(100);$("transition").classList.remove("active");if(goal==="start"){app.round=1;app.score=[0,0]}else app.round++;resetActors();setScene("fight");app.running=true;gameCall("loadingStop");gameCall("gameplayStart");for(const s of ["3","2","1","FIGHT!"]){if(app.scene!=="fight")return;showCallout(s);await wait(s==="FIGHT!"?320:420)}$("fight-hint").classList.remove("fade");setTimeout(()=>$("fight-hint").classList.add("fade"),6200)
+ const duration=goal==="round"?120:180,start=performance.now();while(performance.now()-start<duration){const p=clamp((performance.now()-start)/duration,0,.94);$("transition-fill").style.width=Math.round(p*100)+"%";$("transition-percent").textContent=Math.round(p*100)+"%";await wait(30)}$("transition-fill").style.width="100%";$("transition-percent").textContent="100%";await wait(100);$("transition").classList.remove("active");if(goal==="start"){app.round=1;app.score=[0,0]}else app.round++;resetActors();setScene("fight");app.running=true;gameCall("loadingStop");gameCall("gameplayStart");for(const s of ["3","2","1","FIGHT!"]){if(app.scene!=="fight")return;showCallout(s);await wait(s==="FIGHT!"?320:420)}$("fight-hint").classList.remove("fade");setTimeout(()=>$("fight-hint").classList.add("fade"),6200)
 }
 function startMatch(){app.matchOver=false;app.score=[0,0];transition("LOADING THE ARENA","start")}
 function nextRound(){if(app.matchOver){app.score=[0,0];app.matchOver=false;transition("RESETTING THE ARENA","start")}else transition("NEXT ROUND","round")}
